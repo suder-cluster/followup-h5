@@ -33,11 +33,12 @@
   </div>
 </template>
 <script setup name="Registry">
-import { ref, getCurrentInstance } from "vue";
+import { ref } from "vue";
 import { registryApi } from '@/api/modules/login'
 import { requireR } from '@/regular/index'
+import { useProxy } from '@/hooks/useProxy'
 
-const instance = getCurrentInstance()
+const { proxy } = useProxy();
 console.log('instance=', instance)
 const formData = ref({
   userType: 'h5_user',
@@ -49,13 +50,13 @@ const formData = ref({
 });
 const rules = ref({
   userNamePl: [
-    requireR($t('registry.userNamePl'))
+    requireR(proxy.$t('registry.userNamePl'))
   ],
   nickName: [
-    requireR($t('registry.nickNamePl'))
+    requireR(proxy.$t('registry.nickNamePl'))
   ],
   email: [
-    requireR($t('registry.emailPl'))
+    requireR(proxy.$t('registry.emailPl'))
   ]
 })
 const isLoading = ref(false);
