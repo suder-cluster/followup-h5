@@ -50,7 +50,7 @@ const rules = ref({
     requireR($t('registry.userNamePl'))
   ],
   nickName: [
-    requireR($t('registry.nickName'))
+    requireR($t('registry.nickNamePl'))
   ],
   email: [
     requireR($t('registry.emailPl'))
