@@ -4,35 +4,35 @@
     <u-grid :col="4" :border="false">
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">我的资产</view>
       </u-grid-item>
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">资产日志</view>
       </u-grid-item>
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">账户详情</view>
       </u-grid-item>
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">账户绑定</view>
       </u-grid-item>
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">团队列表</view>
       </u-grid-item>
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">注册邀请</view>
       </u-grid-item>
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">新手教程</view>
       </u-grid-item>
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">图片</view>
+        <view class="grid-text">联系我们</view>
       </u-grid-item>
     </u-grid>
     <my-tab-bar></my-tab-bar>

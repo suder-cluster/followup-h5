@@ -1,10 +1,17 @@
 <script>
+import { uni } from '@dcloudio/uni-h5';
+
 export default {
   onLaunch: function () {
     console.log('App Launch')
   },
   onShow: function () {
     console.log('App Show')
+    uni.setLocale("en");
+    if (!uni.getLocale()) {
+      uni.setLocale("en");
+    }
+    console.log(uni.getLocale());
   },
   onHide: function () {
     console.log('App Hide')
