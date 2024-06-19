@@ -1,6 +1,6 @@
 import { decryptBase64, decryptWithAes, encryptBase64, encryptWithAes, generateAesKey } from '@/utils/crypto';
 import { decrypt, encrypt } from '@/utils/jsencrypt';
-import { useI18n} from 'vue-i18n';
+// import { useI18n} from 'vue-i18n';
 
 const Base_Url = import.meta.env.VITE_APP_BASE_API;
 console.log("baseUrl=", Base_Url);
@@ -31,35 +31,40 @@ class Http {
     }
   }
 
-  setResponse(res) {
-    const { t } = useI18n();
+  setResponse(res, resolve, reject) {
+    console.log('response=', res);
+    // const { t } = useI18n();
     if (res.statusCode !== 200) {
-      uni.$u.toast(`${t('err.network')}${res.statusCode}`, 3000)
-      return Promise.reject(res.statusCode)
+      uni.$u.toast('网络错误', 3000)
+      // uni.$u.toast(`${t('err.network')}${res.statusCode}`, 3000)
+      return reject(res.statusCode)
     }
     if (res.data.code === 200) {
-      return res.data
+      return resolve(res.data)
     } else if (res.data.code === 401) {
-      uni.$u.toast(t('error.expiration'), 3000)
-      return Promise.reject(res.data)
+      // uni.$u.toast(t('error.expiration'), 3000)
+      uni.$u.toast('登录过期，重新登录', 3000)
+      return reject(res.data)
     } else {
-      uni.$u.toast(`${res.data.message}`, 3000)
-      return Promise.reject(res.data)
+      uni.$u.toast(`${res.data.msg}`, 3000)
+      return reject(res.data)
     }
   }
   async get(url, data = {}, config = {}) {
     return new Promise((resolve, reject) => {
+      const { data, headers } = this.setRequest(params, config);
       uni.request({
         url: Base_Url + url,
         method: "GET",
-        header: {},
+        header: headers,
         data,
         timeout: this.timeout,
         ...config,
         success: (res) => {
-          resolve(res)
+          return this.setResponse(res, resolve, reject)
         },
         fail: (err) => {
+          console.log('err=', err)
           uni.showToast({
             icon: "error",
             title: "请求接口失败",
@@ -71,6 +76,7 @@ class Http {
   }
 
   async post(url, params = {}, config) {
+    // const { t } = useI18n();
     return new Promise((resolve, reject) => {
       const { data, headers } = this.setRequest(params, config);
       console.log('data=', data);
@@ -83,12 +89,12 @@ class Http {
         timeout: this.timeout,
         ...config,
         success: (res) => {
-          return this.setResponse(res)
+          return this.setResponse(res, resolve, reject)
         },
         fail: (err) => {
           uni.showToast({
             icon: "error",
-            title: t('error.request'),
+            title: '请求错误'
           });
           reject(err);
         },

@@ -85,6 +85,8 @@ const onRegistry = async () => {
     await registryApi(formData.value)
     uni.$u.toast(t('operation.success'));
   } catch(err) {
+    console.log('onRegistryerr=', err)
+    isLoading.value = false;
   } finally {
     isLoading.value = false;
   }
