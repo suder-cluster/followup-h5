@@ -39,7 +39,6 @@ import { requireR } from '@/regular/index'
 import { useProxy } from '@/hooks/useProxy'
 
 const { proxy } = useProxy();
-console.log('instance=', instance)
 const formData = ref({
   userType: 'h5_user',
   userName: undefined,
@@ -50,13 +49,13 @@ const formData = ref({
 });
 const rules = ref({
   userNamePl: [
-    requireR(proxy.$t('registry.userNamePl'))
+    requireR(proxy?.$t?.('registry.userNamePl'))
   ],
   nickName: [
-    requireR(proxy.$t('registry.nickNamePl'))
+    requireR(proxy?.$t?.('registry.nickNamePl'))
   ],
   email: [
-    requireR(proxy.$t('registry.emailPl'))
+    requireR(proxy?.$t?.('registry.emailPl'))
   ]
 })
 const isLoading = ref(false);

@@ -1,7 +1,11 @@
 import { getCurrentInstance } from 'vue';
 export const useProxy = () => {
-  const { proxy } = getCurrentInstance();
+  const { appContext } = getCurrentInstance()
+  const { proxy } = getCurrentInstance()
+  
+  const global = appContext.config.globalProperties
   return {
-    proxy
+    proxy,
+    global
   };
 };
