@@ -1,4 +1,12 @@
 export default {
+  common: {
+    
+  },
+  error: {
+    network: 'Network error, error code：',
+    expiration: 'Login expired, please login again',
+    request: 'Request interface failed'
+  },
   operation: {
     success: 'operate successfully！'
   },

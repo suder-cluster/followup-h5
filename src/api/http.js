@@ -1,5 +1,6 @@
 import { decryptBase64, decryptWithAes, encryptBase64, encryptWithAes, generateAesKey } from '@/utils/crypto';
 import { decrypt, encrypt } from '@/utils/jsencrypt';
+import { useI18n} from 'vue-i18n';
 
 const Base_Url = import.meta.env.VITE_APP_BASE_API;
 console.log("baseUrl=", Base_Url);
@@ -30,8 +31,21 @@ class Http {
     }
   }
 
-  setResponse() {
-
+  setResponse(res) {
+    const { t } = useI18n();
+    if (res.statusCode !== 200) {
+      uni.$u.toast(`${t('err.network')}${res.statusCode}`, 3000)
+      return Promise.reject(res.statusCode)
+    }
+    if (res.data.code === 200) {
+      return res.data
+    } else if (res.data.code === 401) {
+      uni.$u.toast(t('error.expiration'), 3000)
+      return Promise.reject(res.data)
+    } else {
+      uni.$u.toast(`${res.data.message}`, 3000)
+      return Promise.reject(res.data)
+    }
   }
   async get(url, data = {}, config = {}) {
     return new Promise((resolve, reject) => {
@@ -57,7 +71,6 @@ class Http {
   }
 
   async post(url, params = {}, config) {
-    
     return new Promise((resolve, reject) => {
       const { data, headers } = this.setRequest(params, config);
       console.log('data=', data);
@@ -70,12 +83,12 @@ class Http {
         timeout: this.timeout,
         ...config,
         success: (res) => {
-          resolve(res)
+          return this.setResponse(res)
         },
         fail: (err) => {
           uni.showToast({
             icon: "error",
-            title: "请求接口失败",
+            title: t('error.request'),
           });
           reject(err);
         },
