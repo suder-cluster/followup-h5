@@ -33,10 +33,12 @@
   </div>
 </template>
 <script setup name="Registry">
-import { ref } from "vue";
+import { ref, getCurrentInstance } from "vue";
 import { registryApi } from '@/api/modules/login'
-import { requireR } from '@/regular'
+import { requireR } from '@/regular/index'
 
+const instance = getCurrentInstance()
+console.log('instance=', instance)
 const formData = ref({
   userType: 'h5_user',
   userName: undefined,
