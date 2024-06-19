@@ -1,4 +1,7 @@
 export default {
+  operation: {
+    success: 'operate successfully！'
+  },
   login: {
     title: 'NYBAK',
     userNamePl: 'Please enter your account number',

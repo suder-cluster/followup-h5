@@ -3,7 +3,13 @@
     <div class="registry-title">
       <span>{{ $t('registry.title') }}</span>
     </div>
-    <u-form class="registry-form" :border-bottom="false">
+    <u-form ref="formRef" :model="formData" :rules="rules" class="registry-form" :border-bottom="false">
+      <u-form-item prop="username">
+        <u-input v-model="formData.username" :placeholder="$t('registry.userNamePl')" border></u-input>
+      </u-form-item>
+      <u-form-item prop="nickName">
+        <u-input v-model="formData.nickName" :placeholder="$t('registry.nickNamePl')" border></u-input>
+      </u-form-item>
       <u-form-item prop="email">
         <u-input v-model="formData.email" :placeholder="$t('registry.emailPl')" border></u-input>
       </u-form-item>
@@ -36,34 +42,48 @@
 import { ref } from "vue";
 import { registryApi } from '@/api/modules/login'
 import { requireR } from '@/regular/index'
-import { useProxy } from '@/hooks/useProxy'
+import { onReady } from "@dcloudio/uni-app";
+import { useI18n} from 'vue-i18n';
 
-const { proxy } = useProxy();
+const { t } = useI18n();
+// Ref
+const formRef = ref();
 const formData = ref({
   userType: 'h5_user',
-  userName: undefined,
+  username: undefined,
+  nickName: undefined,
   email: undefined,
-  code: undefined,
   password: undefined,
+  code: undefined,
   inviteCode: undefined,
 });
 const rules = ref({
-  userNamePl: [
-    requireR(proxy?.$t?.('registry.userNamePl'))
+  username: [
+    requireR(t('registry.userNamePl'))
   ],
   nickName: [
-    requireR(proxy?.$t?.('registry.nickNamePl'))
+    requireR(t('registry.nickNamePl'))
   ],
   email: [
-    requireR(proxy?.$t?.('registry.emailPl'))
-  ]
+    requireR(t('registry.emailPl')),
+    {
+      type: 'email',
+      message: '请输入正确的邮箱地址',
+      trigger: ['blur', 'change']
+    }
+  ],
+  password: [
+    requireR(t('registry.passwordPl'))
+  ],
 })
 const isLoading = ref(false);
 
 const onRegistry = async () => {
   isLoading.value = true;
+  console.log('formData.value=', formData.value)
   try {
     await registryApi(formData.value)
+    uni.$u.toast(t('operation.success'));
   } catch(err) {
   } finally {
     isLoading.value = false;
@@ -74,6 +94,10 @@ const onBack = () => {
     delta: 1
   });
 }
+
+onReady(() => {
+  formRef.value.setRules(rules.value);
+})
 </script>
 <style lang="scss" scoped>
 .registry-container {
