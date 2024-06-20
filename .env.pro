@@ -1,6 +1,7 @@
 # 生产环境
 VITE_APP_PORT = 80
 VITE_APP_BASE_API = '/prod-api'
+VITE_HUOBI_API = '/huobi-api'
 
 # 接口加密传输 RSA 公钥与后端解密私钥对应 如更换需前后端一同更换
 VITE_APP_RSA_PUBLIC_KEY = 'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKoR8mX0rGKLqzcWmOzbfj64K8ZIgOdHnzkXSOVOZbFu/TJhZ7rFAN+eaGkl3C4buccQd/EjEsj9ir7ijT7h96MCAwEAAQ=='
