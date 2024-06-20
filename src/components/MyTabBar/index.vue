@@ -1,16 +1,38 @@
 <template>
-  <u-tabbar bg-color="#000" inactive-color="#fff" v-model="current" :list="list" :mid-button="false"></u-tabbar>
+  <u-tabbar bg-color="#000" inactive-color="#fff" active-color="#2b85e4" v-model="current" :list="list" :mid-button="false"></u-tabbar>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useTabBarStore } from '@/store/modules/tabBar';
 
-const current = ref(0);
+const tabBarStore = useTabBarStore();
+const current = computed({
+  get() {
+    console.log('tabBarStore.getActiveTab=', tabBarStore.getActiveTab)
+    return tabBarStore.getActiveTab
+  },
+  set(val) {
+    tabBarStore.SETCURRENT(val)
+    if (val === 0) {
+      uni.switchTab({
+        url: '/pages/home/index'
+      })
+    } else if (val === 1) {
+      uni.switchTab({
+        url: '/pages/hall/index'
+      })
+    } else if (val === 2) {
+      uni.switchTab({
+        url: '/pages/order/index'
+      })
+    }
+  }
+})
 const list = ref([
   {
     iconPath: "home",
     selectedIconPath: "home-fill",
     text: "首页",
-    count: 2,
     isDot: true,
     customIcon: false,
   },
@@ -20,17 +42,9 @@ const list = ref([
     text: "大厅",
     customIcon: false,
   },
-  // {
-  //   iconPath: "https://cdn.uviewui.com/uview/common/min_button.png",
-  //   selectedIconPath:
-  //     "https://cdn.uviewui.com/uview/common/min_button_select.png",
-  //   text: "发布",
-  //   midButton: true,
-  //   customIcon: false,
-  // },
   {
     iconPath: "order",
-    selectedIconPath: "order-fill",
+    selectedIconPath: "order",
     text: "订单",
     customIcon: false,
   },
@@ -38,7 +52,6 @@ const list = ref([
     iconPath: "account",
     selectedIconPath: "account-fill",
     text: "我的",
-    count: 23,
     isDot: false,
     customIcon: false,
   },

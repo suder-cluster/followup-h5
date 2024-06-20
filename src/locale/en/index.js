@@ -2,6 +2,9 @@ export default {
   common: {
     
   },
+  page: {
+    login: 'login page'
+  },
   error: {
     network: 'Network error, error code：',
     expiration: 'Login expired, please login again',
@@ -23,9 +26,13 @@ export default {
     userNamePl: 'Please enter your username',
     nickNamePl: 'Please enter your nickname',
     emailPl: 'Please enter your email number',
+    emailFormat: 'Please enter the correct email',
+    emailCodePl: 'Please enter your email code',
     passwordPl: 'Please set the login password',
     invitedCodePl: 'Please enter your invitation code',
     registryBtn: 'Register',
-    backToLogin: 'Back to login'
+    backToLogin: 'Back to login',
+    getCode: 'get code',
+    sendCodeSuccess: 'send success!'
   }
 }

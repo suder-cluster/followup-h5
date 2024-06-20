@@ -1,7 +1,6 @@
 import { createI18n } from 'vue-i18n';
 import en from './en/index'
 import ge from './ge/index'
-
 export const messages = {
   en,
   ge

@@ -10,8 +10,8 @@ import { i18n } from '@/locale/index'
 
 export function createApp() {
 	const app = createSSRApp(App);
-	app.use(i18n);
 	app.use(pinia);
+	app.use(i18n);
 	app.use(uView);
 	app.use(registComps);
 	

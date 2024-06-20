@@ -50,9 +50,10 @@ class Http {
       return reject(res.data)
     }
   }
-  async get(url, data = {}, config = {}) {
+  async get(url, params = {}, config = {}) {
     return new Promise((resolve, reject) => {
       const { data, headers } = this.setRequest(params, config);
+      console.log('data=', data)
       uni.request({
         url: Base_Url + url,
         method: "GET",

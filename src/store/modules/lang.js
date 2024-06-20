@@ -2,11 +2,13 @@ import { defineStore } from 'pinia';
 
 // 定义store
 export const useLangStore = defineStore('lang', {
-  state: () => {
-
+  state: () => ({
+    lang: 'en'
+  }),
+  actions: {
+    SETLANG(lang) {
+      this.lang = lang;
+    }
   },
-  actions: {},
-  persist: {
-    storage: {}
-  }
+  persist: true
 })

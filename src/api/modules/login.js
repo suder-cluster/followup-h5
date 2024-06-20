@@ -7,7 +7,7 @@ export const loginApi = (data) => {
   const params = {
     ...data,
     clientId: data.clientId || clientId,
-    grantType: data.grantType || 'email'
+    grantType: data.grantType || 'password'
   }
   return http.post('/auth/login',params, {
     isToken: false,
@@ -25,5 +25,11 @@ export const registryApi = (data) => {
   return http.post('/auth/register', params, {
     isToken: false,
     isEncrypt: true
-  })
-}
+  });
+};
+// 获取邮箱验证码
+export const getEmailCodeApi = (params) => {
+  return http.get('/resource/email/code', params, {
+    isToken: false
+  });
+};

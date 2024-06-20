@@ -31,19 +31,21 @@
   </div>
 </template>
 <script setup>
-import { getCurrentInstance, ref } from "vue";
+import { ref } from 'vue';
 import { loginApi } from '@/api/modules/login'
+import { useI18n} from 'vue-i18n';
 
-let instance = getCurrentInstance();
-console.log("instance=", instance);
-console.log("instance=", uni.getLocale());
-
+const { t } = useI18n();
+uni.setNavigationBarTitle({
+  title: t('page.login')
+});
+// Ref
 const formData = ref({
   tenantId: '000000',
   username: "",
   password: ""
 });
-
+const isLoading = ref(false)
 const onRegistry = (e) => {
   console.log('e==', e);
   uni.navigateTo({
@@ -51,7 +53,13 @@ const onRegistry = (e) => {
   })
 }
 const onLogin = async () => {
-  const data = await loginApi(formData.value);
+  try { 
+    isLoading.value = true
+    const data = await loginApi(formData.value);
+  } catch(err) {
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -4,19 +4,37 @@
     {
       "path": "pages/login/index",
       "style": {
-        "navigationBarTitleText": "登录页",
-        "navigationStyle": "custom"
+        // 登录页
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
       }
     },
     {
+      // 注册页
       "path": "pages/registry/index",
       "style": {
-        "navigationBarTitleText": "注册页",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
       }
     },
     {
       "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/hall/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/order/index",
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom"

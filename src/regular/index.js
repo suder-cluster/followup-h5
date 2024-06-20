@@ -5,3 +5,10 @@ export const requireR = (msg) => {
     trigger: ['blur', 'change']
   };
 };
+export const emailR = (msg) => {
+  return {
+    pattern: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/,
+    message: `${msg}` || '邮箱格式不正确',
+    trigger: ['blur', 'change']
+  }
+}
