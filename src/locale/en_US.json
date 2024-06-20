@@ -54,7 +54,10 @@
     "usdtTitle": "BALANCE (USDT)",
     "eurTitle": "BALANCE (EUR)",
     "recharge": "Recharge",
-    "withDraw": "WithDraw"
+    "withDraw": "WithDraw",
+    "rechargedAmount": "Recharged Amount (USDT)",
+    "soldAmount":"Sold amount (USDT)",
+    "earningsObtained":"Earnings Obtained (USDT)"
   },
   "myDetail": {
     "avatar": "Avatar",
