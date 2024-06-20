@@ -105,7 +105,7 @@
 				return {
 					'overflow': 'hidden',
 					'height': `${this.line_height}rpx`,
-					'line-height': `${this.line_height}rpx`
+					'line-height': `${this.line_height}rpx`,
 				}
 			}
 		},

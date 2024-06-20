@@ -21,6 +21,12 @@
     "bottomText": "No account? Register now.",
     "loginSuccess": "login success!"
   },
+  "hall": {
+    "title": "trading floor",
+    "selling": "selling",
+    "usdt": "USDT",
+    "offsetDayUnit": "days ago"
+  },
   "registry": {
     "title": "register an account",
     "userNamePl": "Please enter your username",

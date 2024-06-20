@@ -1,4 +1,5 @@
 import http from '@/api/http'
+const Base_Url = import.meta.env.VITE_APP_BASE_API;
 // pc端固定客户端授权id
 const clientId = import.meta.env.VITE_APP_CLIENT_ID;
 // 登录接口
@@ -9,7 +10,7 @@ export const loginApi = (data) => {
     clientId: data.clientId || clientId,
     grantType: data.grantType || 'password'
   }
-  return http.post('/auth/login',params, {
+  return http.post(`${Base_Url}/auth/login`,params, {
     isToken: false,
     isEncrypt: true
   });
@@ -22,14 +23,14 @@ export const registryApi = (data) => {
     clientId: clientId,
     grantType: 'email'
   }
-  return http.post('/auth/register', params, {
+  return http.post(`${Base_Url}/auth/register`, params, {
     isToken: false,
     isEncrypt: true
   });
 };
 // 获取邮箱验证码
 export const getEmailCodeApi = (params) => {
-  return http.get('/resource/email/code', params, {
+  return http.get(`${Base_Url}/resource/email/code`, params, {
     isToken: false
   });
 };
