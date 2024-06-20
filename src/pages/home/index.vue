@@ -37,6 +37,9 @@
     </u-grid>
     <view class="currency-info">
       <view v-for="currency in currencies" :key="currency.symbol" class="currency-item">
+        <u-image v-if="currency.symbol === 'btcusdt'" class="currency-img" src="@/static/btc.webp"/>
+        <u-image v-if="currency.symbol === 'ethusdt'" class="currency-img" src="@/static/eth.webp"/>
+        <u-image v-if="currency.symbol === 'solusdt'" class="currency-img" src="@/static/sol.webp"/>
         <view class="currency-name">{{
 
             currency.symbol
@@ -67,6 +70,7 @@
 
 <script setup>
 import {onMounted, ref} from "vue";
+import UImage from "../../uni_modules/vk-uview-ui/components/u-image/u-image.vue";
 
 const hb = import.meta.env.VITE_HUOBI_API;
 
@@ -175,5 +179,13 @@ setInterval(() => {
 
 .crypto-row:last-child {
   border-bottom: none;
+}
+
+.currency-img {
+  // 兼容
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
 }
 </style>
