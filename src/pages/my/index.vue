@@ -50,6 +50,7 @@
         @click="onClickCell"
       ></u-cell-item>
     </u-cell-group>
+    <switch-lang :visible.sync="visible"/>
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
@@ -59,6 +60,8 @@ import { onShow } from "@dcloudio/uni-app";
 import { useI18n } from "vue-i18n";
 import { getInfoApi } from "@/api/modules/my";
 import { useLogin } from "@/hooks/useLogin";
+import SwitchLang from '@/components/SwitchLang'
+
 
 const { t } = useI18n();
 const { onLogOut } = useLogin();
@@ -100,6 +103,7 @@ const cellList = ref([
   },
 ]);
 
+const visible = ref(false);
 const detailInfo = ref({});
 const isLoading = ref(false);
 const init = async () => {
@@ -120,6 +124,8 @@ const goDetail = () => {
 const onClickCell = (value) => {
   console.log("value=", value);
   if (value === 0) {
+  } else if (value === 3) {
+    visible.value = true;
   } else if (value === 4) {
     onLogOut();
   }
