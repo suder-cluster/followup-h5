@@ -6,23 +6,19 @@
     <div class="balance-container">
       <div class="balance">
         <p>{{ $t('my.usdtTitle') }}</p>
-        <!--        <h1>{{ userInfo.usdtBanlance }}</h1>-->
+        <h1>{{ userInfo.data.usdtBalance }}</h1>
       </div>
       <button class="recharge-button">{{ $t('my.recharge') }}</button>
     </div>
     <div class="details">
       <div class="detail">
         <span>{{ $t('my.rechargedAmount') }}</span>
-        <!--        <span class="amount">+{{ assetsInfo.recharged }}</span>-->
+        <span class="amount">+{{ assetsInfo.data.recharged === null ? '0.00' : assetsInfo.data.recharged }}</span>
       </div>
       <div class="detail">
         <span>{{ $t('my.soldAmount') }}</span>
-        <!--        <span class="amount">+{{ assetsInfo.sold }}</span>-->
+        <span class="amount">+{{ assetsInfo.data.sold === null ? '0.00' : assetsInfo.data.sold }}</span>
       </div>
-      <!--      <div class="detail">-->
-      <!--        <span>{{ $t('my.dearningsObtained') }}</span>-->
-      <!--        <span class="amount">+0.00</span>-->
-      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -37,10 +33,11 @@ import {onShow} from "@dcloudio/uni-app";
 const assetsInfo = ref({});
 const userInfo = ref({});
 const init = async () => {
-  console.log(assetsInfo.value)
   assetsInfo.value = await getAssetsApi();
-  console.log(assetsInfo)
   userInfo.value = await getInfoApi();
+
+  console.log("assetsInfo", assetsInfo.value);
+  console.log("userInfo", userInfo.value);
 };
 
 onShow(() => {
