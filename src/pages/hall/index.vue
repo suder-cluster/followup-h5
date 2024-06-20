@@ -8,6 +8,7 @@
         </view>
       </template>
     </scrollList>
+    <my-tab-bar></my-tab-bar>
   </div>
 </template>
 <script setup name="Hall">

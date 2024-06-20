@@ -4,15 +4,15 @@
       <span></span>
       <span>{{ $t('login.title') }}</span>
     </div>
-    <u-form class="login-form" :border-bottom="false">
-      <u-form-item>
+    <u-form ref="formRef" :model="formData" :rules="rules" class="login-form" :border-bottom="false">
+      <u-form-item prop="username">
         <u-input
           v-model="formData.username"
           :placeholder="$t('login.userNamePl')"
           border
         />
       </u-form-item>
-      <u-form-item>
+      <u-form-item prop="password">
         <u-input
           type="password"
           v-model="formData.password"
@@ -32,20 +32,26 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { loginApi } from '@/api/modules/login'
-import { useI18n} from 'vue-i18n';
+import { useLogin } from '@/hooks/useLogin';
+import { requireR } from "@/regular/index";
+import { onReady } from "@dcloudio/uni-app";
 
-const { t } = useI18n();
+const { isLoading, onLogin: onLogin2, t } = useLogin(); 
 uni.setNavigationBarTitle({
   title: t('page.login')
 });
 // Ref
+const formRef = ref();
+
 const formData = ref({
   tenantId: '000000',
   username: "",
   password: ""
 });
-const isLoading = ref(false)
+const rules = ref({
+  username: [requireR(t("login.userNamePl"))],
+  password: [requireR(t("login.passwordPl"))],
+});
 const onRegistry = (e) => {
   console.log('e==', e);
   uni.navigateTo({
@@ -54,13 +60,15 @@ const onRegistry = (e) => {
 }
 const onLogin = async () => {
   try { 
-    isLoading.value = true
-    const data = await loginApi(formData.value);
+    await onLogin2(formData.value);
   } catch(err) {
   } finally {
     isLoading.value = false
   }
 }
+onReady(() => {
+  formRef.value.setRules(rules.value);
+});
 </script>
 <style lang="scss" scoped>
 .login-container {

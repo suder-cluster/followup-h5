@@ -2,14 +2,32 @@ import { defineStore } from "pinia";
 
 // 定义store
 export const useAuthStore = defineStore('auth', {
-  state: () => {
-
+  state: () => ({
+    token: null,
+    clientId: null,
+    expireIn: null,
+    openid: null,
+    refreshExpireIn: null,
+    refreshToken: null,
+    scope: null
+  }),
+  actions: {
+    SETLOGIN(data) {
+      console.log('data=', data);
+      const { access_token, client_id, expire_in, openid, refresh_expire_in, refresh_token, scope } = data;
+      this.token = access_token;
+      this.clientId = client_id;
+      this.expireIn = expire_in;
+      this.openid = openid;
+      this.refreshExpireIn = refresh_expire_in;
+      this.refreshToken = refresh_token;
+      this.scope = scope;
+    }
   },
-  actions: {},
   persist: true,
   // persist: {
   //   storage: {
       
   //   }
   // }
-})
+});

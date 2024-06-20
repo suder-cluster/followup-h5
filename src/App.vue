@@ -1,5 +1,4 @@
 <script>
-import { uni } from '@dcloudio/uni-h5';
 import { useLang } from '@/hooks/useLang'
 export default {
   onLaunch: function () {
@@ -12,6 +11,12 @@ export default {
   onHide: function () {
     console.log('App Hide')
   },
+  // onReady: function() {
+  //   console.log('出发了')
+  //   const { setDefault } = useLang();
+  //   setDefault();
+  //   // location.reload();
+  // }
 }
 </script>
 

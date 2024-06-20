@@ -8,21 +8,20 @@ import { useTabBarStore } from '@/store/modules/tabBar';
 const tabBarStore = useTabBarStore();
 const current = computed({
   get() {
-    console.log('tabBarStore.getActiveTab=', tabBarStore.getActiveTab)
     return tabBarStore.getActiveTab
   },
   set(val) {
     tabBarStore.SETCURRENT(val)
     if (val === 0) {
-      uni.switchTab({
+      uni.navigateTo({
         url: '/pages/home/index'
       })
     } else if (val === 1) {
-      uni.switchTab({
+      uni.navigateTo({
         url: '/pages/hall/index'
       })
     } else if (val === 2) {
-      uni.switchTab({
+      uni.navigateTo({
         url: '/pages/order/index'
       })
     }

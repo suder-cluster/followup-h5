@@ -5,6 +5,12 @@
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
+    "locale": "en_US",
+    "h5": {
+        "mainfest": {
+            "lang": "en_US"
+        }
+    },
     /* 5+App特有相关 */
     "app-plus" : {
         "usingComponents" : true,

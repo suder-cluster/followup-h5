@@ -5,7 +5,7 @@
       "path": "pages/login/index",
       "style": {
         // 登录页
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": "%page.login%",
         "navigationStyle": "custom",
         "enablePullDownRefresh": false
       }
