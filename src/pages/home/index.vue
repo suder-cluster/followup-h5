@@ -37,8 +37,20 @@
     </u-grid>
     <view class="currency-info">
       <view v-for="currency in currencies" :key="currency.symbol" class="currency-item">
-        <view class="currency-name">{{ currency.symbol }}</view>
-        <view class="currency-amount">{{ currency.amount }}</view>
+        <u-image v-if="currency.symbol === 'btcusdt'" class="currency-img" src="@/static/btc.webp"/>
+        <u-image v-if="currency.symbol === 'ethusdt'" class="currency-img" src="@/static/eth.webp"/>
+        <u-image v-if="currency.symbol === 'solusdt'" class="currency-img" src="@/static/sol.webp"/>
+        <view class="currency-name">{{
+
+            currency.symbol
+          }}
+        </view>
+        <view class="currency-amount">{{
+            // 四舍五入取两位小数
+
+            currency.amount
+          }}
+        </view>
 
       </view>
     </view>
@@ -58,6 +70,7 @@
 
 <script setup>
 import {onMounted, ref} from "vue";
+import UImage from "../../uni_modules/vk-uview-ui/components/u-image/u-image.vue";
 
 const hb = import.meta.env.VITE_HUOBI_API;
 
@@ -118,7 +131,7 @@ setInterval(() => {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  background-color: #f8f8f8;
+  //background-color: #f8f8f8;
   border-radius: 8px;
 }
 
@@ -136,12 +149,12 @@ setInterval(() => {
 .currency-amount {
   margin-top: 5px;
   font-size: 14px;
-  color: #333;
+  color: #ff5454;
 }
 
 .crypto-table {
   margin-top: 20px;
-  background-color: #fff;
+  //background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -160,10 +173,19 @@ setInterval(() => {
 
 .crypto-price {
   font-size: 16px;
-  color: #333;
+
+  color: #ff5454;
 }
 
 .crypto-row:last-child {
   border-bottom: none;
+}
+
+.currency-img {
+  // 兼容
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
 }
 </style>

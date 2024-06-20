@@ -1,4 +1,8 @@
 {
+  "home": "home",
+  "hall": "hall",
+  "order": "order",
+  "my": "my",
   "title": "login page",
   "common": {},
   "page": {
@@ -22,8 +26,8 @@
     "loginSuccess": "login success!"
   },
   "hall": {
-    "title": "trading floor",
-    "selling": "selling",
+    "title": "Trading Floor",
+    "selling": "Selling",
     "usdt": "USDT",
     "offsetDayUnit": "days ago",
     "seller": "Selling to Seller",
