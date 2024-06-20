@@ -36,50 +36,64 @@
       </u-grid-item>
     </u-grid>
     <view class="currency-info">
-      <view v-for="currency in currencies" :key="currency.symbol" class="currency-item">
-        <u-image v-if="currency.symbol === 'btcusdt'" class="currency-img" src="@/static/btc.webp"/>
-        <u-image v-if="currency.symbol === 'ethusdt'" class="currency-img" src="@/static/eth.webp"/>
-        <u-image v-if="currency.symbol === 'solusdt'" class="currency-img" src="@/static/sol.webp"/>
-        <view class="currency-name">{{
-
-            currency.symbol
-          }}
-        </view>
-        <view class="currency-amount">{{
+      <view
+        v-for="currency in currencies"
+        :key="currency.symbol"
+        class="currency-item"
+      >
+        <u-image
+          v-if="currency.symbol === 'btcusdt'"
+          class="currency-img"
+          src="@/static/btc.webp"
+        />
+        <u-image
+          v-if="currency.symbol === 'ethusdt'"
+          class="currency-img"
+          src="@/static/eth.webp"
+        />
+        <u-image
+          v-if="currency.symbol === 'solusdt'"
+          class="currency-img"
+          src="@/static/sol.webp"
+        />
+        <view class="currency-name">{{ currency.symbol }} </view>
+        <view class="currency-amount"
+          >{{
             // 四舍五入取两位小数
 
             currency.amount
           }}
         </view>
-
       </view>
     </view>
 
     <!-- Horizontal Table for Cryptocurrencies -->
     <view class="crypto-table">
-      <view v-for="crypto in cryptoList" :key="crypto.symbol" class="crypto-row">
+      <view
+        v-for="crypto in cryptoList"
+        :key="crypto.symbol"
+        class="crypto-row"
+      >
         <view class="crypto-name">{{ crypto.symbol }}</view>
         <view class="crypto-price">{{ crypto.amount }}</view>
       </view>
     </view>
-
 
     <my-tab-bar></my-tab-bar>
   </view>
 </template>
 
 <script setup>
-import {onMounted, ref} from "vue";
+import { ref } from "vue";
+import { onShow, onHide } from "@dcloudio/uni-app";
 import UImage from "../../uni_modules/vk-uview-ui/components/u-image/u-image.vue";
-import { useTitle } from '@/hooks/useTitle';
+import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
 
-
 const { t } = useI18n();
-useTitle({ title: t('page.home') })
+useTitle({ title: t("page.home") });
 
 const hb = import.meta.env.VITE_HUOBI_API;
-
 
 const list = ref([
   {
@@ -98,8 +112,8 @@ const list = ref([
 
 const currencies = ref([]);
 const cryptoList = ref([]);
+const timer = ref(null);
 const fetchCryptoData = async () => {
-
   const response = await uni.request({
     url: "http://localhost/huobi-api/market/tickers?symbol=btceur",
     method: "GET",
@@ -110,28 +124,41 @@ const fetchCryptoData = async () => {
   // 优先展示 BTC ETH XRP 过滤处理
 
   // 过滤和处理需要展示的加密货币数据
-  const filteredCryptos = allCryptos.filter(crypto => {
+  const filteredCryptos = allCryptos.filter((crypto) => {
     // 优先展示 BTC、ETH、XRP，这里可以根据 symbol 进行过滤
-    return crypto.symbol === 'btcusdt' || crypto.symbol === 'ethusdt' || crypto.symbol === 'solusdt';
+    return (
+      crypto.symbol === "btcusdt" ||
+      crypto.symbol === "ethusdt" ||
+      crypto.symbol === "solusdt"
+    );
   });
 
-  currencies.value = filteredCryptos;  // Display the first 4 currencies
+  currencies.value = filteredCryptos; // Display the first 4 currencies
   cryptoList.value = allCryptos.slice(0, 10);
 };
 
-onMounted(() => {
+const interFetch  = () => {
+  if (timer.value) {
+    clearInterval(timer.value)
+  }
+  timer.value = setInterval(() => {
+    fetchCryptoData();
+  }, 10000)
+}
+const clearFetch = () => {
+  if (timer.value) {
+    clearInterval(timer)
+  }
+}
+onShow(() => {
   fetchCryptoData();
+  interFetch();
 });
-
-// 一秒刷新一次
-setInterval(() => {
-  fetchCryptoData();
-}, 60000);
-
-
+onHide(() => {
+  clearFetch();
+});
 </script>
 <style lang="scss" scoped>
-
 .currency-info {
   margin-top: 20px;
   display: flex;
@@ -192,6 +219,5 @@ setInterval(() => {
   width: 100%;
   height: auto;
   object-fit: cover;
-
 }
 </style>
