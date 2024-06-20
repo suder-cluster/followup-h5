@@ -3,21 +3,25 @@
     <div class="hall-title">
       {{ $t('hall.title') }}
     </div>
-    <scrollList class="scroll-list" :list="scList" :time="500" :height="480" :line_height="80">
+    <scrollList class="scroll-list" :list="scList" :time="200" :height="480" :line_height="80">
       <template #default="{ rows }">
         <div class="scroll-item">
-          <div class="avatar">
-            <u-avatar :src="rows.avatar" mode="square" :size="60"></u-avatar>
-            {{ rows.avatar }}
+          <div class="left">
+            <div class="avatar">
+              <u-avatar :src="rows.avatar" mode="square" :size="60"></u-avatar>
+              {{ rows.avatar }}
+            </div>
           </div>
-          <div class="email">{{ rows.email }}</div>
-          <div class="selling">
-            <span class="label">{{ $t('hall.selling') }}</span>
-            <span class="stock">{{ rows.stock }}</span>
-          </div>
-          <div class="usdt">
-            <span>{{ $t('hall.usdt') }}</span>
-            <span>{{ rows.offsetDay }}{{ $t('hall.offsetDayUnit') }}</span>
+          <div class="right">
+            <div class="email">{{ rows.email || '516159562@qq.com' }}</div>
+            <div class="selling">
+              <span class="label">{{ $t('hall.selling') }}: </span>
+              <span class="stock">{{ rows.stock }}</span>
+            </div>
+            <div class="usdt">
+              <span>{{ $t('hall.usdt') }}: </span>
+              <span>{{ rows.offsetDay }}{{ $t('hall.offsetDayUnit') }}</span>
+            </div>
           </div>
         </div>
       </template>
@@ -114,28 +118,47 @@ onPullDownRefresh(() => {
     font-weight: 600;
   }
   .scroll-list {
+    box-sizing: border-box;
+    padding: 0 20rpx;
     background-color: #fff;
   }
   .scroll-item {
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    padding: 0 10rpx;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 60rpx;
+    padding: 10rpx 10rpx;
     border-bottom: 1px solid #000;
     color: #000;
     font-size: 28rpx;
-    .avatar {
+    .left {
       display: flex;
       align-items: center;
-      padding-right: 10rpx;
+      width: 60rpx;
+      .avatar {
+        display: flex;
+        align-items: center;
+        padding-right: 10rpx;
+      }
     }
-    .email {
-      padding-right: $uni-6r;
-    }
-    .selling {
-      padding-right: $uni-6r;
-      .label {
+    .right {
+      flex: 1;
+      display: flex;
+      flex-wrap: nowrap;
+      padding-left: 20rpx;
+      .email {
         padding-right: $uni-6r;
+      }
+      .selling {
+        display: flex;
+        align-items: center;
+        color: #ff9900;
+        padding-right: $uni-6r;
+        .label {
+          padding-right: $uni-6r;
+        }
       }
     }
   }
