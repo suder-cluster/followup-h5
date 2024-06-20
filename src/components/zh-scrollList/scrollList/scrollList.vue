@@ -2,7 +2,8 @@
 	<view class="">
 		<view class="" :style="[scroll_style]">
 			<view :style="[scroll_box]">
-				<view class="" :style="[scroll_item]" v-for="(item,index) in scroll_list" :key="index">
+				<!-- :style="[scroll_item]" -->
+				<view class=""  v-for="(item,index) in scroll_list" :key="index">
 					<template v-if="$slots.default">
 						<slot :rows='item'></slot>
 					</template>

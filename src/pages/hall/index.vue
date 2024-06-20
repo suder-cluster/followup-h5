@@ -130,7 +130,7 @@ onPullDownRefresh(() => {
     width: 100%;
     min-height: 60rpx;
     padding: 10rpx 10rpx;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #ccc;
     color: #000;
     font-size: 28rpx;
     .left {
@@ -146,7 +146,7 @@ onPullDownRefresh(() => {
     .right {
       flex: 1;
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       padding-left: 20rpx;
       .email {
         padding-right: $uni-6r;
