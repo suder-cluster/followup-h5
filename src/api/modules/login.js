@@ -34,3 +34,8 @@ export const getEmailCodeApi = (params) => {
     isToken: false
   });
 };
+
+// 获取邮箱验证码
+export const logOutApi = () => {
+  return http.post(`${Base_Url}/auth/logout`);
+};

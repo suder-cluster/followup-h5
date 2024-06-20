@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { useAuthStore } from "@/store/modules/auth"
-import { loginApi } from '@/api/modules/login'
+import { loginApi, logOutApi } from '@/api/modules/login'
 import { useI18n} from 'vue-i18n';
 export const useLogin = () => {
   const { t } = useI18n();
@@ -17,10 +17,16 @@ export const useLogin = () => {
     });
   }
 
+  const onLogOut = async () => {
+    await logOutApi();
+    await authStore.LOGOUT();
+  }
+
   return {
     authStore,
     isLoading,
     onLogin,
+    onLogOut,
     t
   }
 }

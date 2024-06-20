@@ -4,6 +4,7 @@ import { useLangStore } from '@/store/modules/lang';
 import { useAuthStore } from '@/store/modules/auth';
 // import { useI18n} from 'vue-i18n';
 
+const Base_Url = import.meta.env.VITE_APP_BASE_API;
 const clientId = import.meta.env.VITE_APP_CLIENT_ID;
 const encryptHeader = 'encrypt-key';
 
@@ -43,7 +44,6 @@ class Http {
   }
 
   setResponse(res, resolve, reject) {
-    const authStore = useAuthStore();
     // const { t } = useI18n();
     if (res.statusCode !== 200) {
       uni.$u.toast('Network error', 3000)
@@ -55,7 +55,7 @@ class Http {
     } else if (res.data.code === 401) {
       // uni.$u.toast(t('error.expiration'), 3000)
       uni.$u.toast('Log in again after the login expires', 3000)
-      authStore.LOGOUT();
+      this.logOut();
       return reject(res.data)
     } else {
       uni.$u.toast(`${res.data.msg}`, 3000)
@@ -110,6 +110,12 @@ class Http {
         },
       });
     });
+  }
+
+  async logOut() {
+    const authStore = useAuthStore();
+    await this.post(`${Base_Url}/auth/logout`);
+    authStore.LOGOUT();
   }
 }
 

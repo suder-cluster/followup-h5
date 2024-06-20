@@ -43,9 +43,11 @@
         :icon-style="item.iconStyle"
         :title="item.title"
         :value="item.value"
+        :index="item.index"
         bg-color="#000"
         :border-top="false"
         hover-class="hover-cell-item"
+        @click="onClickCell"
       ></u-cell-item>
     </u-cell-group>
     <my-tab-bar></my-tab-bar>
@@ -56,64 +58,75 @@ import { ref } from "vue";
 import { onShow } from "@dcloudio/uni-app";
 import { useI18n } from "vue-i18n";
 import { getInfoApi } from "@/api/modules/my";
+import { useLogin } from "@/hooks/useLogin";
 
 const { t } = useI18n();
-
+const { onLogOut } = useLogin();
 const cellList = ref([
   {
     title: t("my.assets"),
     value: "",
     icon: "red-packet-fill",
-    iconStyle: "color: #e6a23c",
+    iconStyle: { color: "#e6a23c" },
+    index: 0,
   },
   {
     title: t("my.accountBinding"),
     value: "",
     icon: "plus-people-fill",
-    iconStyle: "color: #e6a23c",
+    iconStyle: { color: "#e6a23c" },
+    index: 1,
   },
   {
     title: t("my.accountDetail"),
     value: "",
     icon: "account-fill",
-    iconStyle: "color: #e6a23c",
+    iconStyle: { color: "#e6a23c" },
+    index: 2,
   },
   {
     title: t("my.switchLang"),
     value: "",
     icon: "grid-fill",
-    iconStyle: "color: #e6a23c",
+    iconStyle: { color: "#e6a23c" },
+    index: 3,
   },
   {
     title: t("my.logOut"),
     value: "",
     icon: "zhuanfa",
-    iconStyle: "color: #e6a23c",
+    iconStyle: { color: "#e6a23c" },
+    index: 4,
   },
 ]);
 
 const detailInfo = ref({});
-const isLoading = ref(false)
+const isLoading = ref(false);
 const init = async () => {
   try {
     isLoading.value = true;
-    const { data } = await getInfoApi()
+    const { data } = await getInfoApi();
     detailInfo.value = data;
-  } catch(err) {
-
+  } catch (err) {
   } finally {
     isLoading.value = false;
   }
-  
-}
+};
 const goDetail = () => {
   uni.navigateTo({
-    url: '/pages/myDetail/index'
+    url: "/pages/myDetail/index",
   });
-}
+};
+const onClickCell = (value) => {
+  console.log("value=", value);
+  if (value === 0) {
+  } else if (value === 4) {
+    onLogOut();
+  }
+};
 onShow(() => {
-  init()
-})
+  init();
+});
 </script>
 <style lang="scss" scoped>
 .my-container {
