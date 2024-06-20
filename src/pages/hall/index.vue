@@ -1,9 +1,16 @@
 <template>
   <div class="hall-container">
     <div class="hall-title">
-      {{ $t('hall.title') }}
+      {{ $t("hall.title") }}
     </div>
-    <scrollList v-loading="isLoading" class="scroll-list" :list="scList" :time="200" :height="480" :line_height="80">
+    <scrollList
+      v-loading="isLoading"
+      class="scroll-list"
+      :list="scList"
+      :time="200"
+      :height="480"
+      :line_height="80"
+    >
       <template #default="{ rows }">
         <div class="scroll-item">
           <div class="left">
@@ -13,101 +20,65 @@
             </div>
           </div>
           <div class="right">
-            <div class="email">{{ rows.email || '516159562@qq.com' }}</div>
+            <div class="email">{{ rows.email || "516159562@qq.com" }}</div>
             <div class="selling">
-              <span class="label">{{ $t('hall.selling') }}: </span>
+              <span class="label">{{ $t("hall.selling") }}: </span>
               <span class="stock">{{ rows.stock }}</span>
             </div>
             <div class="usdt">
-              <span>{{ $t('hall.usdt') }}: </span>
-              <span>{{ rows.offsetDay }}{{ $t('hall.offsetDayUnit') }}</span>
+              <span>{{ $t("hall.usdt") }}: </span>
+              <span>{{ rows.offsetDay }}{{ $t("hall.offsetDayUnit") }}</span>
             </div>
           </div>
         </div>
       </template>
     </scrollList>
+    <div class="tabs">
+      <u-subsection style="width: 100%;" :list="tabs" v-model="currentTab" active-color="#ff9900" @change="onChangeTab"></u-subsection>
+    </div>
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
 <script setup name="Hall">
 import { ref } from "vue";
-import { onShow, onPullDownRefresh } from '@dcloudio/uni-app';
+import { onShow, onPullDownRefresh } from "@dcloudio/uni-app";
 import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
-import { getHallApi } from '@/api/modules/hall';
-import { useList } from '@/hooks/useList';
+import { getHallApi } from "@/api/modules/hall";
+import { useList } from "@/hooks/useList";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const scList = ref([]);
 
 const dataCb = (data) => {
-  console.log('data=', data);
+  console.log("data=", data);
   const { userFloorOrderVos } = data;
   scList.value = userFloorOrderVos;
-  list.value = 
-}
+  list.value = [];
+};
 const config = ref({
   api: getHallApi,
-  dataCb
+  dataCb,
 });
 
+const { list, isLoading, refreshList } = useList(config);
+const tabs = [
+  {
+    name: t('hall.seller'),
+  },
+  {
+    name:  t('hall.sellList'),
+  }
+];
+const currentTab = ref(0);
 
-const { list, isLoading, refreshList } = useList(config)
-
-// const list = ref([
-//   {
-//     id: 1,
-//     name: "用户1",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 2,
-//     name: "用户2",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 3,
-//     name: "用户3",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 4,
-//     name: "用户4",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 5,
-//     name: "用户5",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 6,
-//     name: "用户6",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 7,
-//     name: "用户7",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 8,
-//     name: "用户8",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 9,
-//     name: "用户9",
-//     time: "54分钟前",
-//   },
-//   {
-//     id: 10,
-//     name: "用户10",
-//     time: "54分钟前",
-//   },
-// ]);
+const onChangeTab = (value) => {
+  console.log('value=', value);
+}
 
 onPullDownRefresh(() => {
   refreshList();
-})
+});
 </script>
 <style lang="scss" scoped>
 .hall-container {
@@ -161,6 +132,15 @@ onPullDownRefresh(() => {
           padding-right: $uni-6r;
         }
       }
+    }
+  }
+  .tabs {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 20rpx 60rpx;
+    u-button {
+      width: 50%;
     }
   }
 }

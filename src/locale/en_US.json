@@ -25,7 +25,9 @@
     "title": "trading floor",
     "selling": "selling",
     "usdt": "USDT",
-    "offsetDayUnit": "days ago"
+    "offsetDayUnit": "days ago",
+    "seller": "Selling to Seller",
+    "sellList": "Sell List"
   },
   "registry": {
     "title": "register an account",
