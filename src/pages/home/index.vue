@@ -115,7 +115,7 @@ const cryptoList = ref([]);
 const timer = ref(null);
 const fetchCryptoData = async () => {
   const response = await uni.request({
-    url: "http://localhost/huobi-api/market/tickers?symbol=btceur",
+    url: "/huobi-api/market/tickers?symbol=btceur",
     method: "GET",
   });
 
