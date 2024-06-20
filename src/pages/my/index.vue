@@ -1,13 +1,13 @@
 <template>
   <div class="my-container">
-    <div class="person-info">
+    <div class="person-info" @click="goDetail">
       <div class="left">
         <div class="avatar">
-          <u-avatar></u-avatar>
+          <u-avatar :src="detailInfo.avatar" :size="100"></u-avatar>
         </div>
         <div class="info">
-          <div class="top-text">用户名</div>
-          <div class="bottom-text">id：999999</div>
+          <div class="top-text">{{ detailInfo.userName }}</div>
+          <div class="bottom-text">{{ detailInfo.email }}</div>
         </div>
       </div>
       <div class="right">
@@ -16,20 +16,24 @@
     </div>
     <div class="usdt-item">
       <div class="left">
-        <span class="title">{{ $t('my.usdtTitle') }}</span>
-        <span class="num">100000</span>
+        <span class="title">{{ $t("my.usdtTitle") }}</span>
+        <span class="num">{{ detailInfo.usdtBalance }}</span>
       </div>
       <div class="right">
-        <u-button type="warning" size="mini" plain>{{ $t('my.recharge') }}</u-button>
+        <u-button type="warning" size="mini" plain>{{
+          $t("my.recharge")
+        }}</u-button>
       </div>
     </div>
     <div class="eur-item">
       <div class="left">
-        <span class="title">{{ $t('my.eurTitle') }}</span>
-        <span class="num">100000</span>
+        <span class="title">{{ $t("my.eurTitle") }}</span>
+        <span class="num">{{ detailInfo.euBalance }}</span>
       </div>
       <div class="right">
-        <u-button type="error" size="mini" plain>{{ $t('my.withDraw') }}</u-button>
+        <u-button type="error" size="mini" plain>{{
+          $t("my.withDraw")
+        }}</u-button>
       </div>
     </div>
     <u-cell-group>
@@ -49,42 +53,67 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { onShow } from "@dcloudio/uni-app";
 import { useI18n } from "vue-i18n";
+import { getInfoApi } from "@/api/modules/my";
 
 const { t } = useI18n();
 
 const cellList = ref([
-{
+  {
     title: t("my.assets"),
     value: "",
-    icon: 'red-packet-fill',
-    iconStyle: "color: #e6a23c"
+    icon: "red-packet-fill",
+    iconStyle: "color: #e6a23c",
   },
   {
     title: t("my.accountBinding"),
     value: "",
-    icon: 'plus-people-fill',
-    iconStyle: "color: #e6a23c"
+    icon: "plus-people-fill",
+    iconStyle: "color: #e6a23c",
   },
   {
     title: t("my.accountDetail"),
     value: "",
-    icon: 'account-fill',
-    iconStyle: "color: #e6a23c"
+    icon: "account-fill",
+    iconStyle: "color: #e6a23c",
   },
   {
     title: t("my.switchLang"),
     value: "",
-    icon: 'grid-fill',
-    iconStyle: "color: #e6a23c"
+    icon: "grid-fill",
+    iconStyle: "color: #e6a23c",
   },
   {
     title: t("my.logOut"),
     value: "",
-    icon: 'zhuanfa',
-    iconStyle: "color: #e6a23c"
-  }
+    icon: "zhuanfa",
+    iconStyle: "color: #e6a23c",
+  },
 ]);
+
+const detailInfo = ref({});
+const isLoading = ref(false)
+const init = async () => {
+  try {
+    isLoading.value = true;
+    const { data } = await getInfoApi()
+    detailInfo.value = data;
+  } catch(err) {
+
+  } finally {
+    isLoading.value = false;
+  }
+  
+}
+const goDetail = () => {
+  uni.navigateTo({
+    url: '/pages/myDetail/index'
+  });
+}
+onShow(() => {
+  init()
+})
 </script>
 <style lang="scss" scoped>
 .my-container {

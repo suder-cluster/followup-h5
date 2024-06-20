@@ -49,11 +49,19 @@
     "assets": "My Assets",
     "accountBinding": "Account Binding",
     "accountDetail": "Account Detail",
-    "switchLang": "Language switching",
+    "switchLang": "Language Switching",
     "logOut": "Log out",
     "usdtTitle": "BALANCE (USDT)",
     "eurTitle": "BALANCE (EUR)",
     "recharge": "Recharge",
     "withDraw": "WithDraw"
+  },
+  "myDetail": {
+    "avatar": "Avatar",
+    "nickName": "Nick Name",
+    "email": "Email",
+    "modifyPass": "Modify the Login Password",
+    "modify": "Modify",
+    "switchLang": "Language Switching"
   }
 }
