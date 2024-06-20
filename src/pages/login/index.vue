@@ -35,11 +35,12 @@ import { ref } from 'vue';
 import { useLogin } from '@/hooks/useLogin';
 import { requireR } from "@/regular/index";
 import { onReady } from "@dcloudio/uni-app";
+import { useTitle } from '@/hooks/useTitle';
+
 
 const { isLoading, onLogin: onLogin2, t } = useLogin(); 
-uni.setNavigationBarTitle({
-  title: t('page.login')
-});
+useTitle({ title: t('page.login') })
+
 // Ref
 const formRef = ref();
 

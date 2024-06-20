@@ -6,7 +6,13 @@
   "title": "login page",
   "common": {},
   "page": {
-    "login": "login page"
+    "login": "Login",
+    "hall": "Hall",
+    "order": "Order",
+    "my": "My",
+    "myDetail": "My Information",
+    "registry": "Registry",
+    "home": "Home"
   },
   "error": {
     "network": "Network error, error code：",

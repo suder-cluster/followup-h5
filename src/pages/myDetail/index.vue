@@ -50,6 +50,11 @@
 import { ref } from 'vue';
 import { onShow } from '@dcloudio/uni-app';
 import { getInfoApi } from '@/api/modules/my';
+import { useTitle } from '@/hooks/useTitle';
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+useTitle({ title: t('page.myDetail') })
 
 const detailInfo = ref({});
 const isLoading = ref(false)

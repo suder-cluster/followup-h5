@@ -41,11 +41,15 @@
 <script setup name="Order">
 import { ref } from "vue";
 import { onPullDownRefresh, onReachBottom } from "@dcloudio/uni-app";
-import { useI18n } from "vue-i18n";
 import { useList } from "@/hooks/useList";
 import { getOrderListApi } from "@/api/modules/order";
+import { useTitle } from '@/hooks/useTitle';
+import { useI18n } from "vue-i18n";
+
 
 const { t } = useI18n();
+useTitle({ title: t('page.order') })
+
 const config = ref({
   api: getOrderListApi,
   params: {

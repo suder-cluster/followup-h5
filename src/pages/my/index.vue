@@ -57,12 +57,14 @@
 <script setup>
 import { ref } from "vue";
 import { onShow } from "@dcloudio/uni-app";
-import { useI18n } from "vue-i18n";
 import { getInfoApi } from "@/api/modules/my";
 import { useLogin } from "@/hooks/useLogin";
 import { useLang } from '@/hooks/useLang';
+import { useTitle } from '@/hooks/useTitle';
+import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
+useTitle({ title: t('page.my') })
 const { onLogOut } = useLogin();
 const { onSelectLang } = useLang();
 const cellList = ref([

@@ -80,7 +80,12 @@ import {onPullDownRefresh, onReachBottom} from "@dcloudio/uni-app";
 import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
 import {getHallApi} from "@/api/modules/hall";
 import {useList} from "@/hooks/useList";
+import { useTitle } from '@/hooks/useTitle';
+import { useI18n } from "vue-i18n";
 
+
+const { t } = useI18n();
+useTitle({ title: t('page.hall') })
 
 const scList = ref([]);
 
