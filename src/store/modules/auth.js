@@ -22,6 +22,18 @@ export const useAuthStore = defineStore('auth', {
       this.refreshExpireIn = refresh_expire_in;
       this.refreshToken = refresh_token;
       this.scope = scope;
+    },
+    LOGOUT() {
+      this.token = null;
+      this.clientId = null;
+      this.expireIn = null;
+      this.openid = null;
+      this.refreshExpireIn = null;
+      this.refreshToken = null;
+      this.scope = null;
+      uni.reLaunch({
+        url: '/pages/login/index'
+      })
     }
   },
   persist: true,

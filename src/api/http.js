@@ -43,9 +43,10 @@ class Http {
   }
 
   setResponse(res, resolve, reject) {
+    const authStore = useAuthStore();
     // const { t } = useI18n();
     if (res.statusCode !== 200) {
-      uni.$u.toast('网络错误', 3000)
+      uni.$u.toast('Network error', 3000)
       // uni.$u.toast(`${t('err.network')}${res.statusCode}`, 3000)
       return reject(res.statusCode)
     }
@@ -53,16 +54,15 @@ class Http {
       return resolve(res.data)
     } else if (res.data.code === 401) {
       // uni.$u.toast(t('error.expiration'), 3000)
-      uni.$u.toast('登录过期，重新登录', 3000)
-      uni.reLaunch({
-        url: '/pages/login/index'
-      })
+      uni.$u.toast('Log in again after the login expires', 3000)
+      authStore.LOGOUT();
       return reject(res.data)
     } else {
       uni.$u.toast(`${res.data.msg}`, 3000)
       return reject(res.data)
     }
   }
+
   async get(url, params = {}, config = {}) {
     return new Promise((resolve, reject) => {
       const { data, headers } = this.setRequest(params, config);
@@ -86,23 +86,7 @@ class Http {
       });
     });
   }
-//   {
-//     "createDept": 103,
-//     "createBy": 1,
-//     "createTime": "2024-06-16 21:12:24",
-//     "updateBy": 1,
-//     "updateTime": "2024-06-18 11:32:45",
-//     "id": "1802328371525369858",
-//     "floorOrderId": "1",
-//     "userId": 1,
-//     "username": "1",
-//     "price": "1.00",
-//     "stock": 1,
-//     "status": 1,
-//     "reason": "1",
-//     "offsetDay": 3,
-//     "userCardVo": null
-// },
+
   async post(url, params = {}, config) {
     // const { t } = useI18n();
     return new Promise((resolve, reject) => {
