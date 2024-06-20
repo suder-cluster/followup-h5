@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script step>
+<script setup>
 
 import {getAssetsApi, getInfoApi} from "@/api/modules/my";
 import {ref} from "vue";
