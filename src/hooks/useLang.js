@@ -16,6 +16,5 @@ export const useLang = () => {
   return {
     setLang,
     setDefault,
-    i18n
   };
 };

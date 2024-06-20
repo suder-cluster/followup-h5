@@ -1,5 +1,5 @@
 <template>
-  <u-tabbar bg-color="#000" inactive-color="#fff" active-color="#2b85e4" v-model="current" :list="list" :mid-button="false"></u-tabbar>
+  <u-tabbar :height="100" bg-color="#000" inactive-color="#fff" active-color="#2b85e4" v-model="current" :list="list" :mid-button="false"></u-tabbar>
 </template>
 <script setup>
 import { ref, computed } from "vue";
@@ -23,6 +23,10 @@ const current = computed({
     } else if (val === 2) {
       uni.navigateTo({
         url: '/pages/order/index'
+      })
+    } else if (val === 3) {
+      uni.navigateTo({
+        url: '/pages/my/index'
       })
     }
   }

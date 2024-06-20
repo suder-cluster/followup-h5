@@ -31,11 +31,19 @@
       "path": "pages/hall/index",
       "style": {
         "navigationBarTitleText": "",
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
       }
     },
     {
       "path": "pages/order/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my/index",
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom"

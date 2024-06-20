@@ -107,7 +107,7 @@ onMounted(() => {
 // 一秒刷新一次
 setInterval(() => {
   fetchCryptoData();
-}, 1000);
+}, 60000);
 
 
 </script>

@@ -77,6 +77,7 @@ export const useList = (config) => {
     init()
   })
   return {
+    pageable,
     list,
     refreshList,
     loadMore,

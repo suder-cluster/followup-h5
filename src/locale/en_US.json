@@ -27,7 +27,9 @@
     "usdt": "USDT",
     "offsetDayUnit": "days ago",
     "seller": "Selling to Seller",
-    "sellList": "Sell List"
+    "sellList": "Sell List",
+    "goSale": "Go for Sale",
+    "limit": "limit"
   },
   "registry": {
     "title": "register an account",
@@ -42,5 +44,16 @@
     "backToLogin": "Back to login",
     "getCode": "get code",
     "sendCodeSuccess": "send success!"
+  },
+  "my": {
+    "assets": "My Assets",
+    "accountBinding": "Account Binding",
+    "accountDetail": "Account Detail",
+    "switchLang": "Language switching",
+    "logOut": "Log out",
+    "usdtTitle": "BALANCE (USDT)",
+    "eurTitle": "BALANCE (EUR)",
+    "recharge": "Recharge",
+    "withDraw": "WithDraw"
   }
 }
