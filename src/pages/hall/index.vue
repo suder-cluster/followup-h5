@@ -63,11 +63,12 @@
             <span>{{ item.min }}-{{ item.max }}&nbsp;&nbsp;USDT</span>
           </div>
           <div class="right">
-            <u-button type="warning" shape="circle" size="mini">{{ $t('hall.goSale') }}</u-button>
+            <u-button type="warning" shape="circle" size="mini" @click="openSell(item)">{{ $t('hall.goSale') }}</u-button>
           </div>
         </div>
       </div>
     </div>
+    <u-modal v-model="sellVisible" @confirm="onConfirm" ref="uModal1" :async-close="true"></u-modal>
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
@@ -82,8 +83,7 @@ import { useList } from "@/hooks/useList";
 const scList = ref([]);
 
 const dataCb = (data) => {
-  uni.stopPullDownRefresh();
-  const { userFloorOrderVos, tableDataInfo } = data;
+  const { userFloorOrderVos, tableDataInfo } = data.data;
   scList.value = userFloorOrderVos;
   list.value = tableDataInfo.rows;
   pageable.value.total = tableDataInfo.total;
@@ -94,6 +94,17 @@ const config = ref({
 });
 
 const { pageable, list, isLoading, refreshList, loadMore } = useList(config);
+
+const sellVisible = ref(false);
+
+const openSell = (item) => {
+  console.log('item=', item);
+  sellVisible.value = true;
+}
+
+const onConfirm = () => {
+  console.log('确定')
+}
 
 onPullDownRefresh(() => {
   refreshList();

@@ -11,12 +11,6 @@ export default {
   onHide: function () {
     console.log('App Hide')
   },
-  // onReady: function() {
-  //   console.log('出发了')
-  //   const { setDefault } = useLang();
-  //   setDefault();
-  //   // location.reload();
-  // }
 }
 </script>
 

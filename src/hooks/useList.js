@@ -27,14 +27,17 @@ export const useList = (config) => {
     }
     try {
       isLoading.value = true;
-      const { data } = await api(requestParams);
-      
+      const data = await api(requestParams);
+      console.log('datadatadata=', data)
       if (dataCb) {
         await dataCb(data)
+        uni.stopPullDownRefresh();
         return
       } else {
-        list.value = data.list;
+        list.value = data.rows;
         pageable.total = data.total;
+        uni.stopPullDownRefresh();
+        console.log('list=', list.value)
       }
       
     } catch(err) {} finally {
