@@ -20,8 +20,10 @@
           </div>
           <div class="right">
             <div class="email">{{ rows.email }}</div>
+
+            <span class="label">{{ $t("hall.selling") }}: &nbsp;</span>
+
             <div class="selling">
-              <span class="label">{{ $t("hall.selling") }}: </span>
               <span class="stock">{{ rows.stock }}</span>
             </div>
             <div class="usdt">
@@ -72,11 +74,11 @@
   </div>
 </template>
 <script setup name="Hall">
-import { ref } from "vue";
-import { onPullDownRefresh, onReachBottom } from "@dcloudio/uni-app";
+import {ref} from "vue";
+import {onPullDownRefresh, onReachBottom} from "@dcloudio/uni-app";
 import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
-import { getHallApi } from "@/api/modules/hall";
-import { useList } from "@/hooks/useList";
+import {getHallApi} from "@/api/modules/hall";
+import {useList} from "@/hooks/useList";
 
 
 const scList = ref([]);

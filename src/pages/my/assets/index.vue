@@ -25,9 +25,12 @@
 
 <script setup>
 
+import {useI18n} from "vue-i18n";
 import {getAssetsApi, getInfoApi} from "@/api/modules/my";
 import {ref} from "vue";
 import {onShow} from "@dcloudio/uni-app";
+
+const {t} = useI18n();
 
 
 const assetsInfo = ref({});

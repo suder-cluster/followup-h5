@@ -2,9 +2,11 @@
   <u-tabbar :height="100" bg-color="#000" inactive-color="#fff" active-color="#2b85e4" v-model="current" :list="list" :mid-button="false"></u-tabbar>
 </template>
 <script setup>
-import { ref, computed } from "vue";
-import { useTabBarStore } from '@/store/modules/tabBar';
+import {computed, ref} from "vue";
+import {useTabBarStore} from '@/store/modules/tabBar';
+import {useI18n} from "vue-i18n";
 
+const {t} = useI18n();
 const tabBarStore = useTabBarStore();
 const current = computed({
   get() {
@@ -35,26 +37,26 @@ const list = ref([
   {
     iconPath: "home",
     selectedIconPath: "home-fill",
-    text: "首页",
+    text: t('home'),
     isDot: true,
     customIcon: false,
   },
   {
     iconPath: "bag",
     selectedIconPath: "bag-fill",
-    text: "大厅",
+    text: t('hall'),
     customIcon: false,
   },
   {
     iconPath: "order",
     selectedIconPath: "order",
-    text: "订单",
+    text: t('order'),
     customIcon: false,
   },
   {
     iconPath: "account",
     selectedIconPath: "account-fill",
-    text: "我的",
+    text: t('my'),
     isDot: false,
     customIcon: false,
   },

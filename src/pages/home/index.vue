@@ -37,8 +37,17 @@
     </u-grid>
     <view class="currency-info">
       <view v-for="currency in currencies" :key="currency.symbol" class="currency-item">
-        <view class="currency-name">{{ currency.symbol }}</view>
-        <view class="currency-amount">{{ currency.amount }}</view>
+        <view class="currency-name">{{
+
+            currency.symbol
+          }}
+        </view>
+        <view class="currency-amount">{{
+            // 四舍五入取两位小数
+
+            currency.amount
+          }}
+        </view>
 
       </view>
     </view>
@@ -118,7 +127,7 @@ setInterval(() => {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  background-color: #f8f8f8;
+  //background-color: #f8f8f8;
   border-radius: 8px;
 }
 
@@ -136,12 +145,12 @@ setInterval(() => {
 .currency-amount {
   margin-top: 5px;
   font-size: 14px;
-  color: #333;
+  color: #ff5454;
 }
 
 .crypto-table {
   margin-top: 20px;
-  background-color: #fff;
+  //background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -160,7 +169,8 @@ setInterval(() => {
 
 .crypto-price {
   font-size: 16px;
-  color: #333;
+
+  color: #ff5454;
 }
 
 .crypto-row:last-child {
