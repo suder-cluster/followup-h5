@@ -3,7 +3,7 @@
     <div class="hall-title">
       {{ $t('hall.title') }}
     </div>
-    <scrollList class="scroll-list" :list="scList" :time="200" :height="480" :line_height="80">
+    <scrollList v-loading="isLoading" class="scroll-list" :list="scList" :time="200" :height="480" :line_height="80">
       <template #default="{ rows }">
         <div class="scroll-item">
           <div class="left">
@@ -42,6 +42,7 @@ const dataCb = (data) => {
   console.log('data=', data);
   const { userFloorOrderVos } = data;
   scList.value = userFloorOrderVos;
+  list.value = 
 }
 const config = ref({
   api: getHallApi,
