@@ -182,7 +182,7 @@ const interFetch = () => {
 };
 const clearFetch = () => {
   if (timer.value) {
-    clearInterval(timer);
+    clearInterval(timer.value);
   }
 };
 
