@@ -14,3 +14,4 @@ export const getHallApi = (params) => {
 export const saleApi = (params) => {
   return http.post(`${Base_Url}/h5/sold`, params)
 }
+

@@ -3,6 +3,13 @@
     <div class="hall-title">
       {{ $t("hall.title") }}
     </div>
+    <div class="balance-container">
+      <div class="balance">
+        <p>{{ $t('my.usdtTitle') }}</p>
+        <h1>{{ userInfo.usdtBalance }}</h1>
+      </div>
+      <button class="recharge-button">{{ $t('my.recharge') }}</button>
+    </div>
     <scrollList
       v-loading="isLoading"
       class="scroll-list"
@@ -127,9 +134,21 @@ import {useTitle} from "@/hooks/useTitle";
 import {useI18n} from "vue-i18n";
 import {cal} from "@/utils/cal";
 import {requireR} from "@/regular";
+import {getAssetsApi, getInfoApi} from "../../api/modules/my";
 
 const { t } = useI18n();
 useTitle({ title: t("page.hall") });
+
+
+const assetsInfo = ref({});
+const userInfo = ref({});
+const {data: assets = {}} = await getAssetsApi();
+const {data: user} = await getInfoApi();
+assetsInfo.value = assets || {};
+userInfo.value = user;
+
+console.log("assetsInfo", assetsInfo.value);
+console.log("userInfo", userInfo.value);
 
 const scList = ref([]);
 
