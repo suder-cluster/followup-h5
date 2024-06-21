@@ -1,7 +1,7 @@
 <template>
   <view class="page-container">
-    <u-swiper :list="list"></u-swiper>
-    <!-- <u-grid :col="4" :border="false">
+    <u-swiper :autoplay="true" :circular="true" :indicator-dots="true" :interval="3000" :list="list"></u-swiper>
+    <u-grid :border="false" :col="4" style="background: black;">
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
         <view class="grid-text">我的资产</view>
@@ -30,11 +30,11 @@
         <u-icon name="photo" :size="46"></u-icon>
         <view class="grid-text">新手教程</view>
       </u-grid-item>
-      <u-grid-item>
+      <u-grid-item @click="window.open('https://www.moyu-b1.xyz/chat/index/newChat/m/65e844e7bb06f','_blank')">
         <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">联系我们</view>
+        <view class="grid-text">在线客服</view>
       </u-grid-item>
-    </u-grid> -->
+    </u-grid>
     <view class="currency-info">
       <view
         v-for="currency in currencies"
@@ -98,17 +98,18 @@ useTitle({ title: t("page.home") });
 
 const hb = import.meta.env.VITE_HUOBI_API;
 
+
 const list = ref([
   {
-    image: "https://cdn.uviewui.com/uview/swiper/1.jpg",
-    title: "昨夜星辰昨夜风，画楼西畔桂堂东",
-  },
-  {
-    image: "https://cdn.uviewui.com/uview/swiper/2.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs0F5_TuVM6mzv27Wr-A_eW9rjUarQ0lss1w&usqp=CAU",
     title: "身无彩凤双飞翼，心有灵犀一点通",
   },
   {
-    image: "https://cdn.uviewui.com/uview/swiper/3.jpg",
+    image: "https://lh5.googleusercontent.com/proxy/JhDH-Fa2INdc9fa1BvSGTXViqgeHjH9ND_wctUk77Qqaoa5fLYPCb13wKAl34rleJ7EBYO46QVkMt-_jILC7Q6N0lC4shB1CaYNFicxg0vR9BIWWtX3wKATDgdIyX3xsMYjSTu7JBHP38DQ",
+    title: "昨夜星辰昨夜风，画楼西畔桂堂东",
+  },
+  {
+    image: "https://p1.img.cctvpic.com/photoworkspace/2021/05/21/2021052112010285046.jpg",
     title: "谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳",
   },
 ]);
@@ -155,8 +156,28 @@ onShow(() => {
 onHide(() => {
   clearFetch();
 });
+
+
 </script>
 <style lang="scss" scoped>
+
+.swiper-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-item {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
 .page-container {
   padding: 20rpx;
   padding-bottom: 120rpx;
