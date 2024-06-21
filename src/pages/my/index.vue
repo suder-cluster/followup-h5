@@ -124,6 +124,9 @@ const goDetail = () => {
 };
 const onClickCell = (value) => {
   if (value === 0) {
+    uni.navigateTo({
+      url: '/pages/my/assets/index'
+    })
   } else if (value === 3) {
     onSelectLang();
   } else if (value === 4) {

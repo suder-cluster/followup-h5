@@ -6,18 +6,18 @@
     <div class="balance-container">
       <div class="balance">
         <p>{{ $t('my.usdtTitle') }}</p>
-        <h1>{{ userInfo.data.usdtBalance }}</h1>
+        <h1>{{ userInfo.usdtBalance }}</h1>
       </div>
       <button class="recharge-button">{{ $t('my.recharge') }}</button>
     </div>
     <div class="details">
       <div class="detail">
         <span>{{ $t('my.rechargedAmount') }}</span>
-        <span class="amount">+{{ assetsInfo.data.recharged === null ? '0.00' : assetsInfo.data.recharged }}</span>
+        <span class="amount">+{{ assetsInfo.recharged === null ? '0.00' : assetsInfo.recharged }}</span>
       </div>
       <div class="detail">
         <span>{{ $t('my.soldAmount') }}</span>
-        <span class="amount">+{{ assetsInfo.data.sold === null ? '0.00' : assetsInfo.data.sold }}</span>
+        <span class="amount">+{{ assetsInfo.sold === null ? '0.00' : assetsInfo.sold }}</span>
       </div>
     </div>
   </div>
@@ -36,8 +36,10 @@ const {t} = useI18n();
 const assetsInfo = ref({});
 const userInfo = ref({});
 const init = async () => {
-  assetsInfo.value = await getAssetsApi();
-  userInfo.value = await getInfoApi();
+  const { data: assets = {} } = await getAssetsApi();
+  const { data: user } = await getInfoApi();
+  assetsInfo.value = assets || {};
+  userInfo.value = user;
 
   console.log("assetsInfo", assetsInfo.value);
   console.log("userInfo", userInfo.value);

@@ -59,8 +59,7 @@
     {
       "path": "pages/my/assets/index",
       "style": {
-        "navigationBarTitleText": "",
-        "navigationStyle": "custom"
+        "navigationBarTitleText": ""
       }
     }
   ],
