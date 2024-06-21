@@ -76,6 +76,13 @@
     "sellPl": "Please enter the amount sold"
   },
   "my": {
+    "team": "Team",
+    "fundLog": "Fund Log",
+    "myInfo": "My Info",
+    "accountBind": "Binding",
+    "acDetail": "Detail",
+    "tutorial": "Tutorial",
+    "customer": "Customer",
     "assets": "My Assets",
     "accountBinding": "Account Binding",
     "accountDetail": "Account Detail",
