@@ -21,11 +21,12 @@
       </div>
       <div class="right">
         <u-button
-          type="warning"
-          size="mini"
-          plain
-          @click="goToPage('recharge')"
-          >{{ $t("my.recharge") }}</u-button
+            plain
+            size="mini"
+            type="warning"
+            @click="goToPage('recharge')"
+        >{{ $t("my.recharge") }}
+        </u-button
         >
       </div>
     </div>
@@ -35,76 +36,80 @@
         <span class="num">{{ detailInfo.euBalance }}</span>
       </div>
       <div class="right">
-        <u-button type="error" size="mini" plain>{{
-          $t("my.withDraw")
-        }}</u-button>
+        <u-button plain size="mini" type="error"
+
+                  @click="goToPage('cashout')"
+        >{{
+            $t("my.withDraw")
+          }}
+        </u-button>
       </div>
     </div>
     <u-cell-group>
       <u-cell-item
-        v-for="item in cellList"
-        :icon="item.icon"
-        :icon-style="item.iconStyle"
-        :title="item.title"
-        :value="item.value"
-        :index="item.index"
-        bg-color="#000"
-        :border-top="false"
-        hover-class="hover-cell-item"
-        @click="onClickCell"
+          v-for="item in cellList"
+          :border-top="false"
+          :icon="item.icon"
+          :icon-style="item.iconStyle"
+          :index="item.index"
+          :title="item.title"
+          :value="item.value"
+          bg-color="#000"
+          hover-class="hover-cell-item"
+          @click="onClickCell"
       ></u-cell-item>
     </u-cell-group>
-    <switch-lang :visible.sync="visible" />
+    <switch-lang :visible.sync="visible"/>
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
-import { onShow } from "@dcloudio/uni-app";
-import { getInfoApi } from "@/api/modules/my";
-import { useLogin } from "@/hooks/useLogin";
-import { useLang } from "@/hooks/useLang";
-import { useTitle } from "@/hooks/useTitle";
-import { useI18n } from "vue-i18n";
+import {ref} from "vue";
+import {onShow} from "@dcloudio/uni-app";
+import {getInfoApi} from "@/api/modules/my";
+import {useLogin} from "@/hooks/useLogin";
+import {useLang} from "@/hooks/useLang";
+import {useTitle} from "@/hooks/useTitle";
+import {useI18n} from "vue-i18n";
 
-const { t } = useI18n();
-useTitle({ title: t("page.my") });
-const { onLogOut } = useLogin();
-const { onSelectLang } = useLang();
+const {t} = useI18n();
+useTitle({title: t("page.my")});
+const {onLogOut} = useLogin();
+const {onSelectLang} = useLang();
 const cellList = ref([
   {
     title: t("my.assets"),
     value: "",
     icon: "red-packet-fill",
-    iconStyle: { color: "#e6a23c" },
+    iconStyle: {color: "#e6a23c"},
     index: 0,
   },
   {
     title: t("my.accountBinding"),
     value: "",
     icon: "plus-people-fill",
-    iconStyle: { color: "#e6a23c" },
+    iconStyle: {color: "#e6a23c"},
     index: 1,
   },
   {
     title: t("my.accountDetail"),
     value: "",
     icon: "account-fill",
-    iconStyle: { color: "#e6a23c" },
+    iconStyle: {color: "#e6a23c"},
     index: 2,
   },
   {
     title: t("my.switchLang"),
     value: "",
     icon: "grid-fill",
-    iconStyle: { color: "#e6a23c" },
+    iconStyle: {color: "#e6a23c"},
     index: 3,
   },
   {
     title: t("my.logOut"),
     value: "",
     icon: "zhuanfa",
-    iconStyle: { color: "#e6a23c" },
+    iconStyle: {color: "#e6a23c"},
     index: 4,
   },
 ]);
@@ -114,7 +119,7 @@ const isLoading = ref(false);
 const init = async () => {
   try {
     isLoading.value = true;
-    const { data } = await getInfoApi();
+    const {data} = await getInfoApi();
     detailInfo.value = data;
   } catch (err) {
   } finally {
@@ -129,6 +134,10 @@ const goToPage = (type) => {
   } else if (type === "recharge") {
     uni.navigateTo({
       url: "/pages/recharge/index",
+    });
+  } else if (type === "cashout") {
+    uni.navigateTo({
+      url: "/pages/cashout/index",
     });
   }
 };
@@ -151,23 +160,28 @@ onShow(() => {
 .my-container {
   padding: 20rpx;
   padding-bottom: 120rpx;
+
   .person-info {
     display: flex;
     justify-content: space-between;
     padding: 40rpx 28rpx 40rpx 0;
+
     .left {
       display: flex;
       align-items: center;
+
       .info {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         padding-left: 30rpx;
+
         .top-text {
           height: 60rpx;
           line-height: 60rpx;
           font-size: 32rpx;
         }
+
         .bottom-text {
           height: 40rpx;
           line-height: 40rpx;
@@ -175,11 +189,13 @@ onShow(() => {
         }
       }
     }
+
     .right {
       display: flex;
       align-items: center;
     }
   }
+
   .usdt-item,
   .eur-item {
     display: flex;
@@ -189,14 +205,17 @@ onShow(() => {
     padding: 20rpx;
     border: 2rpx solid #ccc;
     background-color: #fdf6ec;
+
     .left {
       display: flex;
       flex-direction: column;
+
       .title {
         color: #909399;
         font-size: 32rpx;
         line-height: 46rpx;
       }
+
       .num {
         color: #333;
         font-size: 32rpx;
@@ -204,6 +223,7 @@ onShow(() => {
     }
   }
 }
+
 .hover-cell-item {
   background-color: #222 !important;
 }
