@@ -24,13 +24,16 @@
 </template>
 
 <script setup>
-
-import {useI18n} from "vue-i18n";
 import {getAssetsApi, getInfoApi} from "@/api/modules/my";
 import {ref} from "vue";
 import {onShow} from "@dcloudio/uni-app";
+import { useTitle } from '@/hooks/useTitle';
+import { useI18n } from "vue-i18n";
+import { getConfigKey } from '@/api/modules/getConfigKey';
 
 const {t} = useI18n();
+useTitle({ title: t('page.myAssets') })
+
 
 
 const assetsInfo = ref({});
@@ -44,7 +47,11 @@ const init = async () => {
   console.log("assetsInfo", assetsInfo.value);
   console.log("userInfo", userInfo.value);
 };
-
+// 获取配置
+const getConfig = async () => {
+  const { data } = await getConfigKey('water.waterAddress')
+  console.log('data=', data);
+}
 onShow(() => {
   init();
 });

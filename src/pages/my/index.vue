@@ -1,6 +1,6 @@
 <template>
   <div class="my-container">
-    <div class="person-info" @click="goDetail">
+    <div class="person-info" @click="goToPage('myDetail')">
       <div class="left">
         <div class="avatar">
           <u-avatar :src="detailInfo.avatar" :size="100"></u-avatar>
@@ -20,9 +20,13 @@
         <span class="num">{{ detailInfo.usdtBalance }}</span>
       </div>
       <div class="right">
-        <u-button type="warning" size="mini" plain>{{
-          $t("my.recharge")
-        }}</u-button>
+        <u-button
+          type="warning"
+          size="mini"
+          plain
+          @click="goToPage('recharge')"
+          >{{ $t("my.recharge") }}</u-button
+        >
       </div>
     </div>
     <div class="eur-item">
@@ -59,12 +63,12 @@ import { ref } from "vue";
 import { onShow } from "@dcloudio/uni-app";
 import { getInfoApi } from "@/api/modules/my";
 import { useLogin } from "@/hooks/useLogin";
-import { useLang } from '@/hooks/useLang';
-import { useTitle } from '@/hooks/useTitle';
+import { useLang } from "@/hooks/useLang";
+import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-useTitle({ title: t('page.my') })
+useTitle({ title: t("page.my") });
 const { onLogOut } = useLogin();
 const { onSelectLang } = useLang();
 const cellList = ref([
@@ -117,16 +121,22 @@ const init = async () => {
     isLoading.value = false;
   }
 };
-const goDetail = () => {
-  uni.navigateTo({
-    url: "/pages/myDetail/index",
-  });
+const goToPage = (type) => {
+  if (type === "myDetail") {
+    uni.navigateTo({
+      url: "/pages/myDetail/index",
+    });
+  } else if (type === "recharge") {
+    uni.navigateTo({
+      url: "/pages/recharge/index",
+    });
+  }
 };
 const onClickCell = (value) => {
   if (value === 0) {
     uni.navigateTo({
-      url: '/pages/my/assets/index'
-    })
+      url: "/pages/my/assets/index",
+    });
   } else if (value === 3) {
     onSelectLang();
   } else if (value === 4) {

@@ -15,7 +15,9 @@
     "my": "My",
     "myDetail": "My Information",
     "registry": "Registry",
-    "home": "Home"
+    "home": "Home",
+    "myAssets": "My Assets",
+    "recharge": "Recharge"
   },
   "error": {
     "network": "Network error, error code：",
@@ -92,5 +94,11 @@
     "modifyPass": "Modify the Login Password",
     "modify": "Modify",
     "switchLang": "Language Switching"
+  },
+  "recharge": {
+    "category": "Category",
+    "address": "Address",
+    "usdt": "USDT(TRC20)",
+    "usdtPl": "Please enter the am"
   }
 }
