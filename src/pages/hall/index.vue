@@ -56,7 +56,8 @@
             <div class="price-text">unit-price</div>
           </div>
           <div class="ustd">
-            <div class="ustd-num">{{ item.curStock }}</div>
+            <di class="ustd-num" v>{{ item.curStock }}
+          </div>
             <div class="ustd-text">Number(USDT)</div>
           </div>
           <div class="ustd2">
@@ -121,16 +122,15 @@
   </div>
 </template>
 <script setup name="Hall">
-import { ref, computed } from "vue";
-import { onPullDownRefresh, onReachBottom, onReady } from "@dcloudio/uni-app";
+import {computed, ref} from "vue";
+import {onPullDownRefresh, onReachBottom, onReady} from "@dcloudio/uni-app";
 import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
-import { getHallApi } from "@/api/modules/hall";
-import { useList } from "@/hooks/useList";
-import { useTitle } from "@/hooks/useTitle";
-import { useI18n } from "vue-i18n";
-import { cal } from "@/utils/cal";
-import { requireR } from "@/regular";
-import { saleApi } from "@/api/modules/hall";
+import {getHallApi, saleApi} from "@/api/modules/hall";
+import {useList} from "@/hooks/useList";
+import {useTitle} from "@/hooks/useTitle";
+import {useI18n} from "vue-i18n";
+import {cal} from "@/utils/cal";
+import {requireR} from "@/regular";
 
 const { t } = useI18n();
 useTitle({ title: t("page.hall") });

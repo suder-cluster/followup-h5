@@ -84,11 +84,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { onShow, onHide } from "@dcloudio/uni-app";
+import {ref} from "vue";
+import {onHide, onShow} from "@dcloudio/uni-app";
 import UImage from "../../uni_modules/vk-uview-ui/components/u-image/u-image.vue";
-import { useTitle } from "@/hooks/useTitle";
-import { useI18n } from "vue-i18n";
+import {useTitle} from "@/hooks/useTitle";
+import {useI18n} from "vue-i18n";
+import http from '@/api/http'
+
+const Base_Url = import.meta.env.VITE_APP_BASE_API;
 
 const { t } = useI18n();
 useTitle({ title: t("page.home") });
@@ -114,26 +117,21 @@ const currencies = ref([]);
 const cryptoList = ref([]);
 const timer = ref(null);
 const fetchCryptoData = async () => {
-  const response = await uni.request({
-    url: "/huobi-api/market/tickers?symbol=btceur",
-    method: "GET",
-  });
+  const response = await http.get(`${Base_Url}/h5/tickers`);
 
   const allCryptos = response.data.data;
 
   // 优先展示 BTC ETH XRP 过滤处理
 
   // 过滤和处理需要展示的加密货币数据
-  const filteredCryptos = allCryptos.filter((crypto) => {
+  currencies.value = allCryptos.filter((crypto) => {
     // 优先展示 BTC、ETH、XRP，这里可以根据 symbol 进行过滤
     return (
-      crypto.symbol === "btcusdt" ||
-      crypto.symbol === "ethusdt" ||
-      crypto.symbol === "solusdt"
+        crypto.symbol === "btcusdt" ||
+        crypto.symbol === "ethusdt" ||
+        crypto.symbol === "solusdt"
     );
-  });
-
-  currencies.value = filteredCryptos; // Display the first 4 currencies
+  }); // Display the first 4 currencies
   cryptoList.value = allCryptos.slice(0, 10);
 };
 
