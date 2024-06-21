@@ -39,9 +39,6 @@
         </div>
       </template>
     </scrollList>
-    <!-- <div class="tabs">
-      <u-subsection style="width: 100%;" :list="tabs" v-model="currentTab" active-color="#ff9900" @change="onChangeTab"></u-subsection>
-    </div> -->
     <div class="list-container">
       <div class="list-item" v-for="item in list" :key="id">
         <div class="list-item-top">
@@ -56,8 +53,7 @@
             <div class="price-text">unit-price</div>
           </div>
           <div class="ustd">
-            <di class="ustd-num" v>{{ item.curStock }}
-          </div>
+            <div class="ustd-num">{{ item.curStock }}</div>
             <div class="ustd-text">Number(USDT)</div>
           </div>
           <div class="ustd2">
