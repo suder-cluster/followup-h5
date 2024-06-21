@@ -18,7 +18,8 @@
     "home": "Home",
     "myAssets": "My Assets",
     "recharge": "Recharge",
-    "withdrawal":"Withdrawal"
+    "withdrawal":"Withdrawal",
+    "custom": "online customer service"
   },
   "error": {
     "network": "Network error, error code：",

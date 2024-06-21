@@ -30,9 +30,11 @@
         <u-icon name="photo" :size="46"></u-icon>
         <view class="grid-text">新手教程</view>
       </u-grid-item>
-      <u-grid-item @click="window.open('https://www.moyu-b1.xyz/chat/index/newChat/m/65e844e7bb06f','_blank')">
-        <u-icon name="photo" :size="46"></u-icon>
-        <view class="grid-text">在线客服</view>
+      <u-grid-item>
+        <div @click="goToPage('custom')">
+          <u-icon name="photo" :size="46"></u-icon>
+          <view class="grid-text">在线客服</view>
+        </div>
       </u-grid-item>
     </u-grid>
     <view class="currency-info">
@@ -98,7 +100,7 @@ useTitle({ title: t("page.home") });
 
 const hb = import.meta.env.VITE_HUOBI_API;
 
-
+// @click="window.open('https://www.moyu-b1.xyz/chat/index/newChat/m/65e844e7bb06f','_blank')"
 const list = ref([
   {
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs0F5_TuVM6mzv27Wr-A_eW9rjUarQ0lss1w&usqp=CAU",
@@ -149,6 +151,15 @@ const clearFetch = () => {
     clearInterval(timer)
   }
 }
+
+const goToPage = (type) => {
+  if (type === 'custom') {
+    uni.navigateTo({
+      url: '/pages/custom/index'
+    })
+  }
+}
+
 onShow(() => {
   fetchCryptoData();
   interFetch();

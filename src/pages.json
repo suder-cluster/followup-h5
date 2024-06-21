@@ -73,6 +73,12 @@
       "style": {
         "navigationBarTitleText": ""
       }
+    },
+    {
+      "path": "pages/custom/index",
+      "style": {
+        "navigationBarTitleText": ""
+      }
     }
   ],
   "globalStyle": {
