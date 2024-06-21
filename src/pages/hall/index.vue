@@ -197,8 +197,9 @@ const onConfirm = async () => {
     return uni.$u.toast(t("hall.sellInputVali"));
   }
   try {
-    const data = await saleApi(sellForm.value);
+    await saleApi(sellForm.value);
     uni.$u.toast(t("hall.sellSuccess"));
+    sellVisible.value = false
   } catch (err) {
   } finally {
     uModal1.value.clearLoading();
