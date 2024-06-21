@@ -17,7 +17,8 @@
     "registry": "Registry",
     "home": "Home",
     "myAssets": "My Assets",
-    "recharge": "Recharge"
+    "recharge": "Recharge",
+    "withdrawal":"Withdrawal"
   },
   "error": {
     "network": "Network error, error code：",
@@ -100,5 +101,10 @@
     "address": "Address",
     "usdt": "USDT(TRC20)",
     "usdtPl": "Please enter the am"
+  },
+  "withdrawal":{
+    "amount":"Withdrawal Amount (EUR)",
+    "submit": "submit",
+
   }
 }
