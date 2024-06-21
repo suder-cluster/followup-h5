@@ -99,7 +99,7 @@ const onSuccess = (data, index, lists, name) => {
     formData.value.voucherImg = "";
     uploadRef.value.clear();
   } else {
-    formData.value.voucherImg = data;
+    formData.value.voucherImg = data.data.url;
   }
 };
 // onError
@@ -120,13 +120,13 @@ const onSubmit = async () => {
       voucherImg,
     });
     uni.$u.toast(t("operation.success"));
+    formData.value.voucherImg = undefined;
+    uploadRef.value.clear();
+    formData.value.amount = undefined
   } catch (err) {
   } finally {
     isLoading.value = false;
   }
-  // formRef.value.validate(async (isValid) => {
-    
-  // });
 };
 
 const init = () => {
