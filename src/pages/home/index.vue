@@ -74,17 +74,17 @@
         :key="currency.symbol"
         class="currency-item"
       >
-        <u-image
+        <img
           v-if="currency.symbol === 'btcusdt'"
           class="currency-img"
           src="@/static/btc.webp"
         />
-        <u-image
+        <img
           v-if="currency.symbol === 'ethusdt'"
           class="currency-img"
           src="@/static/eth.webp"
         />
-        <u-image
+        <img
           v-if="currency.symbol === 'solusdt'"
           class="currency-img"
           src="@/static/sol.webp"
@@ -211,6 +211,12 @@ onHide(() => {
 });
 </script>
 <style lang="scss" scoped>
+.page-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20rpx;
+  padding-bottom: 120rpx;
+}
 .swiper-container {
   width: 100%;
   height: 200px;
@@ -229,33 +235,33 @@ onHide(() => {
   position: relative;
 }
 
-.page-container {
-  padding: 20rpx;
-  padding-bottom: 120rpx;
-}
+
 .currency-info {
-  overflow: hidden;
-  box-sizing: border-box;
   margin-top: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  padding: 10px 0;
+  padding: 20rpx 20rpx;
   //background-color: #f8f8f8;
   border-radius: 8px;
   .currency-item {
+    overflow: hidden;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: scale(0.7);
+    padding-right: 20rpx;
+    transform: scale(0.8);
+    img {
+      width: 80rpx;
+    }
     .currency-name {
-      font-size: 16px;
+      font-size: 32rpx;
       font-weight: bold;
     }
     .currency-amount {
-      margin-top: 5px;
-      font-size: 14px;
+      margin-top: 10rpx;
+      font-size: 28rpx;
       color: #ff5454;
     }
   }
