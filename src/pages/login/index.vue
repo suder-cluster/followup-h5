@@ -81,16 +81,16 @@ onReady(() => {
 <style lang="scss" scoped>
 .login-container {
   box-sizing: border-box;
-  padding: 40px 20px;
+  padding: 80rpx 40rpx;
   .login-title {
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: 40px;
+    font-size: 80rpx;
     color: $u-type-primary;
   }
   .login-form {
-    padding-top: 40px;
+    padding-top: 80rpx;
   }
   .registry-text {
     display: flex;

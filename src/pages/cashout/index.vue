@@ -40,29 +40,22 @@ const onCellClick = () => {
 
 <style lang="scss" scoped>
 .recharge-container {
-  padding: 20px;
+  padding: 40rpx;
   //background-color: #f5f5f5;
   border-radius: 8px;
 }
 
 .amount-input, .submit-button {
-  margin-bottom: 20px;
+  margin-bottom: 40rpx;
 }
 
 .amount-input span {
-  margin-right: 10px;
+  margin-right: 20rpx;
 }
 
 .submit-button button {
-  //background-color: #007BFF;
-  //color: white;
-  //padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8rpx;
   cursor: pointer;
-}
-
-.submit-button button:hover {
-  //background-color: #0056b3;
 }
 </style>

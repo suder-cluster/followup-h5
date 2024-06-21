@@ -219,9 +219,9 @@ onHide(() => {
 }
 .swiper-container {
   width: 100%;
-  height: 200px;
+  height: 400rpx;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 10rpx;
   //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .grid-container {
@@ -237,13 +237,13 @@ onHide(() => {
 
 
 .currency-info {
-  margin-top: 20px;
+  margin-top: 40rpx;
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 20rpx 20rpx;
   //background-color: #f8f8f8;
-  border-radius: 8px;
+  border-radius: 16rpx;
   .currency-item {
     overflow: hidden;
     flex: 1;
@@ -268,26 +268,26 @@ onHide(() => {
 }
 
 .crypto-table {
-  margin-top: 20px;
+  margin-top: 40rpx;
   //background-color: #fff;
-  border-radius: 8px;
+  border-radius: 16rpx;
   overflow: hidden;
 }
 
 .crypto-row {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 20rpx 40rpx;
+  border-bottom: 2rpx solid #f0f0f0;
 }
 
 .crypto-name {
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: bold;
 }
 
 .crypto-price {
-  font-size: 16px;
+  font-size: 32rpx;
 
   color: #ff5454;
 }

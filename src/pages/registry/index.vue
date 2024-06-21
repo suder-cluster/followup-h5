@@ -191,17 +191,17 @@ onReady(() => {
 </script>
 <style lang="scss" scoped>
 .registry-container {
-  padding: 40px 20px;
+  padding: 80rpx 40rpx;
   .registry-title {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: 32px;
+    font-size: 64rpx;
     color: $u-type-primary;
   }
 }
 .registry-form {
-  padding-top: 40px;
+  padding-top: 80rpx;
 }
 </style>

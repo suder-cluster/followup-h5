@@ -55,13 +55,13 @@ onShow(() => {
 
 <style scoped>
 .assets {
-  padding: 20px;
+  padding: 40rpx;
   font-family: Arial, sans-serif;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40rpx;
 }
 
 .balance-container {
@@ -69,9 +69,9 @@ onShow(() => {
   align-items: center;
   justify-content: space-between;
   background-color: #ffe66d;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 40rpx;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
 }
 
 .balance {
@@ -80,32 +80,32 @@ onShow(() => {
 
 .balance p {
   margin: 0;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 
 .balance h1 {
   margin: 0;
-  font-size: 36px;
+  font-size: 72rpx;
 }
 
 .recharge-button {
   background-color: #ffae42;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 20rpx 40rpx;
+  border-radius: 10rpx;
   cursor: pointer;
 }
 
 .details {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
 }
 
 .detail {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 20rpx;
 }
 
 .amount {

@@ -229,7 +229,7 @@ onReachBottom(() => {
   padding: 20rpx;
   padding-bottom: 120rpx;
   .hall-title {
-    padding-bottom: 20px;
+    padding-bottom: 40rpx;
     text-align: center;
     font-size: 60rpx;
     font-weight: 600;
