@@ -69,7 +69,10 @@
         <div class="list-item-bottom">
           <div class="left">
             <span>{{ $t("hall.limit") }}: </span>
-            <span>{{ item.min }}-{{ item.max }}&nbsp;&nbsp;USDT</span>
+            <span v-if="authStore.userInfo.minPayLimit && authStore.userInfo.minPayLimit !== 0">
+              {{ item.min }}：&nbsp;&nbsp;USDT
+            </span>
+            <span v-if="authStore.userInfo.minPayLimit">{{ item.min }}-{{ item.max }}：&nbsp;&nbsp;USDT</span>
           </div>
           <div class="right">
             <u-button
@@ -133,9 +136,12 @@ import { useI18n } from "vue-i18n";
 import { cal } from "@/utils/cal";
 import { requireR } from "@/regular";
 import { getAssetsApi, getInfoApi } from "@/api/modules/my";
+import { useAuthStore } from '@/store/modules/auth'
 
 const { t } = useI18n();
 useTitle({ title: t("page.hall") });
+
+const authStore = useAuthStore();
 
 const assetsInfo = ref({});
 const userInfo = ref({});

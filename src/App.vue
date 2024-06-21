@@ -1,7 +1,6 @@
 <script>
 import { useLang } from '@/hooks/useLang'
 import { useAuthStore } from '@/store/modules/auth'
-import { uni } from '@dcloudio/uni-h5'
 export default {
   data() {
     return {
@@ -14,6 +13,7 @@ export default {
   onShow: function () {
     const { setDefault } = useLang();
     setDefault();
+    this.authStore.getUserInfo();
     console.log('authStore=', this.authStore)
   },
   onHide: function () {

@@ -9,7 +9,8 @@ export const useAuthStore = defineStore('auth', {
     openid: null,
     refreshExpireIn: null,
     refreshToken: null,
-    scope: null
+    scope: null,
+    userInfo: {}
   }),
   actions: {
     SETLOGIN(data) {
@@ -34,6 +35,9 @@ export const useAuthStore = defineStore('auth', {
       uni.reLaunch({
         url: '/pages/login/index'
       })
+    },
+    SETUSERINFO(data) {
+      this.userInfo = data
     }
   },
   persist: true,

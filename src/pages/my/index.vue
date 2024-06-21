@@ -6,8 +6,13 @@
           <u-avatar :src="detailInfo.avatar" :size="100"></u-avatar>
         </div>
         <div class="info">
-          <div class="top-text">{{ detailInfo.userName }}</div>
-          <div class="bottom-text">{{ detailInfo.email }}</div>
+          
+          <div class="top-content">
+            <span class="name">{{ detailInfo.userName || '--' }}</span>
+            <u-tag :text="showLevel" shape="square" size="mini" type="warning"/>
+          </div>
+
+          <div class="bottom-text">{{ detailInfo.email || '--' }}</div>
         </div>
       </div>
       <div class="right">
@@ -64,7 +69,7 @@
   </div>
 </template>
 <script setup>
-import {ref} from "vue";
+import {ref, computed} from "vue";
 import {onShow} from "@dcloudio/uni-app";
 import {getInfoApi} from "@/api/modules/my";
 import {useLogin} from "@/hooks/useLogin";
@@ -113,6 +118,10 @@ const cellList = ref([
     index: 4,
   },
 ]);
+
+const showLevel = computed(() => {
+  return detailInfo.value.vipLevel || '0'
+})
 
 const detailInfo = ref({});
 const isLoading = ref(false);
@@ -176,10 +185,14 @@ onShow(() => {
         justify-content: space-between;
         padding-left: 30rpx;
 
-        .top-text {
-          height: 60rpx;
-          line-height: 60rpx;
+        .top-content {
+          display: flex;
+          // height: 60rpx;
+          // line-height: 60rpx;
           font-size: 32rpx;
+          .name {
+            margin-right: 10rpx;
+          }
         }
 
         .bottom-text {

@@ -22,7 +22,7 @@
         />
       </u-form-item>
       <u-form-item>
-        <u-button type="primary" style="width: 100%;" @click="onLogin">{{ $t('login.loginBtn') }}</u-button>
+        <u-button type="primary" style="width: 100%;" @click="onLogin" :loading="isLoading">{{ $t('login.loginBtn') }}</u-button>
       </u-form-item>
       <u-form-item>
         <span class="registry-text" @click="onRegistry">{{ $t('login.bottomText') }}</span>
