@@ -5,10 +5,10 @@
     </div>
     <div class="balance-container">
       <div class="balance">
-        <p>{{ $t('my.usdtTitle') }}</p>
+        <p>{{ $t("my.usdtTitle") }}</p>
         <h1>{{ userInfo.usdtBalance }}</h1>
       </div>
-      <button class="recharge-button">{{ $t('my.recharge') }}</button>
+      <button class="recharge-button">{{ $t("my.recharge") }}</button>
     </div>
     <scrollList
       v-loading="isLoading"
@@ -32,9 +32,7 @@
           </div>
           <div class="right">
             <div class="email">{{ rows.email }}</div>
-
             <span class="label">{{ $t("hall.selling") }}: &nbsp;</span>
-
             <div class="selling">
               <span class="stock">{{ rows.stock }}</span>
             </div>
@@ -47,7 +45,7 @@
       </template>
     </scrollList>
     <div class="list-container">
-      <div class="list-item" v-for="item in list" :key="id">
+      <div class="list-item" v-for="item in list" :key="item.id">
         <div class="list-item-top">
           <div class="avatar">
             <u-avatar mode="circle" :size="60"></u-avatar>
@@ -125,31 +123,29 @@
   </div>
 </template>
 <script setup name="Hall">
-import {computed, ref} from "vue";
-import {onPullDownRefresh, onReachBottom, onReady} from "@dcloudio/uni-app";
+import { computed, ref } from "vue";
+import { onPullDownRefresh, onReachBottom, onReady } from "@dcloudio/uni-app";
 import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
-import {getHallApi, saleApi} from "@/api/modules/hall";
-import {useList} from "@/hooks/useList";
-import {useTitle} from "@/hooks/useTitle";
-import {useI18n} from "vue-i18n";
-import {cal} from "@/utils/cal";
-import {requireR} from "@/regular";
-import {getAssetsApi, getInfoApi} from "../../api/modules/my";
+import { getHallApi, saleApi } from "@/api/modules/hall";
+import { useList } from "@/hooks/useList";
+import { useTitle } from "@/hooks/useTitle";
+import { useI18n } from "vue-i18n";
+import { cal } from "@/utils/cal";
+import { requireR } from "@/regular";
+import { getAssetsApi, getInfoApi } from "@/api/modules/my";
 
 const { t } = useI18n();
 useTitle({ title: t("page.hall") });
 
-
 const assetsInfo = ref({});
 const userInfo = ref({});
-const {data: assets = {}} = await getAssetsApi();
-const {data: user} = await getInfoApi();
-assetsInfo.value = assets || {};
-userInfo.value = user;
-
-console.log("assetsInfo", assetsInfo.value);
-console.log("userInfo", userInfo.value);
-
+const initData = async () => {
+  const { data: assets = {} } = await getAssetsApi();
+  const { data: user } = await getInfoApi();
+  assetsInfo.value = assets || {};
+  userInfo.value = user;
+}
+initData();
 const scList = ref([]);
 
 const dataCb = (data) => {
@@ -190,14 +186,6 @@ const openSell = (item) => {
 };
 
 const onConfirm = async () => {
-  // console.log("确定");
-  // sellFormRef.value.validate(async isValid => {
-  //   console.log('isValid=', isValid)
-  //   if (!isValid) {
-  //     return
-  //   }
-
-  // })
   if (!sellForm.value.stock) {
     uModal1.value.clearLoading();
     return uni.$u.toast(t("hall.sellInputVali"));

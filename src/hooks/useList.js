@@ -30,7 +30,7 @@ export const useList = (config) => {
       const data = await api(requestParams);
       console.log('datadatadata=', data)
       if (dataCb) {
-        await dataCb(data)
+        dataCb(data)
         uni.stopPullDownRefresh();
         return
       } else {
