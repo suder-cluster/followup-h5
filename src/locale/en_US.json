@@ -96,9 +96,8 @@
     "switchLang": "Language Switching"
   },
   "recharge": {
-    "category": "Category",
     "address": "Address",
-    "usdt": "USDT(TRC20)",
+    "usdt": "USDT",
     "usdtPl": "Please enter the am"
   }
 }
