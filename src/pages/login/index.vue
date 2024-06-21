@@ -36,8 +36,15 @@ import { useLogin } from '@/hooks/useLogin';
 import { requireR } from "@/regular/index";
 import { onReady } from "@dcloudio/uni-app";
 import { useTitle } from '@/hooks/useTitle';
+import { useAuthStore } from '@/store/modules/auth'
 
-
+const authStore = useAuthStore();
+// 如果有token，去首页
+if (authStore.token) {
+  uni.navigateTo({
+    url: '/pages/home/index'
+  })
+}
 const { isLoading, onLogin: onLogin2, t } = useLogin(); 
 useTitle({ title: t('page.login') })
 
