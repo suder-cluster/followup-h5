@@ -60,12 +60,14 @@ import { requireR } from "@/regular";
 const authStore = useAuthStore();
 
 const Base_Url = import.meta.env.VITE_APP_BASE_API;
+const clientId = import.meta.env.VITE_APP_CLIENT_ID;
 const { t } = useI18n();
 useTitle({ title: t("page.recharge") });
 
 const actionUrl = `${Base_Url}/resource/oss/upload`;
 const headers = ref({
   Authorization: "Bearer " + authStore.token,
+  clientid: clientId
 });
 
 // Ref
