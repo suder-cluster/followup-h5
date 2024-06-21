@@ -15,7 +15,12 @@
         <div class="scroll-item">
           <div class="left">
             <div class="avatar">
-              <u-avatar :src="rows.avatar" mode="circle" :size="60" style="overflow: hidden;"></u-avatar>
+              <u-avatar
+                :src="rows.avatar"
+                mode="circle"
+                :size="60"
+                style="overflow: hidden"
+              ></u-avatar>
             </div>
           </div>
           <div class="right">
@@ -61,31 +66,74 @@
         </div>
         <div class="list-item-bottom">
           <div class="left">
-            <span>{{ $t('hall.limit') }}: </span>
+            <span>{{ $t("hall.limit") }}: </span>
             <span>{{ item.min }}-{{ item.max }}&nbsp;&nbsp;USDT</span>
           </div>
           <div class="right">
-            <u-button type="warning" shape="circle" size="mini" @click="openSell(item)">{{ $t('hall.goSale') }}</u-button>
+            <u-button
+              type="warning"
+              shape="circle"
+              size="mini"
+              @click="() => openSell(item)"
+              >{{ $t("hall.goSale") }}</u-button
+            >
           </div>
         </div>
       </div>
     </div>
-    <u-modal v-model="sellVisible" @confirm="onConfirm" ref="uModal1" :async-close="true"></u-modal>
+    <u-modal
+      :title="$t('hall.sellModalTitle')"
+      v-model="sellVisible"
+      @confirm="onConfirm"
+      @cancel="onCancel"
+      ref="uModal1"
+      :async-close="true"
+      :show-cancel-button="true"
+      :cancel-text="$t('common.cancelText')"
+      :confirm-text="$t('common.confirmText')"
+    >
+      <template #default>
+        <div class="sell-form-content">
+          <u-form :model="sellForm" ref="sellFormRef">
+            <u-form--item prop="stock">
+              <u-input
+                type="number"
+                v-model="sellForm.stock"
+                :placeholder="$t('order.sellPl')"
+                border
+              />
+            </u-form--item>
+            <div>
+              <span>Amount obtained：{{}}</span>
+              <span>{{ result }}</span>
+            </div>
+            <div>
+              <span>Min：</span>
+              <span>{{ sellForm.min }}</span>
+              <span>Max：</span>
+              <span>{{ sellForm.max }}</span>
+            </div>
+          </u-form>
+        </div>
+      </template>
+    </u-modal>
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
 <script setup name="Hall">
-import {ref} from "vue";
-import {onPullDownRefresh, onReachBottom} from "@dcloudio/uni-app";
+import { ref, computed } from "vue";
+import { onPullDownRefresh, onReachBottom, onReady } from "@dcloudio/uni-app";
 import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
-import {getHallApi} from "@/api/modules/hall";
-import {useList} from "@/hooks/useList";
-import { useTitle } from '@/hooks/useTitle';
+import { getHallApi } from "@/api/modules/hall";
+import { useList } from "@/hooks/useList";
+import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
-
+import { cal } from "@/utils/cal";
+import { requireR } from "@/regular";
+import { saleApi } from "@/api/modules/hall";
 
 const { t } = useI18n();
-useTitle({ title: t('page.hall') })
+useTitle({ title: t("page.hall") });
 
 const scList = ref([]);
 
@@ -103,22 +151,75 @@ const config = ref({
 const { pageable, list, isLoading, refreshList, loadMore } = useList(config);
 
 const sellVisible = ref(false);
+// Ref
+const uModal1 = ref();
+const sellFormRef = ref();
+const sellForm = ref({
+  stock: undefined,
+  price: undefined,
+  floorOrderId: undefined,
+  min: undefined,
+  max: undefined,
+});
+const rules = ref({
+  stock: [requireR(t("hall.sellInputVali"))],
+});
 
 const openSell = (item) => {
-  console.log('item=', item);
+  console.log("item=", item);
+  sellForm.value.price = item.price;
+  sellForm.value.floorOrderId = item.id;
+  sellForm.value.min = item.min;
+  sellForm.value.max = item.max;
   sellVisible.value = true;
-}
+};
 
-const onConfirm = () => {
-  console.log('确定')
-}
+const onConfirm = async () => {
+  // console.log("确定");
+  // sellFormRef.value.validate(async isValid => {
+  //   console.log('isValid=', isValid)
+  //   if (!isValid) {
+  //     return
+  //   }
 
+  // })
+  if (!sellForm.value.stock) {
+    uModal1.value.clearLoading();
+    return uni.$u.toast(t("hall.sellInputVali"));
+  }
+  try {
+    const data = await saleApi(sellForm.value);
+    uni.$u.toast(t("hall.sellSuccess"));
+  } catch (err) {
+  } finally {
+    uModal1.value.clearLoading();
+  }
+};
+const onCancel = () => {
+  sellForm.value = {
+    stock: undefined,
+    price: undefined,
+    floorOrderId: undefined,
+    min: undefined,
+    max: undefined,
+  };
+};
+
+const result = computed(() => {
+  if (!sellForm.value.stock || !sellForm.value.price) {
+    return 0.0;
+  }
+  return cal.mul(sellForm.value.stock, sellForm.value.price);
+});
+onReady(() => {
+  sellFormRef?.value?.setRules(rules.value);
+});
 onPullDownRefresh(() => {
   refreshList();
 });
 onReachBottom(() => {
-  loadMore()
-})
+  loadMore();
+});
 </script>
 <style lang="scss" scoped>
 .hall-container {
@@ -241,5 +342,11 @@ onReachBottom(() => {
       }
     }
   }
+}
+.sell-form-content {
+  padding: 40rpx 20rpx;
+}
+::v-deep .u-model {
+  background-color: #333 !important;
 }
 </style>

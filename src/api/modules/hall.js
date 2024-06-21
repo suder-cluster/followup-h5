@@ -9,3 +9,8 @@ const clientId = import.meta.env.VITE_APP_CLIENT_ID;
 export const getHallApi = (params) => {
   return http.get(`${Base_Url}/h5/floor-order`, params)
 }
+
+// 卖出订单
+export const saleApi = (params) => {
+  return http.post(`${Base_Url}/h5/sold`, params)
+}

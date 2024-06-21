@@ -1,10 +1,13 @@
 {
-  "home": "home",
-  "hall": "hall",
-  "order": "order",
-  "my": "my",
-  "title": "login page",
-  "common": {},
+  // "home": "home",
+  // "hall": "hall",
+  // "order": "order",
+  // "my": "my",
+  // "title": "login page",
+  "common": {
+    "confirmText": "Confirm",
+    "cancelText": "Cancel"
+  },
   "page": {
     "login": "Login",
     "hall": "Hall",
@@ -39,7 +42,10 @@
     "seller": "Selling to Seller",
     "sellList": "Sell List",
     "goSale": "Go for Sale",
-    "limit": "limit"
+    "limit": "limit",
+    "sellModalTitle": "for saleUSDT",
+    "sellInputVali": "Please enter the quantity sold",
+    "sellSuccess": "Successful sale"
   },
   "registry": {
     "title": "register an account",
@@ -62,7 +68,8 @@
     "failAudit": "Fail the audit",
     "0": "To be audit",
     "1": "Success the audit",
-    "2": "Fail the audit"
+    "2": "Fail the audit",
+    "sellPl": "Please enter the amount sold"
   },
   "my": {
     "assets": "My Assets",
@@ -75,8 +82,8 @@
     "recharge": "Recharge",
     "withDraw": "WithDraw",
     "rechargedAmount": "Recharged Amount (USDT)",
-    "soldAmount":"Sold amount (USDT)",
-    "earningsObtained":"Earnings Obtained (USDT)"
+    "soldAmount": "Sold amount (USDT)",
+    "earningsObtained": "Earnings Obtained (USDT)"
   },
   "myDetail": {
     "avatar": "Avatar",

@@ -1,7 +1,7 @@
 <template>
   <view class="page-container">
     <u-swiper :list="list"></u-swiper>
-    <u-grid :col="4" :border="false">
+    <!-- <u-grid :col="4" :border="false">
       <u-grid-item>
         <u-icon name="photo" :size="46"></u-icon>
         <view class="grid-text">我的资产</view>
@@ -34,7 +34,7 @@
         <u-icon name="photo" :size="46"></u-icon>
         <view class="grid-text">联系我们</view>
       </u-grid-item>
-    </u-grid>
+    </u-grid> -->
     <view class="currency-info">
       <view
         v-for="currency in currencies"
@@ -159,6 +159,10 @@ onHide(() => {
 });
 </script>
 <style lang="scss" scoped>
+.page-container {
+  padding: 20rpx;
+  padding-bottom: 120rpx;
+}
 .currency-info {
   margin-top: 20px;
   display: flex;
