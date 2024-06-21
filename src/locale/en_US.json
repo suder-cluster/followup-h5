@@ -99,11 +99,14 @@
   "recharge": {
     "address": "Address",
     "usdt": "USDT",
-    "usdtPl": "Please enter the am"
+    "usdtPl": "Please enter the am",
+    "voucherPl": "Please select a voucher"
   },
   "withdrawal":{
     "amount":"Withdrawal Amount (EUR)",
-    "submit": "submit",
-
+    "submit": "submit"
+  },
+  "upload": {
+    "text1": "Select"
   }
 }

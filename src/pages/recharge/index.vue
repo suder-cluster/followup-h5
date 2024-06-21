@@ -11,7 +11,7 @@
         hover-class="hover-cell-item"
       ></u-cell-item>
     </u-cell-group>
-    <u-form :model="formData">
+    <u-form ref="formRef" :model="formData">
       <u-form-item prop="amount">
         <u-field
           v-model="formData.amount"
@@ -22,9 +22,26 @@
         >
         </u-field>
       </u-form-item>
-      <el-form-item>
+      <u-form-item prop="voucherImg">
         <div class="upload-item">
-          <u-upload :multiple="false"></u-upload>
+          <u-upload
+            ref="uploadRef"
+            :action="actionUrl"
+            :multiple="false"
+            :max-count="1"
+            :header="headers"
+            :upload-text="$t('upload.text1')"
+            @on-error="onError"
+            @on-success="onSuccess"
+          >
+          </u-upload>
+        </div>
+      </u-form-item>
+      <el-form-item>
+        <div class="btn-container" style="padding-top: 40rpx">
+          <u-button type="warning" @click="onSubmit" :loading="isLoading">{{
+            $t("common.confirmText")
+          }}</u-button>
         </div>
       </el-form-item>
     </u-form>
@@ -32,19 +49,39 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import { onShow } from "@dcloudio/uni-app";
+import { onShow, onReady } from "@dcloudio/uni-app";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
 import { getConfigKey } from "@/api/modules/config";
+import { rechargeApi } from "@/api/modules/recharge";
+import { useAuthStore } from "@/store/modules/auth";
+import { requireR } from "@/regular";
 
+const authStore = useAuthStore();
+
+const Base_Url = import.meta.env.VITE_APP_BASE_API;
 const { t } = useI18n();
-useTitle({ title: t("page.Recharge") });
+useTitle({ title: t("page.recharge") });
 
+const actionUrl = `${Base_Url}/resource/oss/upload`;
+const headers = ref({
+  Authorization: "Bearer " + authStore.token,
+});
+
+// Ref
+const uploadRef = ref();
+const formRef = ref();
 // formData
 const formData = ref({
   address: "",
-  amount: 0,
+  amount: undefined,
+  voucherImg: undefined,
 });
+const rules = ref({
+  address: [requireR(t("recharge.usdtPl"))],
+  voucher: [requireR(t("recharge.voucherPl"))],
+});
+const isLoading = ref(false);
 
 // 获取配置
 const getConfig = async () => {
@@ -53,11 +90,51 @@ const getConfig = async () => {
   formData.value.address = data;
 };
 
+// onsuccess
+const onSuccess = (data, index, lists, name) => {
+  console.log("arges=", data, index, lists, name);
+  if (data.code !== 200) {
+    formData.value.voucherImg = "";
+    uploadRef.value.clear();
+  } else {
+    formData.value.voucherImg = data;
+  }
+};
+// onError
+const onError = (value) => {
+  console.log("value=", value);
+};
+
+const onSubmit = async () => {
+  isLoading.value = true;
+  const { amount, voucherImg } = formData.value;
+  if (!amount || !voucherImg) {
+    isLoading.value = false;
+    return uni.$u.toast("Please complete the information!")
+  }
+  try {
+    await rechargeApi({
+      amount,
+      voucherImg,
+    });
+    uni.$u.toast(t("operation.success"));
+  } catch (err) {
+  } finally {
+    isLoading.value = false;
+  }
+  // formRef.value.validate(async (isValid) => {
+    
+  // });
+};
+
 const init = () => {
   getConfig();
 };
 onShow(() => {
   init();
+});
+onReady(() => {
+  formRef?.value?.setRules(rules.value);
 });
 </script>
 <style lang="scss" scoped>
@@ -70,6 +147,12 @@ onShow(() => {
     justify-content: center;
     width: 100%;
     padding-top: 40rpx;
+    ::v-deep .u-list-item {
+      border: 2rpx solid #333;
+      background-color: #000;
+    }
+    .u-add-btn {
+    }
   }
 }
 .hover-cell-item {
