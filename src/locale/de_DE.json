@@ -1,7 +1,25 @@
 {
-  "common": {},
+  // "home": "home",
+  // "hall": "hall",
+  // "order": "order",
+  // "my": "my",
+  // "title": "login page",
+  "common": {
+    "confirmText": "Confirm",
+    "cancelText": "Cancel"
+  },
   "page": {
-    "login": "登录页面"
+    "login": "Login",
+    "hall": "Hall",
+    "order": "Order",
+    "my": "My",
+    "myDetail": "My Information",
+    "registry": "Registry",
+    "home": "Home",
+    "myAssets": "My Assets",
+    "recharge": "Recharge",
+    "withdrawal":"Withdrawal",
+    "custom": "online customer service"
   },
   "error": {
     "network": "Network error, error code：",
@@ -12,13 +30,26 @@
     "success": "operate successfully！"
   },
   "login": {
-    "title": "登录页面",
+    "title": "NYBAK",
     "userNamePl": "Please enter your account number",
     "passwordPl": "Please enter your PIN",
     "loginBtn": "login",
     "forgetText": "forget the password",
     "bottomText": "No account? Register now.",
     "loginSuccess": "login success!"
+  },
+  "hall": {
+    "title": "Trading Floor",
+    "selling": "Selling",
+    "usdt": "USDT",
+    "offsetDayUnit": "days ago",
+    "seller": "Selling to Seller",
+    "sellList": "Sell List",
+    "goSale": "Go for Sale",
+    "limit": "limit",
+    "sellModalTitle": "for saleUSDT",
+    "sellInputVali": "Please enter the quantity sold",
+    "sellSuccess": "Successful sale"
   },
   "registry": {
     "title": "register an account",
@@ -33,5 +64,57 @@
     "backToLogin": "Back to login",
     "getCode": "get code",
     "sendCodeSuccess": "send success!"
+  },
+  "order": {
+    "all": "All",
+    "waitAudit": "To be audit",
+    "successAudit": "Success the audit",
+    "failAudit": "Fail the audit",
+    "0": "To be audit",
+    "1": "Success the audit",
+    "2": "Fail the audit",
+    "sellPl": "Please enter the amount sold"
+  },
+  "my": {
+    "team": "Team",
+    "fundLog": "Fund Log",
+    "myInfo": "My Info",
+    "accountBind": "Binding",
+    "acDetail": "Detail",
+    "tutorial": "Tutorial",
+    "customer": "Customer",
+    "assets": "My Assets",
+    "accountBinding": "Account Binding",
+    "accountDetail": "Account Detail",
+    "switchLang": "Language Switching",
+    "logOut": "Log out",
+    "usdtTitle": "BALANCE (USDT)",
+    "eurTitle": "BALANCE (EUR)",
+    "recharge": "Recharge",
+    "withDraw": "WithDraw",
+    "rechargedAmount": "Recharged Amount (USDT)",
+    "soldAmount": "Sold amount (USDT)",
+    "earningsObtained": "Earnings Obtained (USDT)"
+  },
+  "myDetail": {
+    "avatar": "Avatar",
+    "nickName": "Nick Name",
+    "email": "Email",
+    "modifyPass": "Modify the Login Password",
+    "modify": "Modify",
+    "switchLang": "Language Switching"
+  },
+  "recharge": {
+    "address": "Address",
+    "usdt": "USDT",
+    "usdtPl": "Please enter the am",
+    "voucherPl": "Please select a voucher"
+  },
+  "withdrawal":{
+    "amount":"Withdrawal Amount (EUR)",
+    "submit": "submit"
+  },
+  "upload": {
+    "text1": "Select"
   }
 }

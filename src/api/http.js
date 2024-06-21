@@ -25,6 +25,11 @@ class Http {
     const { isEncrypt, isToken = true } = config;
 
     if (isToken) {
+      if (!authStore.token) {
+        return uni.reLaunch({
+          url: '/pages/login/index'
+        })
+      }
       headers['Authorization'] = 'Bearer ' + authStore.token
     }
 

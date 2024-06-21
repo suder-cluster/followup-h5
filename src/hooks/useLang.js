@@ -14,9 +14,13 @@ export const useLang = () => {
   };
 
   const setDefault = () => {
+    console.log('uni.getLocale()=', uni.getLocale())
     const i18n = useI18n();
     i18n.locale = langStore.lang;
     uni.setLocale(langStore.lang);
+    if (uni.getLocale() === 'en') {
+      window.reload()
+    }
     console.log('i18n.locale=', i18n.locale)
     console.log('uni.setLocale=', uni.getLocale())
   };

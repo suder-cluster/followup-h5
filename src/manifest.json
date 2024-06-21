@@ -7,7 +7,7 @@
     "transformPx" : false,
     "locale": "en_US",
     "h5": {
-        "mainfest": {
+        "manifest": {
             "lang": "en_US"
         }
     },
