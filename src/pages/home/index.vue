@@ -16,29 +16,17 @@
           icon-style="color: #007aff"
         >
           <span class="iconfont icon-yonghuxiangqing f40"></span>
-          <!-- <u-icon name="account-fill" :size="46"></u-icon> -->
           <view class="grid-text">{{ $t("my.myInfo") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('assets')">
-          <!-- <u-icon
-            name="red-packet-fill"
-            :size="46"
-            icon-style="color: '#007aff'"
-          ></u-icon> -->
           <span class="iconfont icon-zhanghuxiangqing f40"></span>
           <view class="grid-text">{{ $t("my.assets") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('tutorial')">
-          <!-- <u-icon
-            name="photo"
-            :size="46"
-            icon-style="color: '#007aff"
-          ></u-icon> -->
           <span class="iconfont icon-xinshoujiaocheng f40"></span>
           <view class="grid-text">{{ $t("my.tutorial") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('custom')">
-          <!-- <u-icon name="server-fill" :size="46" icon-style="color: #007aff"></u-icon> -->
           <span class="iconfont icon-lianxikefu f40"></span>
           <view class="grid-text">{{ $t("my.customer") }}</view>
         </u-grid-item>
@@ -83,10 +71,8 @@
           src="@/static/sol.webp"
         />
         <view class="currency-name">{{ currency.symbol }} </view>
-        <view class="currency-amount"
-          >{{
+        <view class="currency-amount line-ellipsis">{{
             // 四舍五入取两位小数
-
             currency.amount
           }}
         </view>
@@ -269,6 +255,7 @@ onHide(() => {
       font-weight: bold;
     }
     .currency-amount {
+      width: 100%;
       margin-top: 10rpx;
       font-size: 28rpx;
       color: #ff5454;
