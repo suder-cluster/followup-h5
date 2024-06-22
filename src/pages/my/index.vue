@@ -153,6 +153,10 @@ const onClickCell = (value) => {
     uni.navigateTo({
       url: "/pages/accountBinding/index"
     })
+  } else if (value === 2) {
+    uni.navigateTo({
+      url: "/pages/accountDetail/index"
+    })
   } else if (value === 3) {
     onSelectLang();
   } else if (value === 4) {

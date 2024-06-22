@@ -21,7 +21,8 @@
     "withdrawal":"Withdrawal",
     "custom": "Online Customer Service",
     "tutorial": "Tutorial",
-    "accountBind": "Account Binding"
+    "accountBind": "Account Binding",
+    "accountDetail": "Account Detail"
   },
   "error": {
     "network": "Network error, error code：",
@@ -153,5 +154,9 @@
     "cityPl": "Please enter the city",
     "provincePl": "Please enter a province or state",
     "mailPl": "Please enter a email"
+  },
+  "accountDetail": {
+    "rechargeText": "Recharge",
+    "withdrawText": "Withdraw"
   }
 }

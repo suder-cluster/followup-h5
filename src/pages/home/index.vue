@@ -55,7 +55,7 @@
           <view class="grid-text">{{ $t("my.binding") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900">
-          <span class="iconfont icon-zijinliushui f40"></span>
+          <span class="iconfont icon-zijinliushui f40" @click="goToPage('accountDetail')"></span>
           <view class="grid-text">{{ $t("my.acDetail") }}</view>
         </u-grid-item>
       </u-grid>
@@ -205,6 +205,10 @@ const goToPage = (type) => {
     uni.navigateTo({
       url: "/pages/tutorial/index",
     });
+  } else if (type === "accountDetail") {
+    uni.navigateTo({
+      url: "/pages/accountDetail/index"
+    })
   }
 };
 
