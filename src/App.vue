@@ -16,6 +16,7 @@ onShow(() => {
 
 <style lang="scss">
 @import "@/uni_modules/vk-uview-ui/index.scss";
+@import "@/styles/public.scss";
 /*每个页面公共css */
 html {
   overflow-y: auto;

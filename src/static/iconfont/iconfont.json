@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "40825290",
+      "name": "用户详情",
+      "font_class": "yonghuxiangqing",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "40825289",
+      "name": "资金日志",
+      "font_class": "zijinrizhi",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "40825288",
+      "name": "资金流水",
+      "font_class": "zijinliushui",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
       "icon_id": "40825096",
       "name": "联系客服",
       "font_class": "lianxikefu",

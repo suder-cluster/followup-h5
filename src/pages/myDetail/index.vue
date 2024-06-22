@@ -38,14 +38,14 @@
         :index="3"
         @click="onCellClick"
       ></u-cell-item>
-      <u-cell-item
+      <!-- <u-cell-item
         :title="$t('myDetail.switchLang')"
         :title-style="{ color: '#000' }"
         :value-style="{ color: '#000' }"
         bg-color="#fdf6ec"
         :border-top="false"
         hover-class="hover-cell-item"
-      ></u-cell-item>
+      ></u-cell-item> -->
     </u-cell-group>
     <u-modal
       ref="modalRef"

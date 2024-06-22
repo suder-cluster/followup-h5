@@ -7,8 +7,7 @@
         </div>
         <div class="info">
           <div class="top-content">
-            <span class="name">{{ detailInfo.userName || '--' }}</span>
-            <u-tag :text="showLevel" shape="square" size="mini" type="warning"/>
+            <span class="name iconfont icon-VIP f40 vip-c1">{{ showLevel }}</span>
           </div>
           <div class="bottom-text">{{ detailInfo.email || '--' }}</div>
         </div>
@@ -52,15 +51,17 @@
       <u-cell-item
           v-for="item in cellList"
           :border-top="false"
-          :icon="item.icon"
-          :icon-style="item.iconStyle"
           :index="item.index"
           :title="item.title"
           :value="item.value"
           bg-color="#000"
           hover-class="hover-cell-item"
           @click="onClickCell"
-      ></u-cell-item>
+      >
+        <template #icon>
+          <span :class="['iconfont', `icon-${item.icon}`, 'f40', 'orange1', 'mr20']"></span>
+        </template>
+      </u-cell-item>
     </u-cell-group>
     <switch-lang :visible.sync="visible"/>
     <my-tab-bar></my-tab-bar>
@@ -83,36 +84,31 @@ const cellList = ref([
   {
     title: t("my.assets"),
     value: "",
-    icon: "red-packet-fill",
-    iconStyle: {color: "#e6a23c"},
+    icon: "a-49zichan",
     index: 0,
   },
   {
     title: t("my.accountBinding"),
     value: "",
-    icon: "plus-people-fill",
-    iconStyle: {color: "#e6a23c"},
+    icon: "zhanghubangding",
     index: 1,
   },
   {
     title: t("my.accountDetail"),
     value: "",
-    icon: "account-fill",
-    iconStyle: {color: "#e6a23c"},
+    icon: "zhanghuxiangqing",
     index: 2,
   },
   {
     title: t("my.switchLang"),
     value: "",
-    icon: "grid-fill",
-    iconStyle: {color: "#e6a23c"},
+    icon: "yuyanqiehuan",
     index: 3,
   },
   {
     title: t("my.logOut"),
     value: "",
-    icon: "zhuanfa",
-    iconStyle: {color: "#e6a23c"},
+    icon: "tuichudenglu",
     index: 4,
   },
 ]);

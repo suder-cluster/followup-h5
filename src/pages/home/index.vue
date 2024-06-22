@@ -15,54 +15,47 @@
           @click="goToPage('person')"
           icon-style="color: #007aff"
         >
-          <u-icon name="account-fill" :size="46"></u-icon>
+          <span class="iconfont icon-yonghuxiangqing f40"></span>
+          <!-- <u-icon name="account-fill" :size="46"></u-icon> -->
           <view class="grid-text">{{ $t("my.myInfo") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('assets')">
-          <u-icon
+          <!-- <u-icon
             name="red-packet-fill"
             :size="46"
             icon-style="color: '#007aff'"
-          ></u-icon>
+          ></u-icon> -->
+          <span class="iconfont icon-zhanghuxiangqing f40"></span>
           <view class="grid-text">{{ $t("my.assets") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('tutorial')">
-          <u-icon
+          <!-- <u-icon
             name="photo"
             :size="46"
             icon-style="color: '#007aff"
-          ></u-icon>
+          ></u-icon> -->
+          <span class="iconfont icon-xinshoujiaocheng f40"></span>
           <view class="grid-text">{{ $t("my.tutorial") }}</view>
         </u-grid-item>
-        <u-grid-item
-          bg-color="#ff9900"
-          @click="goToPage('custom')"
-        >
-          <u-icon name="server-fill" :size="46" icon-style="color: #007aff"></u-icon>
+        <u-grid-item bg-color="#ff9900" @click="goToPage('custom')">
+          <!-- <u-icon name="server-fill" :size="46" icon-style="color: #007aff"></u-icon> -->
+          <span class="iconfont icon-lianxikefu f40"></span>
           <view class="grid-text">{{ $t("my.customer") }}</view>
         </u-grid-item>
-        <u-grid-item
-          bg-color="#ff9900"
-        >
-          <u-icon name="server-fill" :size="46" icon-style="color: #007aff"></u-icon>
+        <u-grid-item bg-color="#ff9900">
+          <span class="iconfont icon-tuandui f40"></span>
           <view class="grid-text">{{ $t("my.team") }}</view>
         </u-grid-item>
-        <u-grid-item
-          bg-color="#ff9900"
-        >
-          <u-icon name="server-fill" :size="46" icon-style="color: #007aff"></u-icon>
+        <u-grid-item bg-color="#ff9900">
+          <span class="iconfont icon-zijinrizhi f40"></span>
           <view class="grid-text">{{ $t("my.fundLog") }}</view>
         </u-grid-item>
-        <u-grid-item
-          bg-color="#ff9900"
-        >
-          <u-icon name="server-fill" :size="46" icon-style="color: #007aff"></u-icon>
-          <view class="grid-text">{{ $t("my.Account ") }}</view>
+        <u-grid-item bg-color="#ff9900" @click="goToPage('bind')">
+          <span class="iconfont icon-zhanghubangding f40"></span>
+          <view class="grid-text">{{ $t("my.binding") }}</view>
         </u-grid-item>
-        <u-grid-item
-          bg-color="#ff9900"
-        >
-          <u-icon name="server-fill" :size="46" icon-style="color: #007aff"></u-icon>
+        <u-grid-item bg-color="#ff9900">
+          <span class="iconfont icon-zijinliushui f40"></span>
           <view class="grid-text">{{ $t("my.acDetail") }}</view>
         </u-grid-item>
       </u-grid>
@@ -121,7 +114,7 @@ import { ref } from "vue";
 import { onHide, onShow } from "@dcloudio/uni-app";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
-import { useAuthStore } from '@/store/modules/auth';
+import { useAuthStore } from "@/store/modules/auth";
 
 import http from "@/api/http";
 
@@ -192,19 +185,23 @@ const clearFetch = () => {
 };
 
 const goToPage = (type) => {
-  if (type === 'person') {
+  if (type === "person") {
     uni.navigateTo({
       url: "/pages/myDetail/index",
     });
-  } else if (type === 'assets') {
+  } else if (type === "assets") {
     uni.navigateTo({
       url: "/pages/my/assets/index",
+    });
+  } else if (type === 'bind') {
+    uni.navigateTo({
+      url: "/pages/accountBinding/index",
     });
   } else if (type === "custom") {
     uni.navigateTo({
       url: "/pages/custom/index",
     });
-  } else if (type === 'tutorial') {
+  } else if (type === "tutorial") {
     uni.navigateTo({
       url: "/pages/tutorial/index",
     });
@@ -243,7 +240,6 @@ onHide(() => {
   background-position: center;
   position: relative;
 }
-
 
 .currency-info {
   margin-top: 40rpx;
@@ -310,5 +306,16 @@ onHide(() => {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+.iconfont {
+  font-size: 40rpx;
+}
+.grid-text {
+  padding-top: 10rpx;
+}
+::v-deep .u-grid-item {
+  border-right: 2rpx solid #fff;
+  border-bottom: 2rpx solid #fff;
+  border-collapse: collapse;
 }
 </style>
