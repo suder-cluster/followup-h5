@@ -19,7 +19,9 @@
     "myAssets": "My Assets",
     "recharge": "Recharge",
     "withdrawal":"Withdrawal",
-    "custom": "online customer service"
+    "custom": "Online Customer Service",
+    "tutorial": "Tutorial",
+    "accountBind": "Account Binding"
   },
   "error": {
     "network": "Network error, error code：",
@@ -36,7 +38,8 @@
     "loginBtn": "login",
     "forgetText": "forget the password",
     "bottomText": "No account? Register now.",
-    "loginSuccess": "login success!"
+    "loginSuccess": "login success!",
+    "modifyPass": "Modify password"
   },
   "hall": {
     "title": "Trading Floor",
@@ -102,7 +105,14 @@
     "email": "Email",
     "modifyPass": "Modify the Login Password",
     "modify": "Modify",
-    "switchLang": "Language Switching"
+    "switchLang": "Language Switching",
+    "oldPass": "OldPassword",
+    "newPass": "NewPassword",
+    "oldPassPl": "Please enter the old password",
+    "newPassPl": "Please enter the new password",
+    "newPassPl2": "Please enter the new password again",
+    "resetPassValid": "Please complete the information",
+    "passwordValid": "The two passwords are inconsistent"
   },
   "recharge": {
     "address": "Address",
@@ -116,5 +126,31 @@
   },
   "upload": {
     "text1": "Select"
+  },
+  "accountBinding": {
+    "account": "Account",
+    "name": "name",
+    "surname": "Surname",
+    "mail": "Email",
+    "iban": "IBAN",
+    "country": "Country",
+    "region": "Region",
+    "bankName": "Bank Name",
+    "address": "Address",
+    "province": "Province",
+    "city": "City",
+    "zipCode": "ZipCode",
+    "countryPl": "Please enter the country",
+    "bankNamePl": "Please enter the bank name",
+    "ibanPl": "Please enter the IBAN",
+    "accountPl": "Please enter the account name",
+    "regionPl": "Please enter the region",
+    "namePl": "Please enter a name",
+    "surnamePl": "Please enter the last name",
+    "addressPl": "Please enter the address",
+    "zipCodePl": "Please enter the zip code",
+    "cityPl": "Please enter the city",
+    "provincePl": "Please enter a province or state",
+    "mailPl": "Please enter a email"
   }
 }

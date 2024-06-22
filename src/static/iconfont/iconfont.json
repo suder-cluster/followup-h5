@@ -1,0 +1,72 @@
+{
+  "id": "4594975",
+  "name": "followup_h5",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "40825096",
+      "name": "联系客服",
+      "font_class": "lianxikefu",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "40825098",
+      "name": "VIP",
+      "font_class": "VIP",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "40825103",
+      "name": "账户绑定",
+      "font_class": "zhanghubangding",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "40825104",
+      "name": "语言切换",
+      "font_class": "yuyanqiehuan",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "40825099",
+      "name": "团队",
+      "font_class": "tuandui",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "40825100",
+      "name": "新手教程",
+      "font_class": "xinshoujiaocheng",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "40825101",
+      "name": "账户详情",
+      "font_class": "zhanghuxiangqing",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "40825102",
+      "name": "49资产",
+      "font_class": "a-49zichan",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "40825097",
+      "name": "退出登录",
+      "font_class": "tuichudenglu",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}

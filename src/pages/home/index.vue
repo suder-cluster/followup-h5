@@ -26,7 +26,7 @@
           ></u-icon>
           <view class="grid-text">{{ $t("my.assets") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900">
+        <u-grid-item bg-color="#ff9900" @click="goToPage('tutorial')">
           <u-icon
             name="photo"
             :size="46"
@@ -119,15 +119,17 @@
 <script setup>
 import { ref } from "vue";
 import { onHide, onShow } from "@dcloudio/uni-app";
-import UImage from "../../uni_modules/vk-uview-ui/components/u-image/u-image.vue";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
+import { useAuthStore } from '@/store/modules/auth';
+
 import http from "@/api/http";
 
 const Base_Url = import.meta.env.VITE_APP_BASE_API;
 
 const { t } = useI18n();
 useTitle({ title: t("page.home") });
+const authStore = useAuthStore();
 
 const hb = import.meta.env.VITE_HUOBI_API;
 
@@ -176,6 +178,9 @@ const interFetch = () => {
   if (timer.value) {
     clearInterval(timer.value);
   }
+  if (!authStore.token) {
+    return;
+  }
   timer.value = setInterval(() => {
     fetchCryptoData();
   }, 10000);
@@ -198,6 +203,10 @@ const goToPage = (type) => {
   } else if (type === "custom") {
     uni.navigateTo({
       url: "/pages/custom/index",
+    });
+  } else if (type === 'tutorial') {
+    uni.navigateTo({
+      url: "/pages/tutorial/index",
     });
   }
 };

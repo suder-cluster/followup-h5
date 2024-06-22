@@ -1,25 +1,17 @@
-<script>
+<script setup>
 import { useLang } from '@/hooks/useLang'
-import { useAuthStore } from '@/store/modules/auth'
-export default {
-  data() {
-    return {
-      authStore: useAuthStore()
-    }
-  },
-  onLaunch: function () {
-    console.log('App Launch')
-  },
-  onShow: function () {
-    const { setDefault } = useLang();
-    setDefault();
-    this.authStore.getUserInfo();
-    console.log('authStore=', this.authStore)
-  },
-  onHide: function () {
-    console.log('App Hide')
-  },
-}
+import { useLogin } from '@/hooks/useLogin'
+import { onShow, onLaunch } from '@dcloudio/uni-app';
+
+const { getUserInfo } = useLogin();
+const { setDefault } = useLang();
+onLaunch(() => {
+  setDefault();
+  getUserInfo();
+})
+
+onShow(() => {
+})
 </script>
 
 <style lang="scss">

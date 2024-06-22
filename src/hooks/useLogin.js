@@ -42,6 +42,7 @@ export const useLogin = () => {
     isLoading,
     onLogin,
     onLogOut,
+    getUserInfo,
     t
   }
 }

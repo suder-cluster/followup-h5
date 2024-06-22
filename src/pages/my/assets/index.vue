@@ -8,7 +8,7 @@
         <p>{{ $t('my.usdtTitle') }}</p>
         <h1>{{ userInfo.usdtBalance }}</h1>
       </div>
-      <button class="recharge-button">{{ $t('my.recharge') }}</button>
+      <u-button class="recharge-button" type="warning" @click="goToPage('recharge')">{{ $t('my.recharge') }}</u-button>
     </div>
     <div class="details">
       <div class="detail">
@@ -47,6 +47,14 @@ const init = async () => {
   console.log("assetsInfo", assetsInfo.value);
   console.log("userInfo", userInfo.value);
 };
+
+const goToPage = (type) => {
+  if (type === 'recharge') {
+    uni.navigateTo({
+      url: '/pages/recharge/index'
+    })
+  }
+}
 
 onShow(() => {
   init();
@@ -88,13 +96,13 @@ onShow(() => {
   font-size: 72rpx;
 }
 
-.recharge-button {
+/* .recharge-button {
   background-color: #ffae42;
   border: none;
   padding: 20rpx 40rpx;
   border-radius: 10rpx;
   cursor: pointer;
-}
+} */
 
 .details {
   padding: 40rpx;

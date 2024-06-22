@@ -100,14 +100,14 @@
       <template #default>
         <div class="sell-form-content">
           <u-form :model="sellForm" ref="sellFormRef">
-            <u-form--item prop="stock">
+            <u-form-item prop="stock" :border-bottom="false">
               <u-input
                 type="number"
                 v-model="sellForm.stock"
                 :placeholder="$t('order.sellPl')"
                 border
               />
-            </u-form--item>
+            </u-form-item>
             <div>
               <span>Amount obtained：{{}}</span>
               <span>{{ result }}</span>

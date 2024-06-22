@@ -39,3 +39,10 @@ export const getEmailCodeApi = (params) => {
 export const logOutApi = () => {
   return http.post(`${Base_Url}/auth/logout`);
 };
+
+// 修改密码
+export const modifyPassApi = (params) => {
+  return http.put(`${Base_Url}/system/user/profile/updatePwd`, params, {
+    isEncrypt: true
+  })
+}

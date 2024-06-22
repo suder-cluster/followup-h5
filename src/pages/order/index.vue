@@ -6,7 +6,7 @@
       @change="currentChange"
     ></u-subsection>
     <div class="order-container">
-      <div class="order-item" v-for="item in list" :key="item.id">
+      <div class="order-item" v-for="item in list" :key="item.id" @click="goDetail">
         <div class="order-item-item">
           <div class="order-item-item-label">order number:</div>
           <div class="order-item-item-content">{{ item.id }}</div>
@@ -91,6 +91,13 @@ const currentChange = (value) => {
   }
   refreshList();
 };
+
+const goDetail = (order) => {
+  console.log('order=', order)
+  uni.navigateTo({
+    url: `/pages/orderDetail/index?detail=${order}`
+  })
+}
 
 onPullDownRefresh(() => {
   refreshList();

@@ -6,12 +6,10 @@
           <u-avatar :src="detailInfo.avatar" :size="100"></u-avatar>
         </div>
         <div class="info">
-          
           <div class="top-content">
             <span class="name">{{ detailInfo.userName || '--' }}</span>
             <u-tag :text="showLevel" shape="square" size="mini" type="warning"/>
           </div>
-
           <div class="bottom-text">{{ detailInfo.email || '--' }}</div>
         </div>
       </div>
@@ -155,6 +153,10 @@ const onClickCell = (value) => {
     uni.navigateTo({
       url: "/pages/my/assets/index",
     });
+  } else if (value === 1) {
+    uni.navigateTo({
+      url: "/pages/accountBinding/index"
+    })
   } else if (value === 3) {
     onSelectLang();
   } else if (value === 4) {

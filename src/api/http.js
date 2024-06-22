@@ -117,6 +117,31 @@ class Http {
     });
   }
 
+  async put(url, params = {}, config) {
+    // const { t } = useI18n();
+    return new Promise((resolve, reject) => {
+      const { data, headers } = this.setRequest(params, config);
+      uni.request({
+        url: url,
+        method: "PUT",
+        data,
+        header: headers,
+        timeout: this.timeout,
+        ...config,
+        success: (res) => {
+          return this.setResponse(res, resolve, reject)
+        },
+        fail: (err) => {
+          uni.showToast({
+            icon: "error",
+            title: '请求错误'
+          });
+          reject(err);
+        },
+      });
+    });
+  }
+
   async logOut() {
     const authStore = useAuthStore();
     await this.post(`${Base_Url}/auth/logout`);
