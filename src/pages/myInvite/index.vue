@@ -22,7 +22,7 @@ const init = async () => {
   try {
     const { data } = await getInviteCodeApi() 
     console.log('data=', data)
-    qrCode.value = data || '111';
+    qrCode.value = data;
     generateQRCode(qrCode.value)
   } catch(err) {
 
