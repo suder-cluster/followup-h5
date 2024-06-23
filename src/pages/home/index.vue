@@ -189,7 +189,22 @@ const fetchCryptoData = async () => {
     );
   }); // Display the first 4 currencies\
   lastSecondCryptoList.value = cryptoList.value;
-  cryptoList.value = allCryptos.slice(0, 10);
+  cryptoList.value = allCryptos.filter((crypto) => {
+    // 优先展示 BTC、ETH、XRP，这里可以根据 symbol 进行过滤
+    return (
+        crypto.symbol === "btcusdt" ||
+        crypto.symbol === "ethusdt" ||
+        crypto.symbol === "xrpusdt" ||
+        crypto.symbol === "notusdt" ||
+        crypto.symbol === "solusdt" ||
+        crypto.symbol === "zrousdt" ||
+        crypto.symbol === "tonusdt" ||
+        crypto.symbol === "trbusdt" ||
+        crypto.symbol === "wldusdt" ||
+        crypto.symbol === "filusdt"
+    );
+  });
+
   for (let i = 0; i < currencies.value.length; i++) {
     const ratio = cal.div(
       cal.sub(
