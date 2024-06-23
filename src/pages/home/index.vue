@@ -74,8 +74,7 @@
           src="@/static/sol.webp"
         />
         <view class="currency-name">{{ currency.symbol }} </view>
-        <view class="currency-amount line-ellipsis"
-          >
+        <view class="currency-amount line-ellipsis">
           {{ new Decimal(currency.amount || 0).toFixed(2) }}
         </view>
         <view class="currency-ratio">
@@ -121,6 +120,7 @@ import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/store/modules/auth";
 import AnnounceModal from "@/components/announceModal";
 import Decimal from "decimal.js";
+import { cal } from "@/utils/cal";
 
 import http from "@/api/http";
 
@@ -177,17 +177,19 @@ const fetchCryptoData = async () => {
   lastSecondCryptoList.value = cryptoList.value;
   cryptoList.value = allCryptos.slice(0, 10);
   for (let i = 0; i < currencies.value.length; i++) {
-    const ratio =
-      (currencies.value[i].close - lastSecondCurrencies.value[i].close) /
-      lastSecondCurrencies.value[i].close;
-    currencies.value[i].ratio = (ratio * 100).toFixed(2);
+    const ratio = cal.div(
+      cal.sub(currencies.value[i].close || 0, lastSecondCurrencies.value[i].close || 0),
+      lastSecondCurrencies.value[i].close  || 0
+    );
+    currencies.value[i].ratio = cal.mul(ratio, 100).toFixed(2);
   }
 
   for (let i = 0; i < cryptoList.value.length; i++) {
-    const ratio =
-      (cryptoList.value[i].close - lastSecondCryptoList.value[i].close) /
-      lastSecondCryptoList.value[i].close;
-    cryptoList.value[i].ratio = (ratio * 100).toFixed(2);
+    const ratio = cal.div(
+      cal.sub(cryptoList.value[i].close  || 0, lastSecondCryptoList.value[i].close  || 0),
+      lastSecondCryptoList.value[i].close  || 0
+    );
+    cryptoList.value[i].ratio = cal.mul(ratio, 100).toFixed(2);
   }
   uni.stopPullDownRefresh();
 };

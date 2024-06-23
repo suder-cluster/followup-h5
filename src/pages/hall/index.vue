@@ -71,9 +71,9 @@
           <div class="left">
             <span>{{ $t("hall.limit") }}: </span>
             <span v-if="authStore.userInfo.minPayLimit && authStore.userInfo.minPayLimit !== 0">
-              {{ item.min }}：&nbsp;&nbsp;USDT
+              {{ item.min }}&nbsp;USDT
             </span>
-            <span v-if="authStore.userInfo.minPayLimit">{{ item.min }}-{{ item.max }}：&nbsp;&nbsp;USDT</span>
+            <span v-else="authStore.userInfo.minPayLimit">{{ item.min }}-{{ item.max }}&nbsp;USDT</span>
           </div>
           <div class="right">
             <u-button
