@@ -79,7 +79,7 @@
         <view class="currency-ratio line-ellipsis">{{
             // 四舍五入取两位小数
             currency.ratio === undefined ? "0.00" :
-                currency.ratio > 0 ? "+" + currency.ratio : "-" + currency.ratio
+                currency.ratio > 0 ? "+" + currency.ratio : currency.ratio
           }}
         </view>
       </view>
@@ -94,6 +94,12 @@
       >
         <view class="crypto-name">{{ crypto.symbol }}</view>
         <view class="crypto-price">{{ crypto.amount.toFixed(2) }}</view>
+        <view class="currency-ratio line-ellipsis">{{
+            // 四舍五入取两位小数
+            currency.ratio === undefined ? "0.00" :
+                currency.ratio > 0 ? "+" + currency.ratio : currency.ratio
+          }}
+        </view>
       </view>
     </view>
     <no-data v-else></no-data>
