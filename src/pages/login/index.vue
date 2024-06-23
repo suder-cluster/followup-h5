@@ -27,10 +27,11 @@
       <u-form-item>
         <span class="registry-text" @click="onRegistry">{{ $t('login.bottomText') }}</span>
       </u-form-item>
-      <u-form-item @click="onSelectLang">
-        <span class="switch-lang-text">{{$t('my.switchLang')}}</span>
-      </u-form-item>
     </u-form>
+    <div class="switch-lang-container">
+      <span class="switch-lang-text" @click="onSelectLang">{{$t('my.switchLang')}}</span>
+    </div>
+    
   </div>
 </template>
 <script setup>
@@ -97,8 +98,7 @@ onReady(() => {
   .login-form {
     padding-top: 80rpx;
   }
-  .registry-text,
-  .switch-lang-text {
+  .registry-text {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -106,6 +106,19 @@ onReady(() => {
   }
   .registry-text:active {
     color: $u-type-primary;
+  }
+}
+.switch-lang-container {
+  display: flex;
+  justify-content: center;
+  .switch-lang-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: $u-type-primary;
+  }
+  .switch-lang-text:active {
+    color: red;
   }
 }
 </style>
