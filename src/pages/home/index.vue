@@ -83,12 +83,12 @@
           {{ new Decimal(currency.close || 0).toFixed(2) }}
         </view>
         <view class="currency-ratio">
-          <span v-if="currency.ratio === undefined">0.00</span>
-          <span v-else-if="currency.ratio === 0">{{ currency.ratio }}</span>
+          <span v-if="currency.ratio === undefined">0.00%</span>
+          <span v-else-if="currency.ratio === 0">{{ currency.ratio }}%</span>
           <span class="green" v-else-if="currency.ratio > 0"
-            >+{{ currency.ratio }}</span
+          >+{{ currency.ratio }}%</span
           >
-          <span class="red" v-else>{{ currency.ratio }}</span>
+          <span v-else class="red">{{ currency.ratio }}%</span>
         </view>
       </view>
     </view>
@@ -111,9 +111,9 @@
         </view>
         <view class="crypto-ratio">
           <span v-if="crypto.ratio > 0" class="green"
-          >+{{ crypto.ratio }}</span>
+          >+{{ crypto.ratio }}%</span>
 
-          <span v-else-if="crypto.ratio===undefined" class="red">0.00</span>
+          <span v-else-if="crypto.ratio===undefined" class="red">0.00%</span>
           <span v-else class="red">{{ crypto.ratio }}%</span>
         </view>
       </view>
@@ -132,8 +132,8 @@ import {useI18n} from "vue-i18n";
 import {useAuthStore} from "@/store/modules/auth";
 import AnnounceModal from "@/components/announceModal";
 import Decimal from "decimal.js";
-import { cal } from "@/utils/cal";
-import { getNoticeListApi } from "@/api/modules/notice";
+import {cal} from "@/utils/cal";
+import {getNoticeListApi} from "@/api/modules/notice";
 
 import http from "@/api/http";
 
