@@ -100,7 +100,7 @@
         :key="crypto.symbol"
         class="crypto-row"
       >
-        <view class="crypto-name">
+        <view class="crypto-name line-ellipsis">
           <span>{{ crypto.symbol.slice(0,-4).toUpperCase() }}/</span>
           <span style="color: #8f8d8e">{{
               crypto.symbol.slice(-4).toUpperCase()
@@ -114,7 +114,7 @@
           >+{{ crypto.ratio }}</span>
 
           <span v-else-if="crypto.ratio===undefined" class="red">0.00</span>
-          <span v-else class="red">{{ crypto.ratio }}</span>
+          <span v-else class="red">{{ crypto.ratio }}%</span>
         </view>
       </view>
     </view>
@@ -364,16 +364,19 @@ onHide(() => {
 }
 
 .crypto-name {
+  flex: 1;
   font-size: 32rpx;
   font-weight: bold;
 }
 
 .crypto-price {
+  width: 200rpx;
   font-size: 32rpx;
-
   color: #ff5454;
 }
-
+.crypto-ratio {
+  width: 100rpx;
+}
 .crypto-row:last-child {
   border-bottom: none;
 }
