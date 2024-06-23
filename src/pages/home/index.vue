@@ -76,7 +76,7 @@
             currency.amount.toFixed(2)
           }}
         </view>
-        <view : class="currency-ratio line-ellipsis">{{
+        <view class="currency-ratio line-ellipsis">{{
             // 四舍五入取两位小数
             currency.ratio === undefined ? "0.00" :
                 currency.ratio > 0 ? "+" + currency.ratio : "-" + currency.ratio
@@ -103,11 +103,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { onHide, onShow } from "@dcloudio/uni-app";
-import { useTitle } from "@/hooks/useTitle";
-import { useI18n } from "vue-i18n";
-import { useAuthStore } from "@/store/modules/auth";
+import {ref} from "vue";
+import {onHide, onShow} from "@dcloudio/uni-app";
+import {useTitle} from "@/hooks/useTitle";
+import {useI18n} from "vue-i18n";
+import {useAuthStore} from "@/store/modules/auth";
 import AnnounceModal from '@/components/announceModal';
 
 import http from "@/api/http";
