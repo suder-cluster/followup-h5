@@ -43,7 +43,10 @@
           <view class="grid-text">{{ $t("my.binding") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900">
-          <span class="iconfont icon-zijinliushui f40" @click="goToPage('accountDetail')"></span>
+          <span
+            class="iconfont icon-zijinliushui f40"
+            @click="goToPage('accountDetail')"
+          ></span>
           <view class="grid-text">{{ $t("my.acDetail") }}</view>
         </u-grid-item>
       </u-grid>
@@ -71,16 +74,17 @@
           src="@/static/sol.webp"
         />
         <view class="currency-name">{{ currency.symbol }} </view>
-        <view class="currency-amount line-ellipsis">{{
-            // 四舍五入取两位小数
-            currency.amount.toFixed(2)
-          }}
+        <view class="currency-amount line-ellipsis"
+          >
+          {{ new Decimal(currency.amount || 0).toFixed(2) }}
         </view>
-        <view class="currency-ratio line-ellipsis">{{
-            // 四舍五入取两位小数
-            currency.ratio === undefined ? "0.00" :
-                currency.ratio > 0 ? "+" + currency.ratio : "-" + currency.ratio
-          }}
+        <view class="currency-ratio">
+          <span v-if="currency.ratio === undefined">0.00</span>
+          <span v-else-if="currency.ratio === 0">{{ currency.ratio }}</span>
+          <span class="green" v-else-if="currency.ratio > 0"
+            >+{{ currency.ratio }}</span
+          >
+          <span class="red" v-else>{{ currency.ratio }}</span>
         </view>
       </view>
     </view>
@@ -93,7 +97,14 @@
         class="crypto-row"
       >
         <view class="crypto-name">{{ crypto.symbol }}</view>
-        <view class="crypto-price">{{ crypto.amount.toFixed(2) }}</view>
+        <view class="crypto-price">
+          <span v-if="crypto.amount === undefined">0.00</span>
+          <span v-else-if="crypto.amount === 0">{{ crypto.amount }}</span>
+          <span class="green" v-else-if="crypto.amount > 0"
+            >+{{ crypto.amount }}</span
+          >
+          <span class="red" v-else>{{ crypto.ratio }}</span>
+        </view>
       </view>
     </view>
     <no-data v-else></no-data>
@@ -103,12 +114,13 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
-import {onHide, onShow} from "@dcloudio/uni-app";
-import {useTitle} from "@/hooks/useTitle";
-import {useI18n} from "vue-i18n";
-import {useAuthStore} from "@/store/modules/auth";
-import AnnounceModal from '@/components/announceModal';
+import { ref } from "vue";
+import { onHide, onShow } from "@dcloudio/uni-app";
+import { useTitle } from "@/hooks/useTitle";
+import { useI18n } from "vue-i18n";
+import { useAuthStore } from "@/store/modules/auth";
+import AnnounceModal from "@/components/announceModal";
+import Decimal from "decimal.js";
 
 import http from "@/api/http";
 
@@ -165,12 +177,16 @@ const fetchCryptoData = async () => {
   lastSecondCryptoList.value = cryptoList.value;
   cryptoList.value = allCryptos.slice(0, 10);
   for (let i = 0; i < currencies.value.length; i++) {
-    const ratio = (currencies.value[i].close - lastSecondCurrencies.value[i].close) / lastSecondCurrencies.value[i].close;
+    const ratio =
+      (currencies.value[i].close - lastSecondCurrencies.value[i].close) /
+      lastSecondCurrencies.value[i].close;
     currencies.value[i].ratio = (ratio * 100).toFixed(2);
   }
 
   for (let i = 0; i < cryptoList.value.length; i++) {
-    const ratio = (cryptoList.value[i].close - lastSecondCryptoList.value[i].close) / lastSecondCryptoList.value[i].close;
+    const ratio =
+      (cryptoList.value[i].close - lastSecondCryptoList.value[i].close) /
+      lastSecondCryptoList.value[i].close;
     cryptoList.value[i].ratio = (ratio * 100).toFixed(2);
   }
   uni.stopPullDownRefresh();
@@ -202,14 +218,14 @@ const goToPage = (type) => {
     uni.navigateTo({
       url: "/pages/my/assets/index",
     });
-  } else if (type === 'bind') {
+  } else if (type === "bind") {
     uni.navigateTo({
       url: "/pages/accountBinding/index",
     });
-  } else if (type === 'team') {
+  } else if (type === "team") {
     uni.navigateTo({
-      url: "/pages/team/index"
-    })
+      url: "/pages/team/index",
+    });
   } else if (type === "custom") {
     uni.navigateTo({
       url: "/pages/custom/index",
@@ -220,12 +236,12 @@ const goToPage = (type) => {
     });
   } else if (type === "accountDetail") {
     uni.navigateTo({
-      url: "/pages/accountDetail/index"
-    })
-  } else if (type === 'invite') {
+      url: "/pages/accountDetail/index",
+    });
+  } else if (type === "invite") {
     uni.navigateTo({
-      url: "/pages/myInvite/index"
-    })
+      url: "/pages/myInvite/index",
+    });
   }
 };
 
@@ -290,6 +306,7 @@ onHide(() => {
       margin-top: 10rpx;
       font-size: 28rpx;
       color: #ff5454;
+      text-align: center;
     }
   }
 }
@@ -339,5 +356,11 @@ onHide(() => {
   border-right: 2rpx solid #fff;
   border-bottom: 2rpx solid #fff;
   border-collapse: collapse;
+}
+.green {
+  color: #19be6b;
+}
+.red {
+  color: red;
 }
 </style>
