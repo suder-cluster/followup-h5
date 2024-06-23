@@ -78,7 +78,6 @@
           >
           {{ new Decimal(currency.amount || 0).toFixed(2) }}
         </view>
-<<<<<<< HEAD
         <view class="currency-ratio">
           <span v-if="currency.ratio === undefined">0.00</span>
           <span v-else-if="currency.ratio === 0">{{ currency.ratio }}</span>
@@ -86,13 +85,6 @@
             >+{{ currency.ratio }}</span
           >
           <span class="red" v-else>{{ currency.ratio }}</span>
-=======
-        <view class="currency-ratio line-ellipsis">{{
-            // 四舍五入取两位小数
-            currency.ratio === undefined ? "0.00" :
-                currency.ratio > 0 ? "+" + currency.ratio : currency.ratio
-          }}
->>>>>>> 21a64c2ccc8cdec44cc2f2718ab8fa04bb2e411f
         </view>
       </view>
     </view>
