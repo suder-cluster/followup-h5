@@ -73,9 +73,17 @@
           class="currency-img"
           src="@/static/sol.webp"
         />
-        <view class="currency-name">{{ currency.symbol }} </view>
+        <view class="currency-name">
+
+          <span>{{ currency.symbol.slice(0, currency.symbol.length - 4).toUpperCase() + "/" }}</span>
+          <span style="color: #8f8d8e">{{
+              //    crypto.symbol
+              currency.symbol.slice(currency.symbol.length - 4, currency.symbol.length).toUpperCase()
+            }}</span>
+
+        </view>
         <view class="currency-amount line-ellipsis">
-          {{ new Decimal(currency.amount || 0).toFixed(2) }}
+          {{ new Decimal(currency.close || 0).toFixed(2) }}
         </view>
         <view class="currency-ratio">
           <span v-if="currency.ratio === undefined">0.00</span>
@@ -95,14 +103,22 @@
         :key="crypto.symbol"
         class="crypto-row"
       >
-        <view class="crypto-name">{{ crypto.symbol }}</view>
+        <view class="crypto-name">
+          <span>{{ crypto.symbol.slice(0, crypto.symbol.length - 4).toUpperCase() + "/" }}</span>
+          <span style="color: #8f8d8e">{{
+              //    crypto.symbol
+              crypto.symbol.slice(crypto.symbol.length - 4, crypto.symbol.length).toUpperCase()
+            }}</span>
+        </view>
         <view class="crypto-price">
-          <span v-if="crypto.amount === undefined">0.00</span>
-          <span v-else-if="crypto.amount === 0">{{ crypto.amount }}</span>
-          <span class="green" v-else-if="crypto.amount > 0"
-            >+{{ crypto.amount }}</span
-          >
-          <span class="red" v-else>{{ crypto.ratio }}</span>
+          <span>{{ crypto.close }}</span>
+        </view>
+        <view class="crypto-ratio">
+          <span v-if="crypto.ratio > 0" class="green"
+          >+{{ crypto.ratio }}</span>
+
+          <span v-else-if="crypto.ratio===undefined" class="red">0.00</span>
+          <span v-else class="red">{{ crypto.ratio }}</span>
         </view>
       </view>
     </view>
@@ -113,14 +129,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { onHide, onShow } from "@dcloudio/uni-app";
-import { useTitle } from "@/hooks/useTitle";
-import { useI18n } from "vue-i18n";
-import { useAuthStore } from "@/store/modules/auth";
+import {ref} from "vue";
+import {onHide, onShow} from "@dcloudio/uni-app";
+import {useTitle} from "@/hooks/useTitle";
+import {useI18n} from "vue-i18n";
+import {useAuthStore} from "@/store/modules/auth";
 import AnnounceModal from "@/components/announceModal";
 import Decimal from "decimal.js";
-import { cal } from "@/utils/cal";
+import {cal} from "@/utils/cal";
 
 import http from "@/api/http";
 
