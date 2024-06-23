@@ -91,7 +91,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import { onShow, onReady } from "@dcloudio/uni-app";
+import { onShow, onReady, onPullDownRefresh } from "@dcloudio/uni-app";
 import { getInfoApi } from "@/api/modules/my";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
@@ -131,7 +131,7 @@ const onSubmit = async () => {
   uni.$u.toast(t('operation.success'))
 };
 
-const { visible, title, isLoading, formData, onOpen, onClose, onConfirm } =
+const { visible, title, formData, onOpen, onClose, onConfirm } =
   useModal({
     modalRef: modalRef,
     initFormData: {
@@ -148,14 +148,17 @@ const rules = ref({
 });
 const init = async () => {
   try {
-    isLoading.value = true;
+    uni.startPullDownRefresh();
     const { data } = await getInfoApi();
     detailInfo.value = data;
   } catch (err) {
   } finally {
-    isLoading.value = false;
+    uni.stopPullDownRefresh();
   }
 };
+onPullDownRefresh(() => {
+  init();
+})
 onShow(() => {
   init();
 });

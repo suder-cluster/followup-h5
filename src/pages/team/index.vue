@@ -2,18 +2,23 @@
   <div class="team-container">
     <div class="team-content">
       <div class="team-num">
-        <div class="title-label">{{ $t('team.titleLabel') }}</div>
+        <div class="title-label">{{ $t("team.titleLabel") }}</div>
         <div class="title-text">{{ list.length }}</div>
       </div>
-      <div class="team-item" v-for="item in list" :key="item.userId">
-        <div class="left">
-          <u-avatar :src="item.avatar" :size="72"></u-avatar>
-        </div>
-        <div class="right">
-          <span>{{ $t('team.id') }}: {{ item.userId }}</span>
-          <span class="registry-time">{{ $t('team.registryTime') }}: {{ item.createTime }}</span>
+      <div v-if="list.length > 0">
+        <div class="team-item" v-for="item in list" :key="item.userId">
+          <div class="left">
+            <u-avatar :src="item.avatar" :size="72"></u-avatar>
+          </div>
+          <div class="right">
+            <span>{{ $t("team.id") }}: {{ item.userId }}</span>
+            <span class="registry-time"
+              >{{ $t("team.registryTime") }}: {{ item.createTime }}</span
+            >
+          </div>
         </div>
       </div>
+      <no-data v-else></no-data>
     </div>
   </div>
 </template>

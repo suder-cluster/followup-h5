@@ -1,8 +1,9 @@
 <template>
   <div class="invite-container">
-    <div class="qr-code">
+    <div class="qr-code" v-if="qrCodebase64">
       <img :src="qrCodebase64" />
     </div>
+    <no-data v-else></no-data>
   </div>
 </template>
 <script setup>
@@ -51,7 +52,7 @@ onPullDownRefresh(() => {
 </script>
 <style lang="scss" scoped>
 .invite-container {
-  padding: 20rpx 40rpx;
+  padding: 100rpx 40rpx;
   .qr-code {
     display: flex;
     justify-content: center;

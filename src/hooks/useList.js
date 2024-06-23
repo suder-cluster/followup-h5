@@ -12,6 +12,7 @@ export const useList = (config) => {
   const list = ref([]);
   // 刷新页面数据
   const refreshList = async () => {
+    uni.startPullDownRefresh();
     const { params = {}, dataCb, api } = config.value
     // 如果上一个接口还没完成则不请求数据
     if (isLoading.value) {
@@ -36,17 +37,18 @@ export const useList = (config) => {
       } else {
         list.value = data.rows;
         pageable.total = data.total;
-        uni.stopPullDownRefresh();
         console.log('list=', list.value)
       }
       
     } catch(err) {} finally {
       isLoading.value = false
+      uni.stopPullDownRefresh();
     }
   }
 
   // 加载更多
   const loadMore = async () => {
+    uni.startPullDownRefresh();
    const { pageNum, pageSize, total } = pageable.value;
    if (pageNum * pageSize >= total || isLoading.value) {
     return
@@ -66,6 +68,7 @@ export const useList = (config) => {
     pageable.value.pageNum--;
    } finally {
     isLoading.value = false;
+    uni.stopPullDownRefresh();
    }
   }
 

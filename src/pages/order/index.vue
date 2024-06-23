@@ -5,36 +5,37 @@
       :current="current"
       @change="currentChange"
     ></u-subsection>
-    <div class="order-container">
-      <div class="order-item" v-for="item in list" :key="item.id" @click="goDetail">
+    <div class="order-container" v-if="list.length > 0">
+      <div class="order-item" v-for="item in list" :key="item.id" @click="goDetail(item)">
         <div class="order-item-item">
-          <div class="order-item-item-label">order number:</div>
+          <div class="order-item-item-label">{{ $t('orderDetail.orderNumber') }}:</div>
           <div class="order-item-item-content">{{ item.id }}</div>
         </div>
         <div class="order-item-item">
-          <div class="order-item-item-label">account:</div>
+          <div class="order-item-item-label">{{ $t('orderDetail.account') }}:</div>
           <div class="order-item-item-content">{{ item.username }}</div>
         </div>
         <div class="order-item-item">
-          <div class="order-item-item-label">quantity:</div>
+          <div class="order-item-item-label">{{ $t('orderDetail.quantity') }}:</div>
           <div class="order-item-item-content">{{ item.stock }}</div>
         </div>
         <div class="order-item-item">
-          <div class="order-item-item-label">price:</div>
+          <div class="order-item-item-label">{{ $t('orderDetail.price') }}:</div>
           <div class="order-item-item-content">
             {{ Number(item.price) * Number(item.stock) }}EUR
           </div>
         </div>
         <div class="order-item-item">
-          <div class="order-item-item-label">status:</div>
+          <div class="order-item-item-label">{{ $t('orderDetail.status') }}:</div>
           <div class="order-item-item-content">{{ statusMap[item.status] }}</div>
         </div>
         <div class="order-item-item">
-          <div class="order-item-item-label">matching time:</div>
+          <div class="order-item-item-label">{{ $t('orderDetail.matchingTime') }}:</div>
           <div class="order-item-item-content">{{ item.createTime }}</div>
         </div>
       </div>
     </div>
+    <no-data v-else></no-data>
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
@@ -95,7 +96,7 @@ const currentChange = (value) => {
 const goDetail = (order) => {
   console.log('order=', order)
   uni.navigateTo({
-    url: `/pages/orderDetail/index?detail=${order}`
+    url: `/pages/orderDetail/index?detail=${JSON.stringify(order)}`
   })
 }
 

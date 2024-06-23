@@ -7,7 +7,7 @@
       @change="onTabChange"
       bg-color="#fff"
     ></u-tabs>
-    <div class="detail-content">
+    <div class="detail-content" v-if="list.length > 0">
       <template v-if="tabCurrent === 0">
         <div class="detail-item" v-for="item in list" :key="item.id">
           <div class="left">
@@ -35,6 +35,7 @@
         </div>
       </template>
     </div>
+    <no-data v-else></no-data>
   </div>
 </template>
 <script setup>

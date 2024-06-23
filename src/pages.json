@@ -39,19 +39,21 @@
       "path": "pages/order/index",
       "style": {
         "navigationBarTitleText": "",
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
       }
     },
     {
       "path": "pages/orderDetail/index",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
       }
     },
     {
       "path": "pages/accountBinding/index",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
       }
     },
     {
@@ -65,20 +67,23 @@
       "path": "pages/my/index",
       "style": {
         "navigationBarTitleText": "",
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": true
       }
     },
     {
       "path": "pages/myDetail/index",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
         // "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/my/assets/index",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
       }
     },
     {

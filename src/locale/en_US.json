@@ -1,7 +1,8 @@
 {
   "common": {
     "confirmText": "Confirm",
-    "cancelText": "Cancel"
+    "cancelText": "Cancel",
+    "noData": "data null"
   },
   "page": {
     "login": "Login",
@@ -19,7 +20,8 @@
     "accountBind": "Account Binding",
     "accountDetail": "Account Detail",
     "team": "Team List",
-    "invite": "My invitation "
+    "invite": "My invitation ",
+    "orderDetail": "Order Detail"
   },
   "error": {
     "network": "Network error, error code：",
@@ -75,6 +77,14 @@
     "1": "Success the audit",
     "2": "Fail the audit",
     "sellPl": "Please enter the amount sold"
+  },
+  "orderDetail": {
+    "orderNumber": "order Number",
+    "account": "account",
+    "quantity": "quantity",
+    "price": "price",
+    "status": "status",
+    "matchingTime": "matching time"
   },
   "my": {
     "fundLog": "Fund Log",

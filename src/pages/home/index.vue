@@ -80,7 +80,7 @@
     </view>
 
     <!-- Horizontal Table for Cryptocurrencies -->
-    <view class="crypto-table">
+    <view class="crypto-table" v-if="cryptoList.length > 0">
       <view
         v-for="crypto in cryptoList"
         :key="crypto.symbol"
@@ -90,6 +90,7 @@
         <view class="crypto-price">{{ crypto.amount }}</view>
       </view>
     </view>
+    <no-data v-else></no-data>
     <announce-modal />
     <my-tab-bar></my-tab-bar>
   </view>
@@ -136,6 +137,7 @@ const currencies = ref([]);
 const cryptoList = ref([]);
 const timer = ref(null);
 const fetchCryptoData = async () => {
+  uni.startPullDownRefresh();
   const response = await http.get(`${Base_Url}/h5/tickers`);
 
   const allCryptos = response.data.data;
@@ -152,6 +154,7 @@ const fetchCryptoData = async () => {
     );
   }); // Display the first 4 currencies
   cryptoList.value = allCryptos.slice(0, 10);
+  uni.stopPullDownRefresh();
 };
 
 const interFetch = () => {

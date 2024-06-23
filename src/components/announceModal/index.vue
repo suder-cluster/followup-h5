@@ -64,5 +64,8 @@ onMounted(() => {
 }
 ::v-deep .u-model {
   background-color: #333 !important;
+  .u-model__title {
+    padding-top: 20rpx;
+  }
 }
 </style>
