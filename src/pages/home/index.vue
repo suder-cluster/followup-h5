@@ -6,52 +6,49 @@
       :indicator-dots="true"
       :interval="3000"
       :list="list"
-      :height="300"
+      :height="400"
     ></u-swiper>
     <div class="grid-container">
       <u-grid :border="false" :col="4" border>
         <u-grid-item
-          bg-color="#ff9900"
+          bg-color="#353535"
           @click="goToPage('person')"
           icon-style="color: #007aff"
         >
           <span class="iconfont icon-yonghuxiangqing f40"></span>
           <view class="grid-text">{{ $t("my.myInfo") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900" @click="goToPage('assets')">
+        <u-grid-item bg-color="#353535" @click="goToPage('assets')">
           <span class="iconfont icon-a-49zichan f40"></span>
           <view class="grid-text">{{ $t("my.assets") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900" @click="goToPage('tutorial')">
+        <u-grid-item bg-color="#353535" @click="goToPage('tutorial')">
           <span class="iconfont icon-xinshoujiaocheng f40"></span>
           <view class="grid-text">{{ $t("my.tutorial") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900" @click="goToPage('custom')">
+        <u-grid-item bg-color="#353535" @click="goToPage('custom')">
           <span class="iconfont icon-lianxikefu f40"></span>
           <view class="grid-text">{{ $t("my.customer") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900" @click="goToPage('team')">
+        <u-grid-item bg-color="#353535" @click="goToPage('team')">
           <span class="iconfont icon-tuandui f40"></span>
           <view class="grid-text">{{ $t("my.team") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900" @click="goToPage('invite')">
+        <u-grid-item bg-color="#353535" @click="goToPage('invite')">
           <span class="iconfont icon-wodeyaoqing f40"></span>
           <view class="grid-text">{{ $t("my.invite") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900" @click="goToPage('bind')">
+        <u-grid-item bg-color="#353535" @click="goToPage('bind')">
           <span class="iconfont icon-zhanghubangding f40"></span>
           <view class="grid-text">{{ $t("my.binding") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900">
-          <span
-            class="iconfont icon-zijinliushui f40"
-            @click="goToPage('accountDetail')"
-          ></span>
+        <u-grid-item bg-color="#353535" @click="goToPage('accountDetail')">
+          <span class="iconfont icon-zijinliushui f40"></span>
           <view class="grid-text">{{ $t("my.acDetail") }}</view>
         </u-grid-item>
       </u-grid>
     </div>
-
+    <u-notice-bar mode="horizontal" :list="['11111']" bg-color="#353535" color="#fff" :speed="100"></u-notice-bar>
     <view class="currency-info">
       <view
         v-for="currency in currencies"
@@ -177,16 +174,22 @@ const fetchCryptoData = async () => {
   cryptoList.value = allCryptos.slice(0, 10);
   for (let i = 0; i < currencies.value.length; i++) {
     const ratio = cal.div(
-      cal.sub(currencies.value[i].close || 0, lastSecondCurrencies.value[i].close || 0),
-      lastSecondCurrencies.value[i].close  || 0
+      cal.sub(
+        currencies.value[i].close || 0,
+        lastSecondCurrencies.value[i].close || 0
+      ),
+      lastSecondCurrencies.value[i].close || 0
     );
     currencies.value[i].ratio = cal.mul(ratio, 100).toFixed(2);
   }
 
   for (let i = 0; i < cryptoList.value.length; i++) {
     const ratio = cal.div(
-      cal.sub(cryptoList.value[i].close  || 0, lastSecondCryptoList.value[i].close  || 0),
-      lastSecondCryptoList.value[i].close  || 0
+      cal.sub(
+        cryptoList.value[i].close || 0,
+        lastSecondCryptoList.value[i].close || 0
+      ),
+      lastSecondCryptoList.value[i].close || 0
     );
     cryptoList.value[i].ratio = cal.mul(ratio, 100).toFixed(2);
   }
@@ -269,6 +272,7 @@ onHide(() => {
 }
 .grid-container {
   padding-top: 40rpx;
+  margin-bottom: 20rpx;
 }
 .swiper-item {
   width: 100%;
@@ -351,11 +355,6 @@ onHide(() => {
 }
 .grid-text {
   padding-top: 10rpx;
-}
-::v-deep .u-grid-item {
-  border-right: 2rpx solid #fff;
-  border-bottom: 2rpx solid #fff;
-  border-collapse: collapse;
 }
 .green {
   color: #19be6b;
