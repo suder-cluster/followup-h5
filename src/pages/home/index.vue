@@ -73,7 +73,13 @@
         <view class="currency-name">{{ currency.symbol }} </view>
         <view class="currency-amount line-ellipsis">{{
             // 四舍五入取两位小数
-            currency.amount
+            currency.amount.toFixed(2)
+          }}
+        </view>
+        <view class="currency-ratio line-ellipsis">{{
+            // 四舍五入取两位小数
+            currency.ratio === undefined ? "0.00" :
+                currency.ratio > 0 ? "+" + currency.ratio : "-" + currency.ratio
           }}
         </view>
       </view>
@@ -87,7 +93,7 @@
         class="crypto-row"
       >
         <view class="crypto-name">{{ crypto.symbol }}</view>
-        <view class="crypto-price">{{ crypto.amount }}</view>
+        <view class="crypto-price">{{ crypto.amount.toFixed(2) }}</view>
       </view>
     </view>
     <no-data v-else></no-data>
@@ -97,11 +103,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { onHide, onShow } from "@dcloudio/uni-app";
-import { useTitle } from "@/hooks/useTitle";
-import { useI18n } from "vue-i18n";
-import { useAuthStore } from "@/store/modules/auth";
+import {ref} from "vue";
+import {onHide, onShow} from "@dcloudio/uni-app";
+import {useTitle} from "@/hooks/useTitle";
+import {useI18n} from "vue-i18n";
+import {useAuthStore} from "@/store/modules/auth";
 import AnnounceModal from '@/components/announceModal';
 
 import http from "@/api/http";
@@ -134,7 +140,9 @@ const list = ref([
 ]);
 
 const currencies = ref([]);
+const lastSecondCurrencies = ref([]);
 const cryptoList = ref([]);
+const lastSecondCryptoList = ref([]);
 const timer = ref(null);
 const fetchCryptoData = async () => {
   uni.startPullDownRefresh();
@@ -145,6 +153,7 @@ const fetchCryptoData = async () => {
   // 优先展示 BTC ETH XRP 过滤处理
 
   // 过滤和处理需要展示的加密货币数据
+  lastSecondCurrencies.value = currencies.value;
   currencies.value = allCryptos.filter((crypto) => {
     // 优先展示 BTC、ETH、XRP，这里可以根据 symbol 进行过滤
     return (
@@ -152,8 +161,18 @@ const fetchCryptoData = async () => {
       crypto.symbol === "ethusdt" ||
       crypto.symbol === "solusdt"
     );
-  }); // Display the first 4 currencies
+  }); // Display the first 4 currencies\
+  lastSecondCryptoList.value = cryptoList.value;
   cryptoList.value = allCryptos.slice(0, 10);
+  for (let i = 0; i < currencies.value.length; i++) {
+    const ratio = (currencies.value[i].close - lastSecondCurrencies.value[i].close) / lastSecondCurrencies.value[i].close;
+    currencies.value[i].ratio = (ratio * 100).toFixed(2);
+  }
+
+  for (let i = 0; i < cryptoList.value.length; i++) {
+    const ratio = (cryptoList.value[i].close - lastSecondCryptoList.value[i].close) / lastSecondCryptoList.value[i].close;
+    cryptoList.value[i].ratio = (ratio * 100).toFixed(2);
+  }
   uni.stopPullDownRefresh();
 };
 
