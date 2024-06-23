@@ -157,7 +157,6 @@ const cryptoList = ref([]);
 const lastSecondCryptoList = ref([]);
 const timer = ref(null);
 const fetchCryptoData = async () => {
-  uni.startPullDownRefresh();
   const response = await http.get(`${Base_Url}/h5/tickers`);
 
   const allCryptos = response.data.data;
@@ -191,7 +190,6 @@ const fetchCryptoData = async () => {
     );
     cryptoList.value[i].ratio = cal.mul(ratio, 100).toFixed(2);
   }
-  uni.stopPullDownRefresh();
 };
 
 const interFetch = () => {
