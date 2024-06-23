@@ -21,7 +21,6 @@ const init = async () => {
   uni.startPullDownRefresh()
   try {
     const { data } = await getInviteCodeApi() 
-    console.log('data=', data)
     qrCode.value = data;
     generateQRCode(qrCode.value)
   } catch(err) {

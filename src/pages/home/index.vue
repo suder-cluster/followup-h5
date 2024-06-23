@@ -90,7 +90,7 @@
         <view class="crypto-price">{{ crypto.amount }}</view>
       </view>
     </view>
-
+    <announce-modal />
     <my-tab-bar></my-tab-bar>
   </view>
 </template>
@@ -101,6 +101,7 @@ import { onHide, onShow } from "@dcloudio/uni-app";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/store/modules/auth";
+import AnnounceModal from '@/components/announceModal';
 
 import http from "@/api/http";
 
