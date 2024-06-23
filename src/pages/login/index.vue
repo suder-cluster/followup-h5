@@ -27,6 +27,9 @@
       <u-form-item>
         <span class="registry-text" @click="onRegistry">{{ $t('login.bottomText') }}</span>
       </u-form-item>
+      <u-form-item @click="onSelectLang">
+        <span class="switch-lang-text">{{$t('my.switchLang')}}</span>
+      </u-form-item>
     </u-form>
   </div>
 </template>
@@ -37,7 +40,9 @@ import { requireR } from "@/regular/index";
 import { onReady } from "@dcloudio/uni-app";
 import { useTitle } from '@/hooks/useTitle';
 import { useAuthStore } from '@/store/modules/auth'
+import { useLang } from "@/hooks/useLang";
 
+const { onSelectLang } = useLang();
 const authStore = useAuthStore();
 // 如果有token，去首页
 if (authStore.token) {
@@ -92,7 +97,8 @@ onReady(() => {
   .login-form {
     padding-top: 80rpx;
   }
-  .registry-text {
+  .registry-text,
+  .switch-lang-text {
     display: flex;
     justify-content: center;
     width: 100%;
