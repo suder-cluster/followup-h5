@@ -11,44 +11,44 @@
     <div class="grid-container">
       <u-grid :border="false" :col="4" border>
         <u-grid-item
-          bg-color="#353535"
+        bg-color="#252525"
           @click="goToPage('person')"
           icon-style="color: #007aff"
         >
           <span class="iconfont icon-yonghuxiangqing f40"></span>
           <view class="grid-text">{{ $t("my.myInfo") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#353535" @click="goToPage('assets')">
+        <u-grid-item bg-color="#252525" @click="goToPage('assets')">
           <span class="iconfont icon-a-49zichan f40"></span>
           <view class="grid-text">{{ $t("my.assets") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#353535" @click="goToPage('tutorial')">
+        <u-grid-item bg-color="#252525" @click="goToPage('tutorial')">
           <span class="iconfont icon-xinshoujiaocheng f40"></span>
           <view class="grid-text">{{ $t("my.tutorial") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#353535" @click="goToPage('custom')">
+        <u-grid-item bg-color="#252525" @click="goToPage('custom')">
           <span class="iconfont icon-lianxikefu f40"></span>
           <view class="grid-text">{{ $t("my.customer") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#353535" @click="goToPage('team')">
+        <u-grid-item bg-color="#252525" @click="goToPage('team')">
           <span class="iconfont icon-tuandui f40"></span>
           <view class="grid-text">{{ $t("my.team") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#353535" @click="goToPage('invite')">
+        <u-grid-item bg-color="#252525" @click="goToPage('invite')">
           <span class="iconfont icon-wodeyaoqing f40"></span>
           <view class="grid-text">{{ $t("my.invite") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#353535" @click="goToPage('bind')">
+        <u-grid-item bg-color="#252525" @click="goToPage('bind')">
           <span class="iconfont icon-zhanghubangding f40"></span>
           <view class="grid-text">{{ $t("my.binding") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#353535" @click="goToPage('accountDetail')">
+        <u-grid-item bg-color="#252525" @click="goToPage('accountDetail')">
           <span class="iconfont icon-zijinliushui f40"></span>
           <view class="grid-text">{{ $t("my.acDetail") }}</view>
         </u-grid-item>
       </u-grid>
     </div>
-    <u-notice-bar mode="horizontal" :list="['11111']" bg-color="#353535" color="#fff" :speed="100"></u-notice-bar>
+    <u-notice-bar mode="horizontal" :list="[detailInfo.noticeTitle]" bg-color="#252525" color="#fff" :speed="100"></u-notice-bar>
     <view class="currency-info">
       <view
         v-for="currency in currencies"
@@ -92,7 +92,7 @@
         :key="crypto.symbol"
         class="crypto-row"
       >
-        <view class="crypto-name">{{ crypto.symbol }}</view>
+        <view class="crypto-name">{{ crypto.symbol.slice(0, -4) }}/{{ crypto.symbol.slice(-4) }}</view>
         <view class="crypto-price">
           <span v-if="crypto.amount === undefined">0.00</span>
           <span v-else-if="crypto.amount === 0">{{ crypto.amount }}</span>
@@ -118,6 +118,7 @@ import { useAuthStore } from "@/store/modules/auth";
 import AnnounceModal from "@/components/announceModal";
 import Decimal from "decimal.js";
 import { cal } from "@/utils/cal";
+import { getNoticeListApi } from "@/api/modules/notice";
 
 import http from "@/api/http";
 
@@ -153,6 +154,8 @@ const lastSecondCurrencies = ref([]);
 const cryptoList = ref([]);
 const lastSecondCryptoList = ref([]);
 const timer = ref(null);
+const detailInfo = ref({
+});
 const fetchCryptoData = async () => {
   const response = await http.get(`${Base_Url}/h5/tickers`);
 
@@ -247,10 +250,26 @@ const goToPage = (type) => {
     });
   }
 };
-
+const init = async () => {
+  if (!authStore.token) {
+    return;
+  }
+  try {
+    const { rows } = await getNoticeListApi({
+      pageNum: 1,
+      pageSize: 1,
+      noticeType: "2",
+    });
+    detailInfo.value = rows?.length > 0 ? rows[0] : {};
+    visible.value = true;
+  } catch (err) {
+  } finally {
+  }
+};
 onShow(() => {
   fetchCryptoData();
   interFetch();
+  init();
 });
 onHide(() => {
   clearFetch();
@@ -288,7 +307,7 @@ onHide(() => {
   justify-content: space-between;
   width: 100%;
   padding: 20rpx 20rpx;
-  //background-color: #f8f8f8;
+  background-color: #252525;
   border-radius: 16rpx;
   .currency-item {
     overflow: hidden;
@@ -317,7 +336,7 @@ onHide(() => {
 
 .crypto-table {
   margin-top: 40rpx;
-  //background-color: #fff;
+  background-color: #252525;
   border-radius: 16rpx;
   overflow: hidden;
 }
