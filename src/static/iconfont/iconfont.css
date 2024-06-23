@@ -1,9 +1,9 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4594975 */
-  src: url('iconfont.woff2?t=1719063682140') format('woff2'),
-       url('iconfont.woff?t=1719063682140') format('woff'),
-       url('iconfont.ttf?t=1719063682140') format('truetype'),
-       url('iconfont.svg?t=1719063682140#iconfont') format('svg');
+  src: url('iconfont.woff2?t=1719126210581') format('woff2'),
+       url('iconfont.woff?t=1719126210581') format('woff'),
+       url('iconfont.ttf?t=1719126210581') format('truetype'),
+       url('iconfont.svg?t=1719126210581#iconfont') format('svg');
 }
 
 .iconfont {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wodeyaoqing:before {
+  content: "\e617";
 }
 
 .icon-yonghuxiangqing:before {

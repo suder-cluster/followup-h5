@@ -1,9 +1,4 @@
 {
-  // "home": "home",
-  // "hall": "hall",
-  // "order": "order",
-  // "my": "my",
-  // "title": "login page",
   "common": {
     "confirmText": "Confirm",
     "cancelText": "Cancel"
@@ -22,7 +17,9 @@
     "custom": "Online Customer Service",
     "tutorial": "Tutorial",
     "accountBind": "Account Binding",
-    "accountDetail": "Account Detail"
+    "accountDetail": "Account Detail",
+    "team": "Team List",
+    "invite": "My invitation "
   },
   "error": {
     "network": "Network error, error code：",
@@ -80,7 +77,6 @@
     "sellPl": "Please enter the amount sold"
   },
   "my": {
-    "team": "Team",
     "fundLog": "Fund Log",
     "myInfo": "My Info",
     "accountBind": "Binding",
@@ -99,7 +95,9 @@
     "withDraw": "WithDraw",
     "rechargedAmount": "Recharged Amount (USDT)",
     "soldAmount": "Sold amount (USDT)",
-    "earningsObtained": "Earnings Obtained (USDT)"
+    "earningsObtained": "Earnings Obtained (USDT)",
+    "team": "Team List",
+    "invite": "My invite"
   },
   "myDetail": {
     "avatar": "Avatar",
@@ -158,5 +156,10 @@
   "accountDetail": {
     "rechargeText": "Recharge",
     "withdrawText": "Withdraw"
+  },
+  "team": {
+    "id": "id",
+    "titleLabel": "Total number of team members",
+    "registryTime": "Registration time"
   }
 }

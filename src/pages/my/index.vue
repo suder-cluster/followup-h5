@@ -7,9 +7,11 @@
         </div>
         <div class="info">
           <div class="top-content">
-            <span class="name iconfont icon-VIP f40 vip-c1">{{ showLevel }}</span>
+            <span class="name iconfont icon-VIP f40 vip-c1">{{
+              showLevel
+            }}</span>
           </div>
-          <div class="bottom-text">{{ detailInfo.email || '--' }}</div>
+          <div class="bottom-text">{{ detailInfo.email || "--" }}</div>
         </div>
       </div>
       <div class="right">
@@ -22,14 +24,9 @@
         <span class="num">{{ detailInfo.usdtBalance }}</span>
       </div>
       <div class="right">
-        <u-button
-            plain
-            size="mini"
-            type="warning"
-            @click="goToPage('recharge')"
-        >{{ $t("my.recharge") }}
-        </u-button
-        >
+        <u-button plain size="mini" type="warning" @click="goToPage('recharge')"
+          >{{ $t("my.recharge") }}
+        </u-button>
       </div>
     </div>
     <div class="eur-item">
@@ -38,48 +35,46 @@
         <span class="num">{{ detailInfo.euBalance }}</span>
       </div>
       <div class="right">
-        <u-button plain size="mini" type="error"
-
-                  @click="goToPage('cashout')"
-        >{{
-            $t("my.withDraw")
-          }}
+        <u-button plain size="mini" type="error" @click="goToPage('cashout')"
+          >{{ $t("my.withDraw") }}
         </u-button>
       </div>
     </div>
     <u-cell-group>
       <u-cell-item
-          v-for="item in cellList"
-          :border-top="false"
-          :index="item.index"
-          :title="item.title"
-          :value="item.value"
-          bg-color="#000"
-          hover-class="hover-cell-item"
-          @click="onClickCell"
+        v-for="item in cellList"
+        :border-top="false"
+        :index="item.index"
+        :title="item.title"
+        :value="item.value"
+        bg-color="#000"
+        hover-class="hover-cell-item"
+        @click="onClickCell"
       >
         <template #icon>
-          <span :class="['iconfont', `icon-${item.icon}`, 'f40', 'orange1', 'mr20']"></span>
+          <span
+            :class="['iconfont', `icon-${item.icon}`, 'f40', 'orange1', 'mr20']"
+          ></span>
         </template>
       </u-cell-item>
     </u-cell-group>
-    <switch-lang :visible.sync="visible"/>
+    <switch-lang :visible.sync="visible" />
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
 <script setup>
-import {ref, computed} from "vue";
-import {onShow} from "@dcloudio/uni-app";
-import {getInfoApi} from "@/api/modules/my";
-import {useLogin} from "@/hooks/useLogin";
-import {useLang} from "@/hooks/useLang";
-import {useTitle} from "@/hooks/useTitle";
-import {useI18n} from "vue-i18n";
+import { ref, computed } from "vue";
+import { onShow } from "@dcloudio/uni-app";
+import { getInfoApi } from "@/api/modules/my";
+import { useLogin } from "@/hooks/useLogin";
+import { useLang } from "@/hooks/useLang";
+import { useTitle } from "@/hooks/useTitle";
+import { useI18n } from "vue-i18n";
 
-const {t} = useI18n();
-useTitle({title: t("page.my")});
-const {onLogOut} = useLogin();
-const {onSelectLang} = useLang();
+const { t } = useI18n();
+useTitle({ title: t("page.my") });
+const { onLogOut } = useLogin();
+const { onSelectLang } = useLang();
 const cellList = ref([
   {
     title: t("my.assets"),
@@ -96,33 +91,73 @@ const cellList = ref([
   {
     title: t("my.accountDetail"),
     value: "",
-    icon: "zhanghuxiangqing",
+    icon: "zijinliushui",
     index: 2,
+  },
+  {
+    title: t("my.team"),
+    value: "",
+    icon: "tuandui",
+    index: 3,
   },
   {
     title: t("my.switchLang"),
     value: "",
     icon: "yuyanqiehuan",
-    index: 3,
+    index: 4,
+  },
+  {
+    title: t("my.invite"),
+    value: "",
+    icon: "wodeyaoqing",
+    index: 5,
   },
   {
     title: t("my.logOut"),
     value: "",
     icon: "tuichudenglu",
-    index: 4,
+    index: 6,
   },
 ]);
 
 const showLevel = computed(() => {
-  return detailInfo.value.vipLevel || '0'
-})
+  return detailInfo.value.vipLevel || "0";
+});
 
-const detailInfo = ref({});
+const detailInfo = ref({
+  userId: undefined,
+  tenantId: undefined,
+  deptId: undefined,
+  userName: undefined,
+  nickName: undefined,
+  userType: undefined,
+  email: undefined,
+  phonenumber: undefined,
+  sex: undefined,
+  avatar: undefined,
+  status: undefined,
+  loginIp: undefined,
+  loginDate: undefined,
+  remark: undefined,
+  createTime: undefined,
+  deptName: undefined,
+  roles: [],
+  roleIds: undefined,
+  postIds: undefined,
+  roleId: undefined,
+  vipLevel: undefined,
+  minPayLimit: undefined,
+  usdtBalance: undefined,
+  euBalance: undefined,
+  isReal: undefined,
+  inviteCode: undefined,
+  inviteUserId: undefined,
+});
 const isLoading = ref(false);
 const init = async () => {
   try {
     isLoading.value = true;
-    const {data} = await getInfoApi();
+    const { data } = await getInfoApi();
     detailInfo.value = data;
   } catch (err) {
   } finally {
@@ -151,15 +186,23 @@ const onClickCell = (value) => {
     });
   } else if (value === 1) {
     uni.navigateTo({
-      url: "/pages/accountBinding/index"
-    })
+      url: "/pages/accountBinding/index",
+    });
   } else if (value === 2) {
     uni.navigateTo({
-      url: "/pages/accountDetail/index"
-    })
+      url: "/pages/accountDetail/index",
+    });
   } else if (value === 3) {
-    onSelectLang();
+    uni.navigateTo({
+      url: "/pages/team/index",
+    });
   } else if (value === 4) {
+    onSelectLang();
+  } else if (value === 5) {
+    uni.navigateTo({
+      url: "/pages/myInvite/index",
+    });
+  } else if (value === 6) {
     onLogOut();
   }
 };

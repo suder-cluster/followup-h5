@@ -102,7 +102,22 @@
     {
       "path": "pages/accountDetail/index",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/team/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/myInvite/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true
       }
     }
   ],

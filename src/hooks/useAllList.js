@@ -18,6 +18,7 @@ export const useAllList = (config) => {
     console.log('requestParams=', requestParams)
     try {
       isLoading.value = true;
+      uni.startPullDownRefresh();
       const data = await api(requestParams);
       console.log('datadatadata=', data)
       if (dataCb) {

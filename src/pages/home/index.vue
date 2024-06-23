@@ -19,7 +19,7 @@
           <view class="grid-text">{{ $t("my.myInfo") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('assets')">
-          <span class="iconfont icon-zhanghuxiangqing f40"></span>
+          <span class="iconfont icon-a-49zichan f40"></span>
           <view class="grid-text">{{ $t("my.assets") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('tutorial')">
@@ -30,13 +30,13 @@
           <span class="iconfont icon-lianxikefu f40"></span>
           <view class="grid-text">{{ $t("my.customer") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900">
+        <u-grid-item bg-color="#ff9900" @click="goToPage('team')">
           <span class="iconfont icon-tuandui f40"></span>
           <view class="grid-text">{{ $t("my.team") }}</view>
         </u-grid-item>
-        <u-grid-item bg-color="#ff9900">
-          <span class="iconfont icon-zijinrizhi f40"></span>
-          <view class="grid-text">{{ $t("my.fundLog") }}</view>
+        <u-grid-item bg-color="#ff9900" @click="goToPage('invite')">
+          <span class="iconfont icon-wodeyaoqing f40"></span>
+          <view class="grid-text">{{ $t("my.invite") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#ff9900" @click="goToPage('bind')">
           <span class="iconfont icon-zhanghubangding f40"></span>
@@ -183,6 +183,10 @@ const goToPage = (type) => {
     uni.navigateTo({
       url: "/pages/accountBinding/index",
     });
+  } else if (type === 'team') {
+    uni.navigateTo({
+      url: "/pages/team/index"
+    })
   } else if (type === "custom") {
     uni.navigateTo({
       url: "/pages/custom/index",
@@ -194,6 +198,10 @@ const goToPage = (type) => {
   } else if (type === "accountDetail") {
     uni.navigateTo({
       url: "/pages/accountDetail/index"
+    })
+  } else if (type === 'invite') {
+    uni.navigateTo({
+      url: "/pages/myInvite/index"
     })
   }
 };
