@@ -282,7 +282,6 @@ onPullDownRefresh(() => {
     }
   }
 }
-
 .hover-cell-item {
   background-color: #222 !important;
 }

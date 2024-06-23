@@ -15,6 +15,7 @@ export const useLang = () => {
 
   const onSelectLang = () => {
     uni.showActionSheet({
+      title: i18n.t('my.switchLang'),
       itemList: list,
       success: function (res) {
         const { tapIndex } = res;

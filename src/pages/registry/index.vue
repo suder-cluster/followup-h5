@@ -78,6 +78,9 @@
         }}</u-button>
       </u-form-item>
     </u-form>
+    <div class="switch-lang-container">
+      <span class="switch-lang-text" @click="onSelectLang">{{$t('my.switchLang')}}</span>
+    </div>
   </div>
 </template>
 <script setup name="Registry">
@@ -89,9 +92,12 @@ import { useI18n } from "vue-i18n";
 import { emailR } from '@/regular/index';
 import { useTitle } from '@/hooks/useTitle';
 import { getQuery } from '@/utils/getQuery'
+import { useLang } from "@/hooks/useLang";
 
 const { t } = useI18n();
 useTitle({ title: t('page.registry') })
+
+const { onSelectLang } = useLang();
 const queryString = window.location
 // const searchParams = new URLSearchParams(queryString);
 // const clickid = searchParams.get('id');
@@ -220,5 +226,18 @@ onShow(() => {
 }
 .registry-form {
   padding-top: 80rpx;
+}
+.switch-lang-container {
+  display: flex;
+  justify-content: center;
+  .switch-lang-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: $u-type-primary;
+  }
+  .switch-lang-text:active {
+    color: red;
+  }
 }
 </style>
