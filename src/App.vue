@@ -6,11 +6,20 @@ import { onShow, onLaunch } from '@dcloudio/uni-app';
 const { getUserInfo } = useLogin();
 const { setDefault } = useLang();
 onLaunch(() => {
-  setDefault();
-  getUserInfo();
+  
 })
 
-onShow(() => {
+onShow(async () => {
+  uni.onLocaleChange(({ locale }) => {
+    console.log('localeChange=', locale)
+    if (locale === uni.getStorageSync("language")) {
+      return
+    }
+    uni.setStorageSync("language", locale);
+    window.location.reload();
+  })
+  setDefault();
+  getUserInfo();
 })
 </script>
 

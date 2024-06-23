@@ -31,7 +31,8 @@ const list = ref([
 ])
 
 const onChangeLang = (lang) => {
-  console.log('lang=', lang)
+  console.log('onChangeLang=', lang)
+  setLang()
 }
 
 </script>

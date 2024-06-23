@@ -58,7 +58,6 @@
         </template>
       </u-cell-item>
     </u-cell-group>
-    <switch-lang :visible.sync="visible" />
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
