@@ -8,9 +8,10 @@
         <p>{{ $t("my.usdtTitle") }}</p>
         <h1>{{ userInfo.usdtBalance }}</h1>
       </div>
-      <button class="recharge-button">{{ $t("my.recharge") }}</button>
+      <button class="recharge-button" v-if="scList.length > 0">{{ $t("my.recharge") }}</button>
     </div>
     <scrollList
+      v-if="scList.length > 0"
       v-loading="isLoading"
       class="scroll-list"
       :list="scList"
@@ -44,7 +45,7 @@
         </div>
       </template>
     </scrollList>
-    <div class="list-container">
+    <div class="list-container" v-if="list.length > 0">
       <div class="list-item" v-for="item in list" :key="item.id">
         <div class="list-item-top">
           <div class="avatar">
@@ -86,6 +87,7 @@
         </div>
       </div>
     </div>
+    <no-data v-else></no-data>
     <u-modal
       :title="$t('hall.sellModalTitle')"
       v-model="sellVisible"
@@ -183,7 +185,6 @@ const rules = ref({
 });
 
 const openSell = (item) => {
-  console.log("item=", item);
   sellForm.value.price = item.price;
   sellForm.value.floorOrderId = item.id;
   sellForm.value.min = item.min;

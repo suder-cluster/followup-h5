@@ -84,11 +84,19 @@
 import { ref, computed } from "vue";
 import { registryApi, getEmailCodeApi } from "@/api/modules/login";
 import { requireR } from "@/regular/index";
-import { onReady } from "@dcloudio/uni-app";
+import { onReady, onShow } from "@dcloudio/uni-app";
 import { useI18n } from "vue-i18n";
 import { emailR } from '@/regular/index';
+import { useTitle } from '@/hooks/useTitle';
+import { getQuery } from '@/utils/getQuery'
 
 const { t } = useI18n();
+useTitle({ title: t('page.registry') })
+const queryString = window.location
+// const searchParams = new URLSearchParams(queryString);
+// const clickid = searchParams.get('id');
+console.log("queryString", queryString)
+// console.log("clickid", clickid)
 // Ref
 const formRef = ref();
 const formData = ref({
@@ -185,9 +193,18 @@ const onBack = () => {
   // });
 };
 
+const init = () => {
+  const params = getQuery();
+  const { id } = params;
+  formData.value.inviteCode = id
+}
 onReady(() => {
   formRef.value.setRules(rules.value);
 });
+
+onShow(() => {
+  init();
+})
 </script>
 <style lang="scss" scoped>
 .registry-container {

@@ -86,7 +86,7 @@
     </view>
 
     <!-- Horizontal Table for Cryptocurrencies -->
-    <view class="crypto-table">
+    <view class="crypto-table" v-if="cryptoList.length > 0">
       <view
         v-for="crypto in cryptoList"
         :key="crypto.symbol"
@@ -96,17 +96,19 @@
         <view class="crypto-price">{{ crypto.amount.toFixed(2) }}</view>
       </view>
     </view>
-
+    <no-data v-else></no-data>
+    <announce-modal />
     <my-tab-bar></my-tab-bar>
   </view>
 </template>
 
 <script setup>
-import {ref} from "vue";
-import {onHide, onShow} from "@dcloudio/uni-app";
-import {useTitle} from "@/hooks/useTitle";
-import {useI18n} from "vue-i18n";
-import {useAuthStore} from "@/store/modules/auth";
+import { ref } from "vue";
+import { onHide, onShow } from "@dcloudio/uni-app";
+import { useTitle } from "@/hooks/useTitle";
+import { useI18n } from "vue-i18n";
+import { useAuthStore } from "@/store/modules/auth";
+import AnnounceModal from '@/components/announceModal';
 
 import http from "@/api/http";
 
@@ -143,6 +145,7 @@ const cryptoList = ref([]);
 const lastSecondCryptoList = ref([]);
 const timer = ref(null);
 const fetchCryptoData = async () => {
+  uni.startPullDownRefresh();
   const response = await http.get(`${Base_Url}/h5/tickers`);
 
   const allCryptos = response.data.data;
@@ -170,6 +173,7 @@ const fetchCryptoData = async () => {
     const ratio = (cryptoList.value[i].close - lastSecondCryptoList.value[i].close) / lastSecondCryptoList.value[i].close;
     cryptoList.value[i].ratio = (ratio * 100).toFixed(2);
   }
+  uni.stopPullDownRefresh();
 };
 
 const interFetch = () => {

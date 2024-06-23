@@ -58,13 +58,12 @@
         </template>
       </u-cell-item>
     </u-cell-group>
-    <switch-lang :visible.sync="visible" />
     <my-tab-bar></my-tab-bar>
   </div>
 </template>
 <script setup>
 import { ref, computed } from "vue";
-import { onShow } from "@dcloudio/uni-app";
+import { onShow, onPullDownRefresh } from "@dcloudio/uni-app";
 import { getInfoApi } from "@/api/modules/my";
 import { useLogin } from "@/hooks/useLogin";
 import { useLang } from "@/hooks/useLang";
@@ -153,15 +152,14 @@ const detailInfo = ref({
   inviteCode: undefined,
   inviteUserId: undefined,
 });
-const isLoading = ref(false);
 const init = async () => {
+  uni.startPullDownRefresh();
   try {
-    isLoading.value = true;
     const { data } = await getInfoApi();
     detailInfo.value = data;
   } catch (err) {
   } finally {
-    isLoading.value = false;
+    uni.stopPullDownRefresh();
   }
 };
 const goToPage = (type) => {
@@ -209,6 +207,9 @@ const onClickCell = (value) => {
 onShow(() => {
   init();
 });
+onPullDownRefresh(() => {
+  init();
+})
 </script>
 <style lang="scss" scoped>
 .my-container {

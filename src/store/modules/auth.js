@@ -40,10 +40,5 @@ export const useAuthStore = defineStore('auth', {
       this.userInfo = data
     }
   },
-  persist: true,
-  // persist: {
-  //   storage: {
-      
-  //   }
-  // }
+  persist: true
 });

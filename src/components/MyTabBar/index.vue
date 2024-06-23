@@ -14,9 +14,6 @@ import { computed, ref } from "vue";
 import { useTabBarStore } from "@/store/modules/tabBar";
 import { useI18n } from "vue-i18n";
 
-const pages = getCurrentPages();
-console.log("pages===", pages);
-
 const { t } = useI18n();
 const tabBarStore = useTabBarStore();
 const current = computed({

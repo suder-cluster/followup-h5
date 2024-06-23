@@ -1,8 +1,9 @@
 <template>
   <div class="invite-container">
-    <div class="qr-code">
+    <div class="qr-code" v-if="qrCodebase64">
       <img :src="qrCodebase64" />
     </div>
+    <no-data v-else></no-data>
   </div>
 </template>
 <script setup>
@@ -21,8 +22,7 @@ const init = async () => {
   uni.startPullDownRefresh()
   try {
     const { data } = await getInviteCodeApi() 
-    console.log('data=', data)
-    qrCode.value = data || 'http://107.149.212.34:5932/#/pages/registry/index?invideCode=111111';
+    qrCode.value = data;
     generateQRCode(qrCode.value)
   } catch(err) {
 
@@ -30,10 +30,11 @@ const init = async () => {
     uni.stopPullDownRefresh();
   }
 }
-const generateQRCode = async (text) => {
+const generateQRCode = async (id) => {
       try {
         // 生成二维码
-        const img = await QRCode.toDataURL(text);
+        const {origin} = window.location;
+        const img = await QRCode.toDataURL(`${origin}/#/pages/registry/index?id=${id}`);
         // 将二维码图片转换为base64格式
         qrCodebase64.value = img;
         console.log('qrCodebase64.value=', qrCodebase64)
@@ -51,7 +52,7 @@ onPullDownRefresh(() => {
 </script>
 <style lang="scss" scoped>
 .invite-container {
-  padding: 20rpx 40rpx;
+  padding: 100rpx 40rpx;
   .qr-code {
     display: flex;
     justify-content: center;

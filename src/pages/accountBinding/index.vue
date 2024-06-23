@@ -45,7 +45,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
-import { onShow } from '@dcloudio/uni-app';
+import { onShow, onPullDownRefresh } from '@dcloudio/uni-app';
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
 import { getAccountBindDetailApi, modifyAccountBindApi } from '@/api/modules/accountBind';
@@ -85,10 +85,20 @@ const onConfirm = async () => {
 
 // 初始化
 const init = async () => {
-  const { data } = await getAccountBindDetailApi()
-  formData.value = {...formData.value, ... (data || {})}
+  try {
+    uni.startPullDownRefresh();
+    const { data } = await getAccountBindDetailApi()
+    formData.value = {...formData.value, ... (data || {})}
+  } catch(err) {} finally {
+    uni.stopPullDownRefresh();
+  }
+  
 }
 
+
+onPullDownRefresh(() => {
+  init();
+})
 onShow(() => {
   init()
 })

@@ -1,6 +1,5 @@
 import { decryptBase64, decryptWithAes, encryptBase64, encryptWithAes, generateAesKey } from '@/utils/crypto';
 import { decrypt, encrypt } from '@/utils/jsencrypt';
-import { useLangStore } from '@/store/modules/lang';
 import { useAuthStore } from '@/store/modules/auth';
 // import { useI18n} from 'vue-i18n';
 
@@ -14,11 +13,11 @@ class Http {
     this.timeout = timeout
   }
   setRequest(params = {}, config = {}) {
-    const langStore = useLangStore();
+    const language = uni.getStorageSync("language")
     const authStore = useAuthStore();
     console.log('config=', config);
     let headers = {
-      'Content-Language': langStore.lang,
+      'Content-Language': language,
       clientid: clientId
     };
     let data = params

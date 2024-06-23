@@ -1,25 +1,27 @@
 {
-  // "home": "home",
-  // "hall": "hall",
-  // "order": "order",
-  // "my": "my",
-  // "title": "login page",
   "common": {
     "confirmText": "Confirm",
-    "cancelText": "Cancel"
+    "cancelText": "Cancel",
+    "noData": "data null"
   },
   "page": {
-    "login": "Login",
-    "hall": "Hall",
-    "order": "Order",
-    "my": "My",
-    "myDetail": "My Information",
-    "registry": "Registry",
-    "home": "Home",
-    "myAssets": "My Assets",
-    "recharge": "Recharge",
-    "withdrawal":"Withdrawal",
-    "custom": "online customer service"
+    "login": "登录",
+    "hall": "大厅",
+    "order": "订单",
+    "my": "我的",
+    "myDetail": "我的信息",
+    "registry": "注册",
+    "home": "首页",
+    "myAssets": "我的资金",
+    "recharge": "充值",
+    "withdrawal":"提现",
+    "custom": "在线客服",
+    "tutorial": "Tutorial",
+    "accountBind": "账户绑定",
+    "accountDetail": "账户流水",
+    "team": "团队列表",
+    "invite": "我的邀请 ",
+    "orderDetail": "订单详情"
   },
   "error": {
     "network": "Network error, error code：",
@@ -36,7 +38,8 @@
     "loginBtn": "login",
     "forgetText": "forget the password",
     "bottomText": "No account? Register now.",
-    "loginSuccess": "login success!"
+    "loginSuccess": "login success!",
+    "modifyPass": "Modify password"
   },
   "hall": {
     "title": "Trading Floor",
@@ -75,8 +78,15 @@
     "2": "Fail the audit",
     "sellPl": "Please enter the amount sold"
   },
+  "orderDetail": {
+    "orderNumber": "order Number",
+    "account": "account",
+    "quantity": "quantity",
+    "price": "price",
+    "status": "status",
+    "matchingTime": "matching time"
+  },
   "my": {
-    "team": "Team",
     "fundLog": "Fund Log",
     "myInfo": "My Info",
     "accountBind": "Binding",
@@ -84,6 +94,7 @@
     "tutorial": "Tutorial",
     "customer": "Customer",
     "assets": "My Assets",
+    "binding": "Binding",
     "accountBinding": "Account Binding",
     "accountDetail": "Account Detail",
     "switchLang": "Language Switching",
@@ -94,7 +105,9 @@
     "withDraw": "WithDraw",
     "rechargedAmount": "Recharged Amount (USDT)",
     "soldAmount": "Sold amount (USDT)",
-    "earningsObtained": "Earnings Obtained (USDT)"
+    "earningsObtained": "Earnings Obtained (USDT)",
+    "team": "Team List",
+    "invite": "My invite"
   },
   "myDetail": {
     "avatar": "Avatar",
@@ -102,7 +115,14 @@
     "email": "Email",
     "modifyPass": "Modify the Login Password",
     "modify": "Modify",
-    "switchLang": "Language Switching"
+    "switchLang": "Language Switching",
+    "oldPass": "OldPassword",
+    "newPass": "NewPassword",
+    "oldPassPl": "Please enter the old password",
+    "newPassPl": "Please enter the new password",
+    "newPassPl2": "Please enter the new password again",
+    "resetPassValid": "Please complete the information",
+    "passwordValid": "The two passwords are inconsistent"
   },
   "recharge": {
     "address": "Address",
@@ -116,5 +136,40 @@
   },
   "upload": {
     "text1": "Select"
+  },
+  "accountBinding": {
+    "account": "Account",
+    "name": "name",
+    "surname": "Surname",
+    "mail": "Email",
+    "iban": "IBAN",
+    "country": "Country",
+    "region": "Region",
+    "bankName": "Bank Name",
+    "address": "Address",
+    "province": "Province",
+    "city": "City",
+    "zipCode": "ZipCode",
+    "countryPl": "Please enter the country",
+    "bankNamePl": "Please enter the bank name",
+    "ibanPl": "Please enter the IBAN",
+    "accountPl": "Please enter the account name",
+    "regionPl": "Please enter the region",
+    "namePl": "Please enter a name",
+    "surnamePl": "Please enter the last name",
+    "addressPl": "Please enter the address",
+    "zipCodePl": "Please enter the zip code",
+    "cityPl": "Please enter the city",
+    "provincePl": "Please enter a province or state",
+    "mailPl": "Please enter a email"
+  },
+  "accountDetail": {
+    "rechargeText": "Recharge",
+    "withdrawText": "Withdraw"
+  },
+  "team": {
+    "id": "id",
+    "titleLabel": "Total number of team members",
+    "registryTime": "Registration time"
   }
 }
