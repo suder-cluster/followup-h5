@@ -11,7 +11,11 @@
         hover-class="hover-cell-item"
       >
         <template #right-icon>
-          <span class="iconfont icon-fuzhi" style="margin-left: 10rpx;" @click="onCopy"></span>
+          <span
+            class="iconfont icon-fuzhi"
+            style="margin-left: 10rpx"
+            @click="onCopy"
+          ></span>
         </template>
       </u-cell-item>
     </u-cell-group>
@@ -71,7 +75,7 @@ useTitle({ title: t("page.recharge") });
 const actionUrl = `${Base_Url}/resource/oss/upload`;
 const headers = ref({
   Authorization: "Bearer " + authStore.token,
-  clientid: clientId
+  clientid: clientId,
 });
 
 // Ref
@@ -100,13 +104,13 @@ const onCopy = () => {
   uni.setClipboardData({
     data: formData.value.address, // e是你要保存的内容
     success: function () {
-		uni.showToast({
-			title:'复制成功',
-			icon:'none'
-		})
-    }
-})
-}
+      uni.showToast({
+        title: "复制成功",
+        icon: "none",
+      });
+    },
+  });
+};
 
 // onsuccess
 const onSuccess = (data, index, lists, name) => {
@@ -128,7 +132,7 @@ const onSubmit = async () => {
   const { amount, voucherImg } = formData.value;
   if (!amount || !voucherImg) {
     isLoading.value = false;
-    return uni.$u.toast("Please complete the information!")
+    return uni.$u.toast("Please complete the information!");
   }
   try {
     await rechargeApi({
@@ -138,7 +142,7 @@ const onSubmit = async () => {
     uni.$u.toast(t("operation.success"));
     formData.value.voucherImg = undefined;
     uploadRef.value.clear();
-    formData.value.amount = undefined
+    formData.value.amount = undefined;
   } catch (err) {
   } finally {
     isLoading.value = false;
