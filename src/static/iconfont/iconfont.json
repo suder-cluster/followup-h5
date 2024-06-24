@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "40843856",
+      "name": "下降",
+      "font_class": "xiajiang",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "40843855",
+      "name": "上升",
+      "font_class": "shangsheng",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
       "icon_id": "40829094",
       "name": "我的邀请",
       "font_class": "wodeyaoqing",

@@ -11,44 +11,50 @@
     <div class="grid-container">
       <u-grid :border="false" :col="4" border>
         <u-grid-item
-        bg-color="#252525"
+          bg-color="#252525"
           @click="goToPage('person')"
           icon-style="color: #007aff"
         >
           <span class="iconfont icon-yonghuxiangqing f40"></span>
-          <view class="grid-text">{{ $t("my.myInfo") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.myInfo") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('assets')">
           <span class="iconfont icon-a-49zichan f40"></span>
-          <view class="grid-text">{{ $t("my.assets") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.assets") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('tutorial')">
           <span class="iconfont icon-xinshoujiaocheng f40"></span>
-          <view class="grid-text">{{ $t("my.tutorial") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.tutorial") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('custom')">
           <span class="iconfont icon-lianxikefu f40"></span>
-          <view class="grid-text">{{ $t("my.customer") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.customer") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('team')">
           <span class="iconfont icon-tuandui f40"></span>
-          <view class="grid-text">{{ $t("my.team") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.team") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('invite')">
           <span class="iconfont icon-wodeyaoqing f40"></span>
-          <view class="grid-text">{{ $t("my.invite") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.invite") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('bind')">
           <span class="iconfont icon-zhanghubangding f40"></span>
-          <view class="grid-text">{{ $t("my.binding") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.binding") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('accountDetail')">
           <span class="iconfont icon-zijinliushui f40"></span>
-          <view class="grid-text">{{ $t("my.acDetail") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.acDetail") }}</view>
         </u-grid-item>
       </u-grid>
     </div>
-    <u-notice-bar mode="horizontal" :list="[detailInfo.noticeTitle]" bg-color="#252525" color="#fff" :speed="100"></u-notice-bar>
+    <u-notice-bar
+      mode="horizontal"
+      :list="[detailInfo.noticeTitle]"
+      bg-color="#252525"
+      color="#fff"
+      :speed="100"
+    ></u-notice-bar>
     <view class="currency-info">
       <view
         v-for="currency in currencies"
@@ -71,24 +77,31 @@
           src="@/static/sol.webp"
         />
         <view class="currency-name">
-
-          <span>{{ currency.symbol.slice(0, currency.symbol.length - 4).toUpperCase() + "/" }}</span>
+          <span>{{
+            currency.symbol.slice(0, currency.symbol.length - 4).toUpperCase() +
+            "/"
+          }}</span>
           <span style="color: #8f8d8e">{{
-              //    crypto.symbol
-              currency.symbol.slice(currency.symbol.length - 4, currency.symbol.length).toUpperCase()
-            }}</span>
-
+            //    crypto.symbol
+            currency.symbol
+              .slice(currency.symbol.length - 4, currency.symbol.length)
+              .toUpperCase()
+          }}</span>
         </view>
         <view class="currency-amount line-ellipsis">
           {{ new Decimal(currency.close || 0).toFixed(2) }}
         </view>
         <view class="currency-ratio">
-          <span v-if="currency.ratio === undefined">0.00%</span>
-          <span v-else-if="currency.ratio === 0">{{ currency.ratio }}%</span>
-          <span class="green" v-else-if="currency.ratio > 0"
-          >+{{ currency.ratio }}%</span
-          >
-          <span v-else class="red">{{ currency.ratio }}%</span>
+          <div v-if="currency.ratio === undefined">0.00%</div>
+          <div v-else-if="currency.ratio === 0">{{ currency.ratio }}%</div>
+          <div class="green" v-else-if="currency.ratio > 0">
+            <span class="iconfont icon-shangsheng"></span>
+            <span>+{{ currency.ratio }}%</span>
+          </div>
+          <div v-else class="red">
+            <span class="iconfont icon-xiajiang"></span>
+            <span>{{ currency.ratio }}%</span>
+          </div>
         </view>
       </view>
     </view>
@@ -101,20 +114,25 @@
         class="crypto-row"
       >
         <view class="crypto-name line-ellipsis">
-          <span>{{ crypto.symbol.slice(0,-4).toUpperCase() }}/</span>
+          <span>{{ crypto.symbol.slice(0, -4).toUpperCase() }}/</span>
           <span style="color: #8f8d8e">{{
-              crypto.symbol.slice(-4).toUpperCase()
-            }}</span>
+            crypto.symbol.slice(-4).toUpperCase()
+          }}</span>
         </view>
-        <view class="crypto-price">
+        <view class="crypto-price line-ellipsis">
           <span>{{ crypto.close }}</span>
         </view>
-        <view class="crypto-ratio">
-          <span v-if="crypto.ratio > 0" class="green"
-          >+{{ crypto.ratio }}%</span>
-
-          <span v-else-if="crypto.ratio===undefined" class="red">0.00%</span>
-          <span v-else class="red">{{ crypto.ratio }}%</span>
+        <view class="crypto-ratio line-ellipsis">
+          <div v-if="crypto.ratio === undefined">0.00%</div>
+          <div v-else-if="crypto.ratio === 0">0.00%</div>
+          <div v-else-if="crypto.ratio > 0" class="green">
+            <span class="iconfont icon-shangsheng"></span>
+            <span>+{{ new Decimal(crypto.ratio || 0).toFixed(2) }}%</span>
+          </div>
+          <div v-else class="red">
+            <span class="iconfont icon-xiajiang"></span>
+            <span>{{ new Decimal(crypto.ratio || 0).toFixed(2) }}%</span>
+          </div>
         </view>
       </view>
     </view>
@@ -125,15 +143,15 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
-import {onHide, onShow} from "@dcloudio/uni-app";
-import {useTitle} from "@/hooks/useTitle";
-import {useI18n} from "vue-i18n";
-import {useAuthStore} from "@/store/modules/auth";
+import { ref } from "vue";
+import { onHide, onShow } from "@dcloudio/uni-app";
+import { useTitle } from "@/hooks/useTitle";
+import { useI18n } from "vue-i18n";
+import { useAuthStore } from "@/store/modules/auth";
 import AnnounceModal from "@/components/announceModal";
 import Decimal from "decimal.js";
-import {cal} from "@/utils/cal";
-import {getNoticeListApi} from "@/api/modules/notice";
+import { cal } from "@/utils/cal";
+import { getNoticeListApi } from "@/api/modules/notice";
 
 import http from "@/api/http";
 
@@ -169,8 +187,7 @@ const lastSecondCurrencies = ref([]);
 const cryptoList = ref([]);
 const lastSecondCryptoList = ref([]);
 const timer = ref(null);
-const detailInfo = ref({
-});
+const detailInfo = ref({});
 const fetchCryptoData = async () => {
   const response = await http.get(`${Base_Url}/h5/tickers`);
 
@@ -192,16 +209,16 @@ const fetchCryptoData = async () => {
   cryptoList.value = allCryptos.filter((crypto) => {
     // 优先展示 BTC、ETH、XRP，这里可以根据 symbol 进行过滤
     return (
-        crypto.symbol === "btcusdt" ||
-        crypto.symbol === "ethusdt" ||
-        crypto.symbol === "xrpusdt" ||
-        crypto.symbol === "notusdt" ||
-        crypto.symbol === "solusdt" ||
-        crypto.symbol === "zrousdt" ||
-        crypto.symbol === "tonusdt" ||
-        crypto.symbol === "trbusdt" ||
-        crypto.symbol === "wldusdt" ||
-        crypto.symbol === "filusdt"
+      crypto.symbol === "btcusdt" ||
+      crypto.symbol === "ethusdt" ||
+      crypto.symbol === "xrpusdt" ||
+      crypto.symbol === "notusdt" ||
+      crypto.symbol === "solusdt" ||
+      crypto.symbol === "zrousdt" ||
+      crypto.symbol === "tonusdt" ||
+      crypto.symbol === "trbusdt" ||
+      crypto.symbol === "wldusdt" ||
+      crypto.symbol === "filusdt"
     );
   });
 
@@ -385,12 +402,12 @@ onHide(() => {
 }
 
 .crypto-price {
-  width: 200rpx;
+  width: 180rpx;
   font-size: 32rpx;
   color: #ff5454;
 }
 .crypto-ratio {
-  width: 100rpx;
+  width: 140rpx;
 }
 .crypto-row:last-child {
   border-bottom: none;
@@ -405,8 +422,14 @@ onHide(() => {
 .iconfont {
   font-size: 40rpx;
 }
+.icon-shangsheng,
+.icon-xiajiang {
+  font-size: 30rpx;
+}
 .grid-text {
+  width: 100%;
   padding-top: 10rpx;
+  text-align: center;
 }
 .green {
   color: #19be6b;
