@@ -2,7 +2,8 @@
   "common": {
     "confirmText": "Bestätigen",
     "cancelText": "Abbrechen",
-    "noData": "keine Daten"
+    "noData": "keine Daten",
+    "copySuccess": "Es sind kopien"
   },
   "page": {
     "login": "Anmelden",

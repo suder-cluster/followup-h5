@@ -105,7 +105,7 @@ const onCopy = () => {
     data: formData.value.address, // e是你要保存的内容
     success: function () {
       uni.showToast({
-        title: "复制成功",
+        title: t('copySuccess'),
         icon: "none",
       });
     },

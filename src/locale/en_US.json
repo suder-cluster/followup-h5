@@ -2,7 +2,8 @@
   "common": {
     "confirmText": "Confirm",
     "cancelText": "Cancel",
-    "noData": "data null"
+    "noData": "data null",
+    "copySuccess": "Successful replication"
   },
   "page": {
     "login": "Login",
