@@ -28,7 +28,7 @@
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('custom')">
           <span class="iconfont icon-lianxikefu f40"></span>
-          <view class="grid-text line-ellipsis">{{ $t("my.customer") }}</view>
+          <view class="grid-text line-ellipsis" >{{ $t("my.customer") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('team')">
           <span class="iconfont icon-tuandui f40"></span>
