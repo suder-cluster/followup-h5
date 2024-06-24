@@ -137,7 +137,6 @@
       </view>
     </view>
     <no-data v-else></no-data>
-    <announce-modal />
     <my-tab-bar></my-tab-bar>
   </view>
 </template>
@@ -148,7 +147,7 @@ import { onHide, onShow } from "@dcloudio/uni-app";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/store/modules/auth";
-import AnnounceModal from "@/components/announceModal";
+// import AnnounceModal from "@/components/announceModal";
 import Decimal from "decimal.js";
 import { cal } from "@/utils/cal";
 import { getNoticeListApi } from "@/api/modules/notice";

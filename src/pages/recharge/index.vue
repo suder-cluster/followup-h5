@@ -9,7 +9,11 @@
         :arrow="false"
         :border-top="false"
         hover-class="hover-cell-item"
-      ></u-cell-item>
+      >
+        <template #right-icon>
+          <span class="iconfont icon-fuzhi" style="margin-left: 10rpx;" @click="onCopy"></span>
+        </template>
+      </u-cell-item>
     </u-cell-group>
     <u-form ref="formRef" :model="formData">
       <u-form-item prop="amount">
@@ -91,6 +95,18 @@ const getConfig = async () => {
   console.log("data=", data);
   formData.value.address = data;
 };
+
+const onCopy = () => {
+  uni.setClipboardData({
+    data: formData.value.address, // e是你要保存的内容
+    success: function () {
+		uni.showToast({
+			title:'复制成功',
+			icon:'none'
+		})
+    }
+})
+}
 
 // onsuccess
 const onSuccess = (data, index, lists, name) => {
