@@ -125,5 +125,12 @@ onReachBottom(() => {
     width: 100%;
     padding: 20rpx 40rpx;
   }
+  ::v-deep .u-subsection {
+    .u-item {
+      overflow: hidden;//溢出隐藏
+      text-overflow: ellipsis;//省略号
+      white-space: nowrap;//强制文本不换行
+    }
+  }
 }
 </style>

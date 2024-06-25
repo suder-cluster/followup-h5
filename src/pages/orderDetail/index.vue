@@ -8,13 +8,13 @@
         bg-color="#000"
         hover-class="hover-cell-item"
       ></u-cell-item>
-      <u-cell-item
+      <!-- <u-cell-item
         :title="$t('orderDetail.account')"
         :value="detail.username"
         :arrow="false"
         bg-color="#000"
         hover-class="hover-cell-item"
-      ></u-cell-item>
+      ></u-cell-item> -->
       <u-cell-item
         :title="$t('orderDetail.quantity')"
         :value="detail.stock"

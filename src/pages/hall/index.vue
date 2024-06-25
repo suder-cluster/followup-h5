@@ -20,7 +20,7 @@
       :line_height="80"
     > -->
     <div class="scroll-list-container">
-        <div class="scroll-item" v-for="rows in scList" :key="item.id">
+        <div class="scroll-item" v-for="rows in scList" :key="rows.id">
           <div class="left">
             <div class="avatar">
               <u-avatar
