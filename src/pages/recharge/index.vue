@@ -158,6 +158,7 @@ const onSuccess = (data, index, lists, name) => {
 // onError
 const onError = (value) => {
   console.log("value=", value);
+  uploadRef.value.clear();
 };
 
 const onSubmit = async () => {

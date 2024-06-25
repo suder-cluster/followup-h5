@@ -8,7 +8,28 @@
         bg-color="#fdf6ec"
         :border-top="false"
         hover-class="hover-cell-item"
-      ></u-cell-item>
+        :arrow="false"
+      >
+        <template v-slot:right-icon>
+          <u-upload
+            ref="uploadRef"
+            :action="actionUrl"
+            :multiple="false"
+            :max-count="1"
+            :header="headers"
+            @on-error="onError"
+            @on-success="onSuccess"
+            upload-text=""
+            :show-tips="false"
+            :show-upload-list="false"
+          >
+            <template v-slot:addBtn>
+              <u-avatar :src="avatarUrl" />
+            </template>
+          </u-upload>
+          
+        </template>
+      </u-cell-item>
       <u-cell-item
         :title="$t('myDetail.nickName')"
         :value="detailInfo.nickName"
@@ -17,6 +38,7 @@
         bg-color="#fdf6ec"
         :border-top="false"
         hover-class="hover-cell-item"
+        :arrow="false"
       ></u-cell-item>
       <u-cell-item
         :title="$t('myDetail.email')"
@@ -26,6 +48,7 @@
         bg-color="#fdf6ec"
         :border-top="false"
         hover-class="hover-cell-item"
+        :arrow="false"
       ></u-cell-item>
       <!-- :value="$t('myDetail.modify')" -->
       <u-cell-item
@@ -37,15 +60,8 @@
         hover-class="hover-cell-item"
         :index="3"
         @click="onCellClick"
+        :arrow="false"
       ></u-cell-item>
-      <!-- <u-cell-item
-        :title="$t('myDetail.switchLang')"
-        :title-style="{ color: '#000' }"
-        :value-style="{ color: '#000' }"
-        bg-color="#fdf6ec"
-        :border-top="false"
-        hover-class="hover-cell-item"
-      ></u-cell-item> -->
     </u-cell-group>
     <u-modal
       ref="modalRef"
@@ -90,7 +106,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { onShow, onReady, onPullDownRefresh } from "@dcloudio/uni-app";
 import { getInfoApi } from "@/api/modules/my";
 import { useTitle } from "@/hooks/useTitle";
@@ -98,10 +114,27 @@ import { useI18n } from "vue-i18n";
 import { useModal } from "@/hooks/useModal";
 import { modifyPassApi } from "@/api/modules/login";
 import { requireR } from "@/regular";
+import { useAuthStore } from '@/store/modules/auth';
+import { useLogin } from '@/hooks/useLogin'
 
 const { t } = useI18n();
 useTitle({ title: t("page.myDetail") });
 
+const authStore = useAuthStore()
+const { getUserInfo } = useLogin();
+
+const Base_Url = import.meta.env.VITE_APP_BASE_API;
+const clientId = import.meta.env.VITE_APP_CLIENT_ID;
+const actionUrl = `${Base_Url}/system/user/profile/avatar`;
+const headers = ref({
+  Authorization: "Bearer " + authStore.token,
+  clientid: clientId,
+});
+
+
+
+// Ref
+const uploadRef = ref();
 const modalRef = ref();
 const formRef = ref();
 console.log("formRef=", formRef);
@@ -114,6 +147,10 @@ const onCellClick = (index) => {
     onOpen(t("login.modifyPass"));
   }
 };
+
+const avatarUrl = computed(() => {
+  return authStore?.userInfo?.avatar
+})
 
 const onSubmit = async () => {
   const { oldPassword, newPassword, password } = formData.value;
@@ -129,6 +166,22 @@ const onSubmit = async () => {
     newPassword,
   });
   uni.$u.toast(t('operation.success'))
+};
+
+
+// onsuccess
+const onSuccess = (data, index, lists, name) => {
+  console.log("arges=", data, index, lists, name);
+  if (data.code !== 200) {
+    uploadRef.value.clear();
+  } else {
+    getUserInfo();
+  }
+};
+// onError
+const onError = (value) => {
+  console.log("value=", value);
+  uploadRef.value.clear();
 };
 
 const { visible, title, formData, onOpen, onClose, onConfirm } =
@@ -180,5 +233,8 @@ onReady(() => {
 }
 ::v-deep .u-model {
   background-color: #333 !important;
+}
+::v-deep .u-list-item {
+  display: none;
 }
 </style>
