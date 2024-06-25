@@ -11,10 +11,10 @@
           <div class="order-item-item-label">{{ $t('orderDetail.orderNumber') }}:</div>
           <div class="order-item-item-content">{{ item.id }}</div>
         </div>
-        <div class="order-item-item">
+        <!-- <div class="order-item-item">
           <div class="order-item-item-label">{{ $t('orderDetail.account') }}:</div>
           <div class="order-item-item-content">{{ item.username }}</div>
-        </div>
+        </div> -->
         <div class="order-item-item">
           <div class="order-item-item-label">{{ $t('orderDetail.quantity') }}:</div>
           <div class="order-item-item-content">{{ item.stock }}</div>
@@ -71,10 +71,10 @@ const tabs = ref([
     name: t("order.waitAudit"),
   },
   {
-    name: t("order.waitAudit"),
+    name: t("order.successAudit"),
   },
   {
-    name: t("order.waitAudit"),
+    name: t("order.failAudit"),
   },
 ]);
 const current = ref(0);

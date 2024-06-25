@@ -10,7 +10,7 @@
       </div>
       <button class="recharge-button" v-if="scList.length > 0">{{ $t("my.recharge") }}</button>
     </div>
-    <scrollList
+    <!-- <scrollList
       v-if="scList.length > 0"
       v-loading="isLoading"
       class="scroll-list"
@@ -18,9 +18,9 @@
       :time="200"
       :height="480"
       :line_height="80"
-    >
-      <template #default="{ rows }">
-        <div class="scroll-item">
+    > -->
+    <div class="scroll-list-container">
+        <div class="scroll-item" v-for="rows in scList" :key="item.id">
           <div class="left">
             <div class="avatar">
               <u-avatar
@@ -43,8 +43,8 @@
             </div>
           </div>
         </div>
-      </template>
-    </scrollList>
+    </div>
+    <!-- </scrollList> -->
     <div class="list-container" v-if="list.length > 0">
       <div class="list-item" v-for="item in list" :key="item.id">
         <div class="list-item-top">
@@ -70,10 +70,7 @@
         <div class="list-item-bottom">
           <div class="left">
             <span>{{ $t("hall.limit") }}: </span>
-            <span v-if="authStore.userInfo.minPayLimit && authStore.userInfo.minPayLimit !== 0">
-              {{ item.min }}&nbsp;USDT
-            </span>
-            <span v-else="authStore.userInfo.minPayLimit">{{ item.min }}-{{ item.max }}&nbsp;USDT</span>
+            <span>{{ item.min }}-{{ item.max }}&nbsp;USDT</span>
           </div>
           <div class="right">
             <u-button
@@ -130,7 +127,7 @@
 <script setup name="Hall">
 import { computed, ref } from "vue";
 import { onPullDownRefresh, onReachBottom, onReady } from "@dcloudio/uni-app";
-import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
+// import scrollList from "@/components/zh-scrollList/scrollList/scrollList";
 import { getHallApi, saleApi } from "@/api/modules/hall";
 import { useList } from "@/hooks/useList";
 import { useTitle } from "@/hooks/useTitle";
@@ -242,8 +239,10 @@ onReachBottom(() => {
     font-size: 60rpx;
     font-weight: 600;
   }
-  .scroll-list {
+  .scroll-list-container {
+    overflow: auto;
     box-sizing: border-box;
+    height: 480rpx;
     padding: 0 20rpx;
     background-color: #fdf6ec;
   }
