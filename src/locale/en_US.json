@@ -126,8 +126,8 @@
     "passwordValid": "The two passwords are inconsistent"
   },
   "recharge": {
-    "address": "USD Addr",
-    "address2": "ERC",
+    "address": "USDT(TRC)",
+    "address2": "USDT(ERC)",
     "usdt": "USDT",
     "erc": "ERC",
     "money": "Money",
