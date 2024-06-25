@@ -14,7 +14,24 @@
           <span
             class="iconfont icon-fuzhi"
             style="margin-left: 10rpx"
-            @click="onCopy"
+            @click="onCopy(1)"
+          ></span>
+        </template>
+      </u-cell-item>
+      <u-cell-item
+        :title="$t('recharge.address2')"
+        :value="formData.address2"
+        :index="1"
+        bg-color="#000"
+        :arrow="false"
+        :border-top="false"
+        hover-class="hover-cell-item"
+      >
+        <template #right-icon>
+          <span
+            class="iconfont icon-fuzhi"
+            style="margin-left: 10rpx"
+            @click="onCopy(2)"
           ></span>
         </template>
       </u-cell-item>
@@ -23,7 +40,7 @@
       <u-form-item prop="amount">
         <u-field
           v-model="formData.amount"
-          :label="$t('recharge.usdt')"
+          :label="$t('recharge.money')"
           :label-width="100"
           :placeholder="$t('recharge.usdtPl')"
           :border-bottom="false"
@@ -84,6 +101,7 @@ const formRef = ref();
 // formData
 const formData = ref({
   address: "",
+  address2: "",
   amount: undefined,
   voucherImg: undefined,
 });
@@ -96,20 +114,35 @@ const isLoading = ref(false);
 // 获取配置
 const getConfig = async () => {
   const { data } = await getConfigKey("water.waterAddress");
+  const { data:data2 } = await getConfigKey("water.waterAddress.erc");
   console.log("data=", data);
   formData.value.address = data;
+  formData.value.address2 = data2;
 };
 
-const onCopy = () => {
-  uni.setClipboardData({
-    data: formData.value.address, // e是你要保存的内容
-    success: function () {
-      uni.showToast({
-        title: t('copySuccess'),
-        icon: "none",
-      });
-    },
-  });
+const onCopy = (type) => {
+  if (type === 1) {
+    uni.setClipboardData({
+      data: formData.value.address, // e是你要保存的内容
+      success: function () {
+        uni.showToast({
+          title: t('copySuccess'),
+          icon: "none",
+        });
+      },
+    });
+  } else if (type === 2) {
+    uni.setClipboardData({
+      data: formData.value.address2, // e是你要保存的内容
+      success: function () {
+        uni.showToast({
+          title: t('copySuccess'),
+          icon: "none",
+        });
+      },
+    });
+  }
+  
 };
 
 // onsuccess

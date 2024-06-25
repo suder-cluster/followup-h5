@@ -33,7 +33,7 @@
     "success": "Erfolgreich ausgeführt!"
   },
   "login": {
-    "title": "NYBAK",
+    "title": "ANCOIN",
     "userNamePl": "Bitte geben Sie Ihren Benutzernamen ein",
     "passwordPl": "Bitte geben Sie Ihre PIN ein",
     "loginBtn": "Anmelden",
@@ -126,8 +126,11 @@
     "passwordValid": "Die beiden Passwörter stimmen nicht überein"
   },
   "recharge": {
-    "address": "Adresse",
+    "address": "USD Addr",
+    "address2": "ERC",
     "usdt": "USDT",
+    "erc": "ERC",
+    "money": "Der betrag",
     "usdtPl": "Bitte geben Sie den Betrag ein",
     "voucherPl": "Bitte wählen Sie einen Gutschein"
   },

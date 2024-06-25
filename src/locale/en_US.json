@@ -33,7 +33,7 @@
     "success": "operate successfully！"
   },
   "login": {
-    "title": "NYBAK",
+    "title": "ANCOIN",
     "userNamePl": "Please enter your account number",
     "passwordPl": "Please enter your PIN",
     "loginBtn": "login",
@@ -126,8 +126,11 @@
     "passwordValid": "The two passwords are inconsistent"
   },
   "recharge": {
-    "address": "Address",
+    "address": "USD Addr",
+    "address2": "ERC",
     "usdt": "USDT",
+    "erc": "ERC",
+    "money": "Money",
     "usdtPl": "Please enter the am",
     "voucherPl": "Please select a voucher"
   },

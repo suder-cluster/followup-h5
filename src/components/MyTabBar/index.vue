@@ -45,7 +45,7 @@ const list = ref([
   {
     iconPath: "home",
     selectedIconPath: "home-fill",
-    text: t("home"),
+    text: t("page.home"),
     isDot: true,
     customIcon: false,
     pagePath: '/pages/home/index'
@@ -53,21 +53,21 @@ const list = ref([
   {
     iconPath: "bag",
     selectedIconPath: "bag-fill",
-    text: t("hall"),
+    text: t("page.hall"),
     customIcon: false,
     pagePath: '/pages/hall/index'
   },
   {
     iconPath: "order",
     selectedIconPath: "order",
-    text: t("order"),
+    text: t("page.order"),
     customIcon: false,
     pagePath: '/pages/order/index'
   },
   {
     iconPath: "account",
     selectedIconPath: "account-fill",
-    text: t("my"),
+    text: t("page.my"),
     isDot: false,
     customIcon: false,
     pagePath: '/pages/my/index'
