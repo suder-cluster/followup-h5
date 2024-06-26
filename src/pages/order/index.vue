@@ -28,7 +28,7 @@
         <div class="order-item-item">
           <div class="order-item-item-label">{{ $t('orderDetail.earnings') }}:</div>
           <div class="order-item-item-content">
-            {{ Cal.mul(item.price, item.stock) }}
+            {{ cal.mul(item.price, item.stock) }}
           </div>
         </div>
         <div class="order-item-item">
@@ -52,7 +52,7 @@ import { useList } from "@/hooks/useList";
 import { getOrderListApi } from "@/api/modules/order";
 import { useTitle } from '@/hooks/useTitle';
 import { useI18n } from "vue-i18n";
-import Cal from '@/utils/cal';
+import { cal } from '@/utils/cal';
 
 
 const { t } = useI18n();

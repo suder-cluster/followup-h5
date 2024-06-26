@@ -84,6 +84,7 @@
     "account": "account",
     "quantity": "quantity",
     "price": "price",
+    "earnings": "earnings",
     "status": "status",
     "matchingTime": "matching time"
   },

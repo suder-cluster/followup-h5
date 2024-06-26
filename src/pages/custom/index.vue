@@ -1,6 +1,6 @@
 <template>
   <div class="custom-container">
-    <iframe src="https://www.moyu-b1.xyz/chat/index/newChat/m/65e844e7bb06f" width="100%" height="100%" style="width: 100%;height: 100%;">
+    <iframe src="https://www.moyu-b1.xyz/chat/index/newChat/m/667abba07a94c" width="100%" height="100%" style="width: 100%;height: 100%;">
     </iframe>
   </div>
 </template>
