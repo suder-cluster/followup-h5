@@ -3,7 +3,7 @@ export const useTitle = (config) => {
 
   const setTitle = (title) => {
     uni.setNavigationBarTitle({
-      title
+      title: 'ANCOIN-' + title
     })
   }
   onShow(() => {

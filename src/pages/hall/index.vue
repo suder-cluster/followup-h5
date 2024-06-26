@@ -8,7 +8,7 @@
         <p>{{ $t("my.usdtTitle") }}</p>
         <h1>{{ userInfo.usdtBalance }}</h1>
       </div>
-      <button class="recharge-button" v-if="scList.length > 0">{{ $t("my.recharge") }}</button>
+      <!-- <button class="recharge-button" v-if="scList.length > 0">{{ $t("my.recharge") }}</button> -->
     </div>
     <!-- <scrollList
       v-if="scList.length > 0"
@@ -19,7 +19,7 @@
       :height="480"
       :line_height="80"
     > -->
-    <div class="scroll-list-container">
+    <!-- <div class="scroll-list-container">
         <div class="scroll-item" v-for="rows in scList" :key="rows.id">
           <div class="left">
             <div class="avatar">
@@ -43,8 +43,9 @@
             </div>
           </div>
         </div>
-    </div>
+    </div> -->
     <!-- </scrollList> -->
+    <u-line style="margin: 20rpx 0;"/>
     <div class="list-container" v-if="list.length > 0">
       <div class="list-item" v-for="item in list" :key="item.id">
         <div class="list-item-top">
@@ -155,7 +156,7 @@ const scList = ref([]);
 
 const dataCb = (data) => {
   const { userFloorOrderVos, tableDataInfo } = data.data;
-  scList.value = userFloorOrderVos;
+  // scList.value = userFloorOrderVos.splice(0, 10);
   list.value = tableDataInfo.rows;
   pageable.value.total = tableDataInfo.total;
 };
@@ -242,7 +243,6 @@ onReachBottom(() => {
   .scroll-list-container {
     overflow: auto;
     box-sizing: border-box;
-    height: 480rpx;
     padding: 0 20rpx;
     background-color: #fdf6ec;
   }
