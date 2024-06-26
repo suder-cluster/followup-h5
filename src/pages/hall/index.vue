@@ -52,7 +52,12 @@
           <div class="avatar">
             <u-avatar mode="circle" :size="60"></u-avatar>
           </div>
-          <div class="email">{{ item.email }}</div>
+          <div class="other-info">
+            <span class="username">{{ item.username }}</span>
+            <span class="email">{{ item.email }}</span>
+          </div>
+          <!-- <div class="username">{{ item.username }}</div>
+          <div class="email"></div> -->
         </div>
         <div class="list-item-center">
           <div class="price">
@@ -155,14 +160,23 @@ initData();
 const scList = ref([]);
 
 const dataCb = (data) => {
-  const { userFloorOrderVos, tableDataInfo } = data.data;
+  const { tableDataInfo } = data.data;
   // scList.value = userFloorOrderVos.splice(0, 10);
   list.value = tableDataInfo.rows;
+  pageable.value.total = tableDataInfo.total;
+};
+const loadCb = (data) => {
+  console.log('data=', data)
+  const { tableDataInfo } = data;
+  // list.value.concat(tableDataInfo.rows)
+  list.value = [...list.value, ...tableDataInfo.rows];
+  console.log('[list.value, ...tableDataInfo.rows]=', [...list.value, ...tableDataInfo.rows])
   pageable.value.total = tableDataInfo.total;
 };
 const config = ref({
   api: getHallApi,
   dataCb,
+  loadCb
 });
 
 const { pageable, list, isLoading, refreshList, loadMore } = useList(config);
@@ -227,6 +241,7 @@ onPullDownRefresh(() => {
   refreshList();
 });
 onReachBottom(() => {
+  console.log('onReachBottom')
   loadMore();
 });
 </script>
@@ -305,10 +320,19 @@ onReachBottom(() => {
         height: 60rpx;
         // border-radius: 50%;
       }
-      .email {
-        flex: 1;
+      .other-info {
+        display: flex;
+        flex-direction: column;
         padding-left: 20rpx;
+        line-height: 24rpx;
+        .username {
+          padding-bottom: 10rpx;
+        }
       }
+      // .email {
+      //   flex: 1;
+      //   padding-left: 20rpx;
+      // }
     }
     .list-item-center {
       display: flex;

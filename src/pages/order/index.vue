@@ -111,6 +111,7 @@ onPullDownRefresh(() => {
   refreshList();
 });
 onReachBottom(() => {
+  console.log('onReachBottom')
   loadMore()
 })
 </script>

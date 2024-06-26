@@ -24,7 +24,14 @@
       ></u-cell-item>
       <u-cell-item
         :title="$t('orderDetail.price')"
-        :value="detail.username"
+        :value="detail.price"
+        :arrow="false"
+        bg-color="#000"
+        hover-class="hover-cell-item"
+      ></u-cell-item>
+      <u-cell-item
+        :title="$t('orderDetail.earnings')"
+        :value="cal.mul(detail.price, detail.stock)"
         :arrow="false"
         bg-color="#000"
         hover-class="hover-cell-item"
@@ -54,6 +61,7 @@ import { ref } from "vue";
 import { onLoad } from "@dcloudio/uni-app";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
+import { cal } from '@/utils/cal';
 
 const { t } = useI18n();
 useTitle({ title: t("page.orderDetail") });

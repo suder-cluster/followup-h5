@@ -27,9 +27,6 @@ onShow(async () => {
 @import "@/uni_modules/vk-uview-ui/index.scss";
 @import "@/styles/public.scss";
 /*每个页面公共css */
-html {
-  overflow-y: auto;
-}
 html,
 body {
   width: 100vw;

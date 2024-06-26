@@ -31,7 +31,8 @@
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom",
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 100
       }
     },
     {
@@ -39,13 +40,14 @@
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom",
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 100
       }
     },
     {
       "path": "pages/orderDetail/index",
       "style": {
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": ""
       }
     },
     {
