@@ -67,7 +67,7 @@ export const useList = (config) => {
         loadCb(data);
         return;
       } else {
-        list.value = [...list.value, ...data.list];
+        list.value = [...list.value, ...data.rows];
         pageable.total = data.total;
       }
     } catch (err) {

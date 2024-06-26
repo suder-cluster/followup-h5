@@ -47,7 +47,7 @@
 </template>
 <script setup name="Order">
 import { ref } from "vue";
-import { onPullDownRefresh, onReachBottom } from "@dcloudio/uni-app";
+import { onPullDownRefresh } from "@dcloudio/uni-app";
 import { useList } from "@/hooks/useList";
 import { getOrderListApi } from "@/api/modules/order";
 import { useTitle } from '@/hooks/useTitle';
@@ -110,10 +110,6 @@ const goDetail = (order) => {
 onPullDownRefresh(() => {
   refreshList();
 });
-onReachBottom(() => {
-  console.log('onReachBottom')
-  loadMore()
-})
 </script>
 <style lang="scss" scoped>
 .order-container {
