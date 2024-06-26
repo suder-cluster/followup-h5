@@ -64,7 +64,7 @@
       </u-form-item>
       <el-form-item>
         <div class="btn-container" style="padding-top: 40rpx">
-          <u-button type="warning" @click="onSubmit" :loading="isLoading">{{
+          <u-button type="warning" :disabled="isDisableSubmit" @click="onSubmit" :loading="isLoading">{{
             $t("common.confirmText")
           }}</u-button>
         </div>
@@ -73,7 +73,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, nextTick, computed } from "vue";
 import { onShow, onReady } from "@dcloudio/uni-app";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
@@ -98,6 +98,11 @@ const headers = ref({
 // Ref
 const uploadRef = ref();
 const formRef = ref();
+
+const isDisableSubmit = computed(() => {
+  return !formData.value.amount || !formData.value.voucherImg
+})
+
 // formData
 const formData = ref({
   address: "",
@@ -175,8 +180,10 @@ const onSubmit = async () => {
     });
     uni.$u.toast(t("operation.success"));
     formData.value.voucherImg = undefined;
-    uploadRef.value.clear();
     formData.value.amount = undefined;
+    nextTick(() => {
+      uploadRef.value.clear();
+    })
   } catch (err) {
   } finally {
     isLoading.value = false;
