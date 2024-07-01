@@ -176,5 +176,9 @@
     "id": "id",
     "titleLabel": "Total number of team members",
     "registryTime": "Registration time"
+  },
+  "invite": {
+    "inviteCode": "Invitation code",
+    "inviteUrl": "invite link"
   }
 }
