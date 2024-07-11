@@ -188,7 +188,7 @@ const init = async () => {
   try {
     uni.startPullDownRefresh();
     const { data } = await getAccountBindDetailApi();
-    formData.value = { ...formData.value, ...(data || {}) };
+    formData.value = { ...(data || {}) };
   } catch (err) {
   } finally {
     uni.stopPullDownRefresh();
