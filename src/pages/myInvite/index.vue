@@ -77,6 +77,7 @@ onPullDownRefresh(() => {
     border-radius: 10rpx;
   }
   .code-item {
+  overflow: auto;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
