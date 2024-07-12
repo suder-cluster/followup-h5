@@ -137,7 +137,9 @@
   },
   "withdrawal": {
     "amount": "Auszahlungsbetrag (EUR)",
-    "submit": "Einreichen"
+    "submit": "Einreichen",
+    "withdrawalSuccess": "Einzug gewonnen",
+    "amountPl": "Bitte geben sie den betrag ihres betrags ein"
   },
   "upload": {
     "text1": "Auswählen"

@@ -137,7 +137,9 @@
   },
   "withdrawal":{
     "amount":"Withdrawal Amount (EUR)",
-    "submit": "submit"
+    "submit": "submit",
+    "withdrawalSuccess": "Successful Withdrawal",
+    "amountPl": "Please enter the withdrawal amount"
   },
   "upload": {
     "text1": "Select"
