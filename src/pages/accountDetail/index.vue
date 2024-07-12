@@ -17,7 +17,7 @@
             <div class="time">{{ item.updateTime  }}</div>
           </div>
           <div class="right" style="color: #00cf78;">
-            +{{ item.recharge }}
+            +{{ item.amount }}&nbsp;USDT
           </div>
         </div>
       </template>
@@ -30,7 +30,7 @@
             <div class="time">{{ item.updateTime  }}</div>
           </div>
           <div class="right" style="color: #ff3434;">
-            -{{ item.recharge }}
+            -{{ item.amount }}&nbsp;EU
           </div>
         </div>
       </template>
