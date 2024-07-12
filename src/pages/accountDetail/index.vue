@@ -14,7 +14,7 @@
             <div class="title">
               {{ $t("accountDetail.rechargeText") }}
             </div>
-            <div class="time">{{ item.createTime || "2024-06-22" }}</div>
+            <div class="time">{{ item.updateTime  }}</div>
           </div>
           <div class="right" style="color: #00cf78;">
             +{{ item.recharge }}
@@ -27,7 +27,7 @@
             <div class="title">
               {{ $t("accountDetail.withdrawText") }}
             </div>
-            <div class="time">{{ item.createTime || "2024-06-22" }}</div>
+            <div class="time">{{ item.updateTime  }}</div>
           </div>
           <div class="right" style="color: #ff3434;">
             -{{ item.recharge }}
@@ -40,7 +40,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import { onPullDownRefresh } from "@dcloudio/uni-app";
+import { onPullDownRefresh, onLoad } from "@dcloudio/uni-app";
 import { useAllList } from "@/hooks/useAllList";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
@@ -61,6 +61,7 @@ const tabsList = ref([
 const tabCurrent = ref(0);
 
 const config = ref({
+  auto: false,
   api: getAccountDetailApi,
   params: {
     type: 1,
@@ -75,9 +76,17 @@ const onTabChange = (index) => {
   } else if (index === 1) {
     config.value.params.type = 2;
   }
-  uni.startPullDownRefresh();
   refreshList();
 };
+
+onLoad((options) => {
+  console.log('options=', options)
+  const { type } = options;
+  if (type) {
+    tabCurrent.value = type - 0;
+    onTabChange(tabCurrent.value)
+  }
+})
 
 onPullDownRefresh(() => {
   refreshList();

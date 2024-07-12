@@ -1,22 +1,22 @@
 <template>
   <div class="binding-container">
     <u-form :label-width="180">
-      <u-form-item :label="$t('accountBinding.country')">
+      <u-form-item :label="$t('accountBinding.name')">
         <u-input
-          v-model="formData.country"
+          v-model="formData.name"
           :border-bottom="false"
-          :placeholder="$t('accountBinding.countryPl')"
+          :placeholder="$t('accountBinding.namePl')"
           input-align="right"
           type="textarea "
           :maxlength="255"
           auto-height
         ></u-input>
       </u-form-item>
-      <u-form-item :label="$t('accountBinding.region')">
+      <u-form-item :label="$t('accountBinding.surname')">
         <u-input
-          v-model="formData.region"
+          v-model="formData.surname"
           :border-bottom="false"
-          :placeholder="$t('accountBinding.regionPl')"
+          :placeholder="$t('accountBinding.surnamePl')"
           input-align="right"
           type="textarea "
           :maxlength="255"
@@ -45,77 +45,11 @@
           auto-height
         ></u-input>
       </u-form-item>
-      <u-form-item :label="$t('accountBinding.account')">
-        <u-input
-          v-model="formData.account"
-          :border-bottom="false"
-          :placeholder="$t('accountBinding.accountPl')"
-          input-align="right"
-          type="textarea "
-          :maxlength="255"
-          auto-height
-        ></u-input>
-      </u-form-item>
-      <u-form-item :label="$t('accountBinding.name')">
-        <u-input
-          v-model="formData.name"
-          :border-bottom="false"
-          :placeholder="$t('accountBinding.namePl')"
-          input-align="right"
-          type="textarea "
-          :maxlength="255"
-          auto-height
-        ></u-input>
-      </u-form-item>
-      <u-form-item :label="$t('accountBinding.surname')">
-        <u-input
-          v-model="formData.surname"
-          :border-bottom="false"
-          :placeholder="$t('accountBinding.surnamePl')"
-          input-align="right"
-          type="textarea "
-          :maxlength="255"
-          auto-height
-        ></u-input>
-      </u-form-item>
-      <u-form-item :label="$t('accountBinding.address')">
-        <u-input
-          v-model="formData.address"
-          :border-bottom="false"
-          :placeholder="$t('accountBinding.addressPl')"
-          input-align="right"
-          type="textarea "
-          :maxlength="255"
-          auto-height
-        ></u-input>
-      </u-form-item>
       <u-form-item :label="$t('accountBinding.zipCode')">
         <u-input
           v-model="formData.zipCode"
           :border-bottom="false"
           :placeholder="$t('accountBinding.zipCodePl')"
-          input-align="right"
-          type="textarea "
-          :maxlength="255"
-          auto-height
-        ></u-input>
-      </u-form-item>
-      <u-form-item :label="$t('accountBinding.city')">
-        <u-input
-          v-model="formData.city"
-          :border-bottom="false"
-          :placeholder="$t('accountBinding.cityPl')"
-          input-align="right"
-          type="textarea "
-          :maxlength="255"
-          auto-height
-        ></u-input>
-      </u-form-item>
-      <u-form-item :label="$t('accountBinding.province')">
-        <u-input
-          v-model="formData.prov"
-          :border-bottom="false"
-          :placeholder="$t('accountBinding.provincePl')"
           input-align="right"
           type="textarea "
           :maxlength="255"
@@ -133,6 +67,72 @@
           auto-height
         ></u-input>
       </u-form-item>
+      <u-form-item :label="$t('accountBinding.country')">
+        <u-input
+          v-model="formData.country"
+          :border-bottom="false"
+          :placeholder="$t('accountBinding.countryPl')"
+          input-align="right"
+          type="textarea "
+          :maxlength="255"
+          auto-height
+        ></u-input>
+      </u-form-item>
+      <u-form-item :label="$t('accountBinding.region')">
+        <u-input
+          v-model="formData.region"
+          :border-bottom="false"
+          :placeholder="$t('accountBinding.regionPl')"
+          input-align="right"
+          type="textarea "
+          :maxlength="255"
+          auto-height
+        ></u-input>
+      </u-form-item>
+      <!-- <u-form-item :label="$t('accountBinding.province')">
+        <u-input
+          v-model="formData.prov"
+          :border-bottom="false"
+          :placeholder="$t('accountBinding.provincePl')"
+          input-align="right"
+          type="textarea "
+          :maxlength="255"
+          auto-height
+        ></u-input>
+      </u-form-item>
+      <u-form-item :label="$t('accountBinding.city')">
+        <u-input
+          v-model="formData.city"
+          :border-bottom="false"
+          :placeholder="$t('accountBinding.cityPl')"
+          input-align="right"
+          type="textarea "
+          :maxlength="255"
+          auto-height
+        ></u-input>
+      </u-form-item>
+      <u-form-item :label="$t('accountBinding.address')">
+        <u-input
+          v-model="formData.address"
+          :border-bottom="false"
+          :placeholder="$t('accountBinding.addressPl')"
+          input-align="right"
+          type="textarea "
+          :maxlength="255"
+          auto-height
+        ></u-input>
+      </u-form-item>
+      <u-form-item :label="$t('accountBinding.account')">
+        <u-input
+          v-model="formData.account"
+          :border-bottom="false"
+          :placeholder="$t('accountBinding.accountPl')"
+          input-align="right"
+          type="textarea "
+          :maxlength="255"
+          auto-height
+        ></u-input>
+      </u-form-item> -->
     </u-form>
     <div class="btn-container">
       <u-button style="width: 100%" type="warning" @click="onConfirm">{{
@@ -159,13 +159,13 @@ const formData = ref({
   region: "",
   bankName: "",
   iban: "",
-  account: "",
+  // account: "",
   name: "",
   surname: "",
-  address: "",
+  // address: "",
   zipCode: "",
-  city: "",
-  prov: "",
+  // city: "",
+  // prov: "",
   mail: "",
 });
 

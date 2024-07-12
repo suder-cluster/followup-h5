@@ -28,7 +28,7 @@
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('custom')">
           <span class="iconfont icon-lianxikefu f40"></span>
-          <view class="grid-text line-ellipsis" >{{ $t("my.customer") }}</view>
+          <view class="grid-text line-ellipsis">{{ $t("my.customer") }}</view>
         </u-grid-item>
         <u-grid-item bg-color="#252525" @click="goToPage('team')">
           <span class="iconfont icon-tuandui f40"></span>
@@ -142,15 +142,18 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
-import {onHide, onShow} from "@dcloudio/uni-app";
-import {useTitle} from "@/hooks/useTitle";
-import {useI18n} from "vue-i18n";
-import {useAuthStore} from "@/store/modules/auth";
+import { ref } from "vue";
+import { onHide, onShow } from "@dcloudio/uni-app";
+import { useTitle } from "@/hooks/useTitle";
+import { useI18n } from "vue-i18n";
+import { useAuthStore } from "@/store/modules/auth";
 // import AnnounceModal from "@/components/announceModal";
 import Decimal from "decimal.js";
-import {cal} from "@/utils/cal";
-import {getNoticeListApi} from "@/api/modules/notice";
+import { cal } from "@/utils/cal";
+import { getNoticeListApi } from "@/api/modules/notice";
+import aa from "@/static/images/home/aa.png";
+import bb from "@/static/images/home/bb.png";
+import cc from "@/static/images/home/cc.png";
 
 import http from "@/api/http";
 
@@ -165,18 +168,15 @@ const hb = import.meta.env.VITE_HUOBI_API;
 // @click="window.open('https://www.moyu-b1.xyz/chat/index/newChat/m/65e844e7bb06f','_blank')"
 const list = ref([
   {
-    image:
-        "https://minio.ubcoinscrypto.com/ruoyi/2024/06/27/05845d5640714d20a64e1654fa60a1c8.png",
+    image: aa,
     title: "身无彩凤双飞翼，心有灵犀一点通",
   },
   {
-    image:
-        "https://minio.ubcoinscrypto.com/ruoyi/2024/06/27/bfe01984ff2f4b729a5d14bd11a2e25c.png",
+    image: bb,
     title: "昨夜星辰昨夜风，画楼西畔桂堂东",
   },
   {
-    image:
-        "https://minio.ubcoinscrypto.com/ruoyi/2024/06/27/221bb4dd06d743d788b0cdc7c8c8b5a8.png",
+    image: cc,
     title: "谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳",
   },
 ]);

@@ -20,7 +20,7 @@ export default defineConfig(({ mode, command }) => {
       open: true,
       proxy: {
         [env.VITE_APP_BASE_API]: {
-          target: "https://www.ubcoinscrypto.com",
+          target: "https://www.ancoinx.com",
           changeOrigin: true,
           ws: true,
           // rewrite: (path) =>

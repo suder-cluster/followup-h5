@@ -33,6 +33,10 @@ const onCellClick = async () => {
   uni.showToast({
     title: t("withdrawal.withdrawalSuccess"),
   });
+  amount.value = undefined;
+  uni.navigateTo({
+    url: "/pages/accountDetail/index?type=1",
+  });
 };
 </script>
 
