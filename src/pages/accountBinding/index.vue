@@ -91,7 +91,7 @@
       </u-form-item>
       <u-form-item :label="$t('accountBinding.zipCode')">
         <u-input
-          v-model="formData.address"
+          v-model="formData.zipCode"
           :border-bottom="false"
           :placeholder="$t('accountBinding.zipCodePl')"
           input-align="right"
