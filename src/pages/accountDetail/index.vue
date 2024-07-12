@@ -17,7 +17,10 @@
             <div class="time">{{ item.updateTime  }}</div>
           </div>
           <div class="right" style="color: #00cf78;">
-            +{{ item.amount }}&nbsp;USDT
+            <div>
+              <u-tag :text="$t(`withdrawal.${auditMap[item.status]}`)" mode="light" size="mini" shape="circleRight" :type="auditTypeMap[item.status]"/>
+            </div>
+            <div>+{{ item.amount }}&nbsp;USDT</div>
           </div>
         </div>
       </template>
@@ -27,10 +30,14 @@
             <div class="title">
               {{ $t("accountDetail.withdrawText") }}
             </div>
+            
             <div class="time">{{ item.updateTime  }}</div>
           </div>
           <div class="right" style="color: #ff3434;">
-            -{{ item.amount }}&nbsp;EU
+            <div>
+              <u-tag :text="$t(`withdrawal.${auditMap[item.status]}`)" mode="light" size="mini" shape="circleRight" :type="auditTypeMap[item.status]"/>
+            </div>
+            <div style="margin-top: 10rpx">-{{ item.amount }}&nbsp;EU</div>
           </div>
         </div>
       </template>
@@ -49,6 +56,16 @@ import { getAccountDetailApi } from "@/api/modules/accountDetail";
 const { t } = useI18n();
 useTitle({ title: t("page.accountDetail") });
 
+const auditMap = {
+  0: "wait",
+  1: "audited",
+  2: "unaudit"
+}
+const auditTypeMap = {
+  0: 'info',
+  1: 'success',
+  2: 'warning'
+}
 const tabsList = ref([
   {
     name: t("accountDetail.rechargeText"),
@@ -113,6 +130,7 @@ onPullDownRefresh(() => {
     }
     .right {
       display: flex;
+      flex-direction: column;
       align-items: center;
     }
   }

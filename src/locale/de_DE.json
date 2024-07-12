@@ -139,7 +139,10 @@
     "amount": "Auszahlungsbetrag (EUR)",
     "submit": "Einreichen",
     "withdrawalSuccess": "Einzug gewonnen",
-    "amountPl": "Bitte geben sie den betrag ihres betrags ein"
+    "amountPl": "Bitte geben sie den betrag ihres betrags ein",
+    "wait": "Ich bin offen",
+    "audit": "Die prüfung wird bestanden",
+    "unaudit": "Die prüfung wurde abgelehnt"
   },
   "upload": {
     "text1": "Auswählen"

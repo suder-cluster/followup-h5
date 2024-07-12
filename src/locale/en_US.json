@@ -139,7 +139,10 @@
     "amount":"Withdrawal Amount (EUR)",
     "submit": "submit",
     "withdrawalSuccess": "Successful Withdrawal",
-    "amountPl": "Please enter the withdrawal amount"
+    "amountPl": "Please enter the withdrawal amount",
+    "wait": "Wait the audit",
+    "audit": "Audited",
+    "unaudit": "Fail the audit"
   },
   "upload": {
     "text1": "Select"

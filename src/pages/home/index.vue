@@ -143,7 +143,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { onHide, onShow } from "@dcloudio/uni-app";
+import { onHide, onShow, onLoad } from "@dcloudio/uni-app";
 import { useTitle } from "@/hooks/useTitle";
 import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/store/modules/auth";
@@ -151,6 +151,7 @@ import { useAuthStore } from "@/store/modules/auth";
 import Decimal from "decimal.js";
 import { cal } from "@/utils/cal";
 import { getNoticeListApi } from "@/api/modules/notice";
+import { getConfigKey } from "@/api/modules/config";
 import aa from "@/static/images/home/aa.png";
 import bb from "@/static/images/home/bb.png";
 import cc from "@/static/images/home/cc.png";
@@ -187,6 +188,8 @@ const cryptoList = ref([]);
 const lastSecondCryptoList = ref([]);
 const timer = ref(null);
 const detailInfo = ref({});
+const url = ref('')
+
 const fetchCryptoData = async () => {
   const response = await http.get(`${Base_Url}/h5/tickers`);
 
@@ -244,6 +247,11 @@ const fetchCryptoData = async () => {
   }
 };
 
+const getConfig = async () => {
+  const { data } = await getConfigKey("h5.custom.url");
+  url.value = data
+}
+
 const interFetch = () => {
   if (timer.value) {
     clearInterval(timer.value);
@@ -279,6 +287,7 @@ const goToPage = (type) => {
       url: "/pages/team/index",
     });
   } else if (type === "custom") {
+    // window.open(url.value, '_blank');
     uni.navigateTo({
       url: "/pages/custom/index",
     });
@@ -317,6 +326,12 @@ onShow(() => {
   interFetch();
   init();
 });
+onLoad(() => {
+  if (!authStore.token) {
+    return;
+  }
+  getConfig()
+})
 onHide(() => {
   clearFetch();
 });
