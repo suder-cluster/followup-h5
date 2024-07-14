@@ -3,7 +3,9 @@
     "confirmText": "Confirm",
     "cancelText": "Cancel",
     "noData": "data null",
-    "copySuccess": "Successful replication"
+    "copySuccess": "Successful replication",
+    "uploadDeleteTitle": "Hint",
+    "uploadDeleteContent": ""
   },
   "page": {
     "login": "Login",

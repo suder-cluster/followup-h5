@@ -281,7 +281,7 @@ export default {
 		return {
 			lists: [],
 			isInCount: true,
-			uploading: false
+			uploading: false,
 		};
 	},
 	watch: {
@@ -500,9 +500,11 @@ export default {
 		},
 		// 删除一个图片
 		deleteItem(index) {
+			const lang = uni.getStorageSync('language')
+			const isEn = lang === 'en_US'
 			uni.showModal({
-				title: "提示",
-				content: "您确定要删除此项吗？",
+				title: isEn ? 'Hint' : 'Tipp',
+				content: isEn ? 'Are you sure you want to delete this item?' : 'Möchten sie diese option wirklich entfernen?',
 				success: async res => {
 					if (res.confirm) {
 						// 先检查是否有定义before-remove移除前钩子
@@ -724,5 +726,10 @@ export default {
 	right: 0;
 	z-index: 9;
 	line-height: 1;
+}
+</style>
+<style>
+.uni-modal__title {
+	color: #000;
 }
 </style>
