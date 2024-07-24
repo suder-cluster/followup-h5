@@ -115,7 +115,6 @@ class Http {
       });
     });
   }
-
   async put(url, params = {}, config) {
     // const { t } = useI18n();
     return new Promise((resolve, reject) => {
@@ -141,6 +140,25 @@ class Http {
     });
   }
 
+  async uploadFile(url, options) {
+    return new Promise((resolve, reject) => {
+      uni.uploadFile({
+        url,
+        ...options,
+        success: (res) => {
+          console.log('res=', res)
+          return this.setResponse(res, resolve, reject)
+        },
+        fail: (err) => {
+          uni.showToast({
+            icon: "error",
+            title: '请求错误'
+          });
+          reject(err);
+        },
+      })
+    })
+  }
   async logOut() {
     const authStore = useAuthStore();
     await this.post(`${Base_Url}/auth/logout`);

@@ -42,7 +42,8 @@
     </div>
     <u-cell-group>
       <u-cell-item
-        v-for="item in cellList"
+        v-for="(item, index) in cellList"
+        :key="index"
         :border-top="false"
         :index="item.index"
         :title="item.title"

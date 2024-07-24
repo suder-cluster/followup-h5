@@ -22,7 +22,8 @@
     "accountDetail": "Account Detail",
     "team": "Team List",
     "invite": "My invitation ",
-    "orderDetail": "Order Detail"
+    "orderDetail": "Order Detail",
+    "identification": "Identification Photo"
   },
   "error": {
     "network": "Network error, error code：",
@@ -185,5 +186,9 @@
   "invite": {
     "inviteCode": "Invitation code",
     "inviteUrl": "invite link"
+  },
+  "identification": {
+    "front": "Front of identification",
+    "back": "Back of identification"
   }
 }
