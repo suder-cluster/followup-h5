@@ -9,9 +9,9 @@
       <u-form-item :label="$t('identification.front')">
         <div style="display: flex; justify-content: center; width: 100%">
           <u-upload
+            name="front"
             :auto-upload="false"
             ref="uUploadRef1"
-            name="files"
             :action="actionUrl"
             :multiple="false"
             :max-count="1"
@@ -35,7 +35,7 @@
       <u-form-item :label="$t('identification.back')">
         <div style="display: flex; justify-content: center; width: 100%">
           <u-upload
-            name="files"
+            name="reverse"
             :auto-upload="false"
             ref="uUploadRef2"
             :action="actionUrl"
@@ -100,7 +100,7 @@ const onRemove = (type) => {
   }
 };
 const onChooseImg = (lists, type) => {
-  lists[0].file.name = type;
+  // lists[0].file.name = type;
   formData.value[type] = lists[0].file;
 };
 const onUpload = async () => {
