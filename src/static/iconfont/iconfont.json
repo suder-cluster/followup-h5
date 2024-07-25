@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "41215868",
+      "name": "6-证件照片",
+      "font_class": "a-6-zhengjianzhaopian",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
       "icon_id": "40852109",
       "name": "复制",
       "font_class": "fuzhi",

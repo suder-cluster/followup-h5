@@ -189,6 +189,8 @@
   },
   "identification": {
     "front": "Face de l'identification",
-    "back": "Dos de l'identification"
+    "back": "Dos de l'identification",
+    "frontPl": "Veuillez télécharger une photo d’identité recto",
+    "backPl": "Veuillez télécharger votre photo d’identité au verso"
   }
 }

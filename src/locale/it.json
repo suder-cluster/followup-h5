@@ -189,6 +189,8 @@
   },
   "identification": {
     "front": "Fronte del documento",
-    "back": "Retro del documento"
+    "back": "Retro del documento",
+    "frontPl": "Veuillez télécharger une photo d’identité recto",
+    "backPl": "Veuillez télécharger votre photo d’identité au verso"
   }
 }

@@ -185,5 +185,11 @@
   "invite": {
     "inviteCode": "Einladungs code",
     "inviteUrl": "Lade den link ein"
+  },
+  "identification": {
+    "front": "Halt dein dokument vorne",
+    "back": "Die papiere sind verkehrt herum",
+    "frontPl": "Bitte hochladen sie ihre papiere geradeaus",
+    "backPl": "Lade deine papiere nach hinten"
   }
 }

@@ -189,6 +189,8 @@
   },
   "identification": {
     "front": "Front of identification",
-    "back": "Back of identification"
+    "back": "Back of identification",
+    "frontPl": "Please upload the front side of your ID photo",
+    "backPl": "Please upload the reverse side of your ID photo"
   }
 }

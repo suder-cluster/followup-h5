@@ -189,6 +189,8 @@
   },
   "identification": {
     "front": "Frente da identificação",
-    "back": "Verso da identificação"
+    "back": "Verso da identificação",
+    "frontPl": "Por favor, carregue uma foto do documento",
+    "backPl": "Por favor, carregue a foto ao contrário"
   }
 }

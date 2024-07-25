@@ -1,9 +1,9 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4594975 */
-  src: url('iconfont.woff2?t=1719239178438') format('woff2'),
-       url('iconfont.woff?t=1719239178438') format('woff'),
-       url('iconfont.ttf?t=1719239178438') format('truetype'),
-       url('iconfont.svg?t=1719239178438#iconfont') format('svg');
+  src: url('iconfont.woff2?t=1721918958130') format('woff2'),
+       url('iconfont.woff?t=1721918958130') format('woff'),
+       url('iconfont.ttf?t=1721918958130') format('truetype'),
+       url('iconfont.svg?t=1721918958130#iconfont') format('svg');
 }
 
 .iconfont {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-a-6-zhengjianzhaopian:before {
+  content: "\e61b";
 }
 
 .icon-fuzhi:before {

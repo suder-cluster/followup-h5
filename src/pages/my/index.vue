@@ -77,6 +77,12 @@ const { onLogOut } = useLogin();
 const { onSelectLang } = useLang();
 const cellList = ref([
   {
+    title: t("page.identification"),
+    value: "",
+    icon: "a-6-zhengjianzhaopian",
+    index: 7
+  },
+  {
     title: t("my.assets"),
     value: "",
     icon: "a-49zichan",
@@ -179,7 +185,11 @@ const goToPage = (type) => {
   }
 };
 const onClickCell = (value) => {
-  if (value === 0) {
+  if (value === 7) {
+    uni.navigateTo({
+      url: "/pages/identificationPhoto/index",
+    });
+  } else if (value === 0) {
     uni.navigateTo({
       url: "/pages/my/assets/index",
     });
@@ -210,7 +220,7 @@ onShow(() => {
 });
 onPullDownRefresh(() => {
   init();
-})
+});
 </script>
 <style lang="scss" scoped>
 .my-container {

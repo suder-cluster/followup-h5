@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import { useI18n } from "vue-i18n";
 export const useLang = () => {
-  const list = ref(['English', 'Das ist Deutsch']);
+  const list = ref(['English', 'Das ist Deutsch', 'En français', 'italia', 'にっぽん','한국어', 'Португалия']);
   const i18n = useI18n();
   const setLang = async (lang) => {
     i18n.locale = lang;
@@ -23,6 +23,16 @@ export const useLang = () => {
           setLang('en_US');
         } else if (tapIndex === 1) {
           setLang('de_DE');
+        } else if (tapIndex === 2) {
+          setLang('fr')
+        } else if (tapIndex === 3) {
+          setLang('it')
+        } else if (tapIndex === 4) {
+          setLang('ja_JP')
+        } else if  (tapIndex === 5) {
+          setLang('ko_KR')
+        } else if (tapIndex === 6) {
+          setLang('pt')
         }
       },
       fail: function (res) {
