@@ -1,0 +1,194 @@
+{
+  "common": {
+    "confirmText": "Confirmar",
+    "cancelText": "Cancelar",
+    "noData": "sin datos",
+    "copySuccess": "Copia exitosa"
+  },
+  "page": {
+    "login": "Iniciar sesión",
+    "hall": "Sala",
+    "order": "Orden",
+    "my": "Mi",
+    "myDetail": "Mi información",
+    "registry": "Registro",
+    "home": "Inicio",
+    "myAssets": "Mis activos",
+    "recharge": "Recargar",
+    "withdrawal": "Retiro",
+    "custom": "Servicio al cliente en línea",
+    "tutorial": "Tutorial",
+    "accountBind": "Vinculación de cuenta",
+    "accountDetail": "Detalle de cuenta",
+    "team": "Lista de equipo",
+    "invite": "Mi invitación",
+    "orderDetail": "Detalle de orden",
+    "identification": "Foto de identificación"
+  },
+  "error": {
+    "network": "Error de red, código de error：",
+    "expiration": "Sesión expirada, por favor inicie sesión nuevamente",
+    "request": "Error en la interfaz de solicitud"
+  },
+  "operation": {
+    "success": "¡Operación exitosa!"
+  },
+  "login": {
+    "title": "ANCOIN",
+    "userNamePl": "Por favor, ingrese su número de cuenta",
+    "passwordPl": "Por favor, ingrese su PIN",
+    "loginBtn": "Iniciar sesión",
+    "forgetText": "Olvidó la contraseña",
+    "bottomText": "¿No tiene una cuenta? Regístrese ahora.",
+    "loginSuccess": "¡Inicio de sesión exitoso!",
+    "modifyPass": "Modificar contraseña"
+  },
+  "hall": {
+    "title": "Piso de negociación",
+    "selling": "Venta",
+    "usdt": "USDT",
+    "offsetDayUnit": "días atrás",
+    "seller": "Vendiendo al vendedor",
+    "sellList": "Lista de ventas",
+    "goSale": "Ir a la venta",
+    "limit": "límite",
+    "sellModalTitle": "Venta de USDT",
+    "sellInputVali": "Por favor, ingrese la cantidad vendida",
+    "sellSuccess": "Venta exitosa"
+  },
+  "registry": {
+    "title": "Registrar una cuenta",
+    "userNamePl": "Por favor, ingrese su nombre de usuario",
+    "nickNamePl": "Por favor, ingrese su apodo",
+    "emailPl": "Por favor, ingrese su correo electrónico",
+    "emailFormat": "Por favor, ingrese un correo electrónico válido",
+    "emailCodePl": "Por favor, ingrese el código del correo",
+    "passwordPl": "Por favor, establezca la contraseña de inicio de sesión",
+    "invitedCodePl": "Por favor, ingrese su código de invitación",
+    "registryBtn": "Registrarse",
+    "backToLogin": "Volver al inicio de sesión",
+    "getCode": "Obtener código",
+    "sendCodeSuccess": "¡Código enviado exitosamente!"
+  },
+  "order": {
+    "all": "Todos",
+    "waitAudit": "Por auditar",
+    "successAudit": "Auditoría exitosa",
+    "failAudit": "Falló la auditoría",
+    "0": "Por auditar",
+    "1": "Auditoría exitosa",
+    "2": "Falló la auditoría",
+    "sellPl": "Por favor, ingrese la cantidad vendida"
+  },
+  "orderDetail": {
+    "orderNumber": "Número de orden",
+    "account": "Cuenta",
+    "quantity": "Cantidad",
+    "price": "Precio",
+    "earnings": "Ganancias",
+    "status": "Estado",
+    "matchingTime": "Hora de emparejamiento"
+  },
+  "my": {
+    "fundLog": "Registro de fondos",
+    "myInfo": "Mi información",
+    "accountBind": "Vinculación",
+    "acDetail": "Detalle",
+    "tutorial": "Tutorial",
+    "customer": "Cliente",
+    "assets": "Mis activos",
+    "binding": "Vinculación",
+    "accountBinding": "Vinculación de cuenta",
+    "accountDetail": "Detalle de cuenta",
+    "switchLang": "Cambio de idioma",
+    "logOut": "Cerrar sesión",
+    "usdtTitle": "SALDO (USDT)",
+    "eurTitle": "SALDO (EUR)",
+    "recharge": "Recargar",
+    "withDraw": "Retirar",
+    "rechargedAmount": "Monto recargado (USDT)",
+    "soldAmount": "Monto vendido (USDT)",
+    "earningsObtained": "Ganancias obtenidas (USDT)",
+    "team": "Lista de equipo",
+    "invite": "Invitación"
+  },
+  "myDetail": {
+    "avatar": "Avatar",
+    "nickName": "Apodo",
+    "email": "Correo electrónico",
+    "modifyPass": "Modificar la contraseña de inicio de sesión",
+    "modify": "Modificar",
+    "switchLang": "Cambio de idioma",
+    "oldPass": "Contraseña anterior",
+    "newPass": "Nueva contraseña",
+    "oldPassPl": "Por favor, ingrese la contraseña anterior",
+    "newPassPl": "Por favor, ingrese la nueva contraseña",
+    "newPassPl2": "Por favor, ingrese la nueva contraseña nuevamente",
+    "resetPassValid": "Por favor, complete la información",
+    "passwordValid": "Las dos contraseñas no coinciden"
+  },
+  "recharge": {
+    "address": "USDT(TRC)",
+    "address2": "USDT(ERC)",
+    "usdt": "USDT",
+    "erc": "ERC",
+    "money": "Dinero",
+    "usdtPl": "Por favor, ingrese el monto",
+    "voucherPl": "Por favor, seleccione un voucher"
+  },
+  "withdrawal": {
+    "amount": "Monto de retiro (EUR)",
+    "submit": "Enviar",
+    "withdrawalSuccess": "Retiro exitoso",
+    "amountPl": "Por favor, ingrese el monto del retiro",
+    "wait": "Esperar auditoría",
+    "audit": "Auditoría realizada",
+    "unaudit": "Falló la auditoría"
+  },
+  "upload": {
+    "text1": "Seleccionar"
+  },
+  "accountBinding": {
+    "account": "Cuenta",
+    "name": "Nombre",
+    "surname": "Apellido",
+    "mail": "Correo electrónico",
+    "iban": "IBAN",
+    "country": "País",
+    "region": "Región",
+    "bankName": "Nombre del banco",
+    "address": "Dirección",
+    "province": "Provincia",
+    "city": "Ciudad",
+    "zipCode": "Código postal",
+    "countryPl": "Por favor, ingrese el país",
+    "bankNamePl": "Por favor, ingrese el nombre del banco",
+    "ibanPl": "Por favor, ingrese el IBAN",
+    "accountPl": "Por favor, ingrese el nombre de la cuenta",
+    "regionPl": "Por favor, ingrese la región",
+    "namePl": "Por favor, ingrese el nombre",
+    "surnamePl": "Por favor, ingrese el apellido",
+    "addressPl": "Por favor, ingrese la dirección",
+    "zipCodePl": "Por favor, ingrese el código postal",
+    "cityPl": "Por favor, ingrese la ciudad",
+    "provincePl": "Por favor, ingrese la provincia o estado",
+    "mailPl": "Por favor, ingrese el correo electrónico"
+  },
+  "accountDetail": {
+    "rechargeText": "Recargar",
+    "withdrawText": "Retirar"
+  },
+  "team": {
+    "id": "ID",
+    "titleLabel": "Número total de miembros del equipo",
+    "registryTime": "Hora de registro"
+  },
+  "invite": {
+    "inviteCode": "Código de invitación",
+    "inviteUrl": "Enlace de invitación"
+  },
+  "identification": {
+    "front": "Frente de la identificación",
+    "back": "Reverso de la identificación"
+  }
+}

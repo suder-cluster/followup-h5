@@ -1,0 +1,194 @@
+{
+  "common": {
+    "confirmText": "Confirmar",
+    "cancelText": "Cancelar",
+    "noData": "nenhum dado",
+    "copySuccess": "Cópia bem-sucedida"
+  },
+  "page": {
+    "login": "Entrar",
+    "hall": "Sala",
+    "order": "Pedido",
+    "my": "Meu",
+    "myDetail": "Meus detalhes",
+    "registry": "Registro",
+    "home": "Início",
+    "myAssets": "Meus ativos",
+    "recharge": "Recarregar",
+    "withdrawal": "Retirada",
+    "custom": "Atendimento ao cliente online",
+    "tutorial": "Tutorial",
+    "accountBind": "Vinculação de conta",
+    "accountDetail": "Detalhes da conta",
+    "team": "Lista de equipe",
+    "invite": "Meu convite",
+    "orderDetail": "Detalhes do pedido",
+    "identification": "Foto de identificação"
+  },
+  "error": {
+    "network": "Erro de rede, código de erro：",
+    "expiration": "Sessão expirada, por favor, faça login novamente",
+    "request": "Erro na interface de solicitação"
+  },
+  "operation": {
+    "success": "Operação bem-sucedida！"
+  },
+  "login": {
+    "title": "ANCOIN",
+    "userNamePl": "Digite o número da conta",
+    "passwordPl": "Digite o PIN",
+    "loginBtn": "Entrar",
+    "forgetText": "Esqueceu a senha",
+    "bottomText": "Não tem uma conta? Registre-se agora.",
+    "loginSuccess": "Login bem-sucedido！",
+    "modifyPass": "Modificar senha"
+  },
+  "hall": {
+    "title": "Sala de negociação",
+    "selling": "Venda",
+    "usdt": "USDT",
+    "offsetDayUnit": "dias atrás",
+    "seller": "Vender ao vendedor",
+    "sellList": "Lista de vendas",
+    "goSale": "Ir para a venda",
+    "limit": "limite",
+    "sellModalTitle": "Venda de USDT",
+    "sellInputVali": "Digite a quantidade vendida",
+    "sellSuccess": "Venda bem-sucedida"
+  },
+  "registry": {
+    "title": "Criar uma conta",
+    "userNamePl": "Digite o nome de usuário",
+    "nickNamePl": "Digite o apelido",
+    "emailPl": "Digite o endereço de e-mail",
+    "emailFormat": "Digite um e-mail válido",
+    "emailCodePl": "Digite o código do e-mail",
+    "passwordPl": "Defina a senha de login",
+    "invitedCodePl": "Digite o código de convite",
+    "registryBtn": "Registrar",
+    "backToLogin": "Voltar ao login",
+    "getCode": "Obter código",
+    "sendCodeSuccess": "Código enviado com sucesso！"
+  },
+  "order": {
+    "all": "Todos",
+    "waitAudit": "Aguardando auditoria",
+    "successAudit": "Auditoria bem-sucedida",
+    "failAudit": "Falha na auditoria",
+    "0": "Aguardando auditoria",
+    "1": "Auditoria bem-sucedida",
+    "2": "Falha na auditoria",
+    "sellPl": "Digite a quantidade vendida"
+  },
+  "orderDetail": {
+    "orderNumber": "Número do pedido",
+    "account": "Conta",
+    "quantity": "Quantidade",
+    "price": "Preço",
+    "earnings": "Ganhos",
+    "status": "Status",
+    "matchingTime": "Hora de correspondência"
+  },
+  "my": {
+    "fundLog": "Registro de fundos",
+    "myInfo": "Minhas informações",
+    "accountBind": "Vinculação",
+    "acDetail": "Detalhes",
+    "tutorial": "Tutorial",
+    "customer": "Cliente",
+    "assets": "Meus ativos",
+    "binding": "Vinculação",
+    "accountBinding": "Vinculação de conta",
+    "accountDetail": "Detalhes da conta",
+    "switchLang": "Mudar idioma",
+    "logOut": "Sair",
+    "usdtTitle": "SALDO (USDT)",
+    "eurTitle": "SALDO (EUR)",
+    "recharge": "Recarregar",
+    "withDraw": "Retirada",
+    "rechargedAmount": "Valor recarregado (USDT)",
+    "soldAmount": "Valor vendido (USDT)",
+    "earningsObtained": "Ganhos obtidos (USDT)",
+    "team": "Lista de equipe",
+    "invite": "Convite"
+  },
+  "myDetail": {
+    "avatar": "Avatar",
+    "nickName": "Apelido",
+    "email": "E-mail",
+    "modifyPass": "Modificar senha de login",
+    "modify": "Modificar",
+    "switchLang": "Mudar idioma",
+    "oldPass": "Senha antiga",
+    "newPass": "Nova senha",
+    "oldPassPl": "Digite a senha antiga",
+    "newPassPl": "Digite a nova senha",
+    "newPassPl2": "Digite a nova senha novamente",
+    "resetPassValid": "Preencha as informações",
+    "passwordValid": "As senhas não coincidem"
+  },
+  "recharge": {
+    "address": "USDT(TRC)",
+    "address2": "USDT(ERC)",
+    "usdt": "USDT",
+    "erc": "ERC",
+    "money": "Valor",
+    "usdtPl": "Digite o valor",
+    "voucherPl": "Selecione um voucher"
+  },
+  "withdrawal": {
+    "amount": "Valor da retirada (EUR)",
+    "submit": "Enviar",
+    "withdrawalSuccess": "Retirada bem-sucedida",
+    "amountPl": "Digite o valor da retirada",
+    "wait": "Aguardando auditoria",
+    "audit": "Auditoria realizada",
+    "unaudit": "Falha na auditoria"
+  },
+  "upload": {
+    "text1": "Selecionar"
+  },
+  "accountBinding": {
+    "account": "Conta",
+    "name": "Nome",
+    "surname": "Sobrenome",
+    "mail": "Email",
+    "iban": "IBAN",
+    "country": "País",
+    "region": "Região",
+    "bankName": "Nome do banco",
+    "address": "Endereço",
+    "province": "Província",
+    "city": "Cidade",
+    "zipCode": "Código postal",
+    "countryPl": "Digite o país",
+    "bankNamePl": "Digite o nome do banco",
+    "ibanPl": "Digite o IBAN",
+    "accountPl": "Digite o nome da conta",
+    "regionPl": "Digite a região",
+    "namePl": "Digite o nome",
+    "surnamePl": "Digite o sobrenome",
+    "addressPl": "Digite o endereço",
+    "zipCodePl": "Digite o código postal",
+    "cityPl": "Digite a cidade",
+    "provincePl": "Digite a província",
+    "mailPl": "Digite o e-mail"
+  },
+  "accountDetail": {
+    "rechargeText": "Recarregar",
+    "withdrawText": "Retirada"
+  },
+  "team": {
+    "id": "ID",
+    "titleLabel": "Número total de membros da equipe",
+    "registryTime": "Hora de registro"
+  },
+  "invite": {
+    "inviteCode": "Código de convite",
+    "inviteUrl": "Link de convite"
+  },
+  "identification": {
+    "front": "Frente da identificação",
+    "back": "Verso da identificação"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "common": {
+    "confirmText": "確認",
+    "cancelText": "キャンセル",
+    "noData": "データなし",
+    "copySuccess": "コピー成功"
+  },
+  "page": {
+    "login": "ログイン",
+    "hall": "ホール",
+    "order": "注文",
+    "my": "マイ",
+    "myDetail": "私の情報",
+    "registry": "登録",
+    "home": "ホーム",
+    "myAssets": "私の資産",
+    "recharge": "リチャージ",
+    "withdrawal": "出金",
+    "custom": "オンラインカスタマーサービス",
+    "tutorial": "チュートリアル",
+    "accountBind": "アカウントバインディング",
+    "accountDetail": "アカウント詳細",
+    "team": "チームリスト",
+    "invite": "招待",
+    "orderDetail": "注文詳細",
+    "identification": "識別写真"
+  },
+  "error": {
+    "network": "ネットワークエラー、エラーコード：",
+    "expiration": "ログイン期限切れ、再ログインしてください",
+    "request": "リクエストインターフェース失敗"
+  },
+  "operation": {
+    "success": "操作成功！"
+  },
+  "login": {
+    "title": "ANCOIN",
+    "userNamePl": "アカウント番号を入力してください",
+    "passwordPl": "PINを入力してください",
+    "loginBtn": "ログイン",
+    "forgetText": "パスワードを忘れました",
+    "bottomText": "アカウントがない？今すぐ登録。",
+    "loginSuccess": "ログイン成功！",
+    "modifyPass": "パスワード変更"
+  },
+  "hall": {
+    "title": "取引フロア",
+    "selling": "販売中",
+    "usdt": "USDT",
+    "offsetDayUnit": "日前",
+    "seller": "販売者に売る",
+    "sellList": "販売リスト",
+    "goSale": "販売に行く",
+    "limit": "制限",
+    "sellModalTitle": "USDTを販売",
+    "sellInputVali": "販売数量を入力してください",
+    "sellSuccess": "販売成功"
+  },
+  "registry": {
+    "title": "アカウント登録",
+    "userNamePl": "ユーザー名を入力してください",
+    "nickNamePl": "ニックネームを入力してください",
+    "emailPl": "メールアドレスを入力してください",
+    "emailFormat": "正しいメールアドレスを入力してください",
+    "emailCodePl": "メールコードを入力してください",
+    "passwordPl": "ログインパスワードを設定してください",
+    "invitedCodePl": "招待コードを入力してください",
+    "registryBtn": "登録",
+    "backToLogin": "ログインに戻る",
+    "getCode": "コードを取得",
+    "sendCodeSuccess": "送信成功！"
+  },
+  "order": {
+    "all": "すべて",
+    "waitAudit": "監査待ち",
+    "successAudit": "監査成功",
+    "failAudit": "監査失敗",
+    "0": "監査待ち",
+    "1": "監査成功",
+    "2": "監査失敗",
+    "sellPl": "販売数量を入力してください"
+  },
+  "orderDetail": {
+    "orderNumber": "注文番号",
+    "account": "アカウント",
+    "quantity": "数量",
+    "price": "価格",
+    "earnings": "収益",
+    "status": "ステータス",
+    "matchingTime": "マッチング時間"
+  },
+  "my": {
+    "fundLog": "資金ログ",
+    "myInfo": "私の情報",
+    "accountBind": "バインディング",
+    "acDetail": "詳細",
+    "tutorial": "チュートリアル",
+    "customer": "カスタマー",
+    "assets": "私の資産",
+    "binding": "バインディング",
+    "accountBinding": "アカウントバインディング",
+    "accountDetail": "アカウント詳細",
+    "switchLang": "言語切り替え",
+    "logOut": "ログアウト",
+    "usdtTitle": "残高（USDT）",
+    "eurTitle": "残高（EUR）",
+    "recharge": "リチャージ",
+    "withDraw": "出金",
+    "rechargedAmount": "リチャージ金額（USDT）",
+    "soldAmount": "販売金額（USDT）",
+    "earningsObtained": "収益獲得（USDT）",
+    "team": "チームリスト",
+    "invite": "招待"
+  },
+  "myDetail": {
+    "avatar": "アバター",
+    "nickName": "ニックネーム",
+    "email": "メール",
+    "modifyPass": "ログインパスワードの変更",
+    "modify": "変更",
+    "switchLang": "言語切り替え",
+    "oldPass": "旧パスワード",
+    "newPass": "新パスワード",
+    "oldPassPl": "旧パスワードを入力してください",
+    "newPassPl": "新パスワードを入力してください",
+    "newPassPl2": "新パスワードをもう一度入力してください",
+    "resetPassValid": "情報を入力してください",
+    "passwordValid": "パスワードが一致しません"
+  },
+  "recharge": {
+    "address": "USDT(TRC)",
+    "address2": "USDT(ERC)",
+    "usdt": "USDT",
+    "erc": "ERC",
+    "money": "金額",
+    "usdtPl": "金額を入力してください",
+    "voucherPl": "バウチャーを選択してください"
+  },
+  "withdrawal": {
+    "amount": "出金金額（EUR）",
+    "submit": "送信",
+    "withdrawalSuccess": "出金成功",
+    "amountPl": "出金金額を入力してください",
+    "wait": "監査待ち",
+    "audit": "監査済み",
+    "unaudit": "監査失敗"
+  },
+  "upload": {
+    "text1": "選択"
+  },
+  "accountBinding": {
+    "account": "アカウント",
+    "name": "名前",
+    "surname": "姓",
+    "mail": "メール",
+    "iban": "IBAN",
+    "country": "国",
+    "region": "地域",
+    "bankName": "銀行名",
+    "address": "住所",
+    "province": "州",
+    "city": "市",
+    "zipCode": "郵便番号",
+    "countryPl": "国を入力してください",
+    "bankNamePl": "銀行名を入力してください",
+    "ibanPl": "IBANを入力してください",
+    "accountPl": "アカウント名を入力してください",
+    "regionPl": "地域を入力してください",
+    "namePl": "名前を入力してください",
+    "surnamePl": "姓を入力してください",
+    "addressPl": "住所を入力してください",
+    "zipCodePl": "郵便番号を入力してください",
+    "cityPl": "市を入力してください",
+    "provincePl": "州を入力してください",
+    "mailPl": "メールを入力してください"
+  },
+  "accountDetail": {
+    "rechargeText": "リチャージ",
+    "withdrawText": "出金"
+  },
+  "team": {
+    "id": "ID",
+    "titleLabel": "チームメンバーの総数",
+    "registryTime": "登録時間"
+  },
+  "invite": {
+    "inviteCode": "招待コード",
+    "inviteUrl": "招待リンク"
+  },
+  "identification": {
+    "front": "身分証明書の表面",
+    "back": "身分証明書の裏面"
+  }
+}

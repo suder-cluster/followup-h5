@@ -1,0 +1,194 @@
+{
+  "common": {
+    "confirmText": "Confirmer",
+    "cancelText": "Annuler",
+    "noData": "aucune donnée",
+    "copySuccess": "Copie réussie"
+  },
+  "page": {
+    "login": "Connexion",
+    "hall": "Salle",
+    "order": "Commande",
+    "my": "Mon",
+    "myDetail": "Mes informations",
+    "registry": "Inscription",
+    "home": "Accueil",
+    "myAssets": "Mes actifs",
+    "recharge": "Recharger",
+    "withdrawal": "Retrait",
+    "custom": "Service client en ligne",
+    "tutorial": "Tutoriel",
+    "accountBind": "Liaison de compte",
+    "accountDetail": "Détails du compte",
+    "team": "Liste de l'équipe",
+    "invite": "Mon invitation",
+    "orderDetail": "Détails de la commande",
+    "identification": "Photo d'identification"
+  },
+  "error": {
+    "network": "Erreur réseau, code d'erreur：",
+    "expiration": "Session expirée, veuillez vous reconnecter",
+    "request": "Échec de l'interface de demande"
+  },
+  "operation": {
+    "success": "Opération réussie！"
+  },
+  "login": {
+    "title": "ANCOIN",
+    "userNamePl": "Veuillez entrer votre numéro de compte",
+    "passwordPl": "Veuillez entrer votre PIN",
+    "loginBtn": "Connexion",
+    "forgetText": "Mot de passe oublié",
+    "bottomText": "Pas de compte ? Inscrivez-vous maintenant.",
+    "loginSuccess": "Connexion réussie！",
+    "modifyPass": "Modifier le mot de passe"
+  },
+  "hall": {
+    "title": "Salle de trading",
+    "selling": "Vente",
+    "usdt": "USDT",
+    "offsetDayUnit": "jours auparavant",
+    "seller": "Vendre au vendeur",
+    "sellList": "Liste des ventes",
+    "goSale": "Aller à la vente",
+    "limit": "limite",
+    "sellModalTitle": "Vente de USDT",
+    "sellInputVali": "Veuillez entrer la quantité vendue",
+    "sellSuccess": "Vente réussie"
+  },
+  "registry": {
+    "title": "Créer un compte",
+    "userNamePl": "Veuillez entrer votre nom d'utilisateur",
+    "nickNamePl": "Veuillez entrer votre surnom",
+    "emailPl": "Veuillez entrer votre adresse email",
+    "emailFormat": "Veuillez entrer une adresse email valide",
+    "emailCodePl": "Veuillez entrer le code email",
+    "passwordPl": "Veuillez définir le mot de passe de connexion",
+    "invitedCodePl": "Veuillez entrer votre code d'invitation",
+    "registryBtn": "S'inscrire",
+    "backToLogin": "Retour à la connexion",
+    "getCode": "Obtenir le code",
+    "sendCodeSuccess": "Envoi réussi！"
+  },
+  "order": {
+    "all": "Tout",
+    "waitAudit": "En attente de vérification",
+    "successAudit": "Vérification réussie",
+    "failAudit": "Échec de la vérification",
+    "0": "En attente de vérification",
+    "1": "Vérification réussie",
+    "2": "Échec de la vérification",
+    "sellPl": "Veuillez entrer la quantité vendue"
+  },
+  "orderDetail": {
+    "orderNumber": "Numéro de commande",
+    "account": "Compte",
+    "quantity": "Quantité",
+    "price": "Prix",
+    "earnings": "Gains",
+    "status": "Statut",
+    "matchingTime": "Heure de correspondance"
+  },
+  "my": {
+    "fundLog": "Journal des fonds",
+    "myInfo": "Mes informations",
+    "accountBind": "Liaison",
+    "acDetail": "Détails",
+    "tutorial": "Tutoriel",
+    "customer": "Client",
+    "assets": "Mes actifs",
+    "binding": "Liaison",
+    "accountBinding": "Liaison de compte",
+    "accountDetail": "Détails du compte",
+    "switchLang": "Changer de langue",
+    "logOut": "Déconnexion",
+    "usdtTitle": "SOLDE (USDT)",
+    "eurTitle": "SOLDE (EUR)",
+    "recharge": "Recharger",
+    "withDraw": "Retirer",
+    "rechargedAmount": "Montant rechargé (USDT)",
+    "soldAmount": "Montant vendu (USDT)",
+    "earningsObtained": "Gains obtenus (USDT)",
+    "team": "Liste de l'équipe",
+    "invite": "Invitation"
+  },
+  "myDetail": {
+    "avatar": "Avatar",
+    "nickName": "Surnom",
+    "email": "Email",
+    "modifyPass": "Modifier le mot de passe de connexion",
+    "modify": "Modifier",
+    "switchLang": "Changer de langue",
+    "oldPass": "Ancien mot de passe",
+    "newPass": "Nouveau mot de passe",
+    "oldPassPl": "Veuillez entrer l'ancien mot de passe",
+    "newPassPl": "Veuillez entrer le nouveau mot de passe",
+    "newPassPl2": "Veuillez entrer à nouveau le nouveau mot de passe",
+    "resetPassValid": "Veuillez entrer les informations",
+    "passwordValid": "Les mots de passe ne correspondent pas"
+  },
+  "recharge": {
+    "address": "USDT(TRC)",
+    "address2": "USDT(ERC)",
+    "usdt": "USDT",
+    "erc": "ERC",
+    "money": "Montant",
+    "usdtPl": "Veuillez entrer le montant",
+    "voucherPl": "Veuillez sélectionner un voucher"
+  },
+  "withdrawal": {
+    "amount": "Montant du retrait (EUR)",
+    "submit": "Soumettre",
+    "withdrawalSuccess": "Retrait réussi",
+    "amountPl": "Veuillez entrer le montant du retrait",
+    "wait": "En attente de vérification",
+    "audit": "Vérification effectuée",
+    "unaudit": "Échec de la vérification"
+  },
+  "upload": {
+    "text1": "Sélectionner"
+  },
+  "accountBinding": {
+    "account": "Compte",
+    "name": "Nom",
+    "surname": "Prénom",
+    "mail": "Email",
+    "iban": "IBAN",
+    "country": "Pays",
+    "region": "Région",
+    "bankName": "Nom de la banque",
+    "address": "Adresse",
+    "province": "Province",
+    "city": "Ville",
+    "zipCode": "Code postal",
+    "countryPl": "Veuillez entrer le pays",
+    "bankNamePl": "Veuillez entrer le nom de la banque",
+    "ibanPl": "Veuillez entrer l'IBAN",
+    "accountPl": "Veuillez entrer le nom du compte",
+    "regionPl": "Veuillez entrer la région",
+    "namePl": "Veuillez entrer le nom",
+    "surnamePl": "Veuillez entrer le prénom",
+    "addressPl": "Veuillez entrer l'adresse",
+    "zipCodePl": "Veuillez entrer le code postal",
+    "cityPl": "Veuillez entrer la ville",
+    "provincePl": "Veuillez entrer la province",
+    "mailPl": "Veuillez entrer l'email"
+  },
+  "accountDetail": {
+    "rechargeText": "Recharger",
+    "withdrawText": "Retirer"
+  },
+  "team": {
+    "id": "ID",
+    "titleLabel": "Nombre total de membres de l'équipe",
+    "registryTime": "Heure d'enregistrement"
+  },
+  "invite": {
+    "inviteCode": "Code d'invitation",
+    "inviteUrl": "Lien d'invitation"
+  },
+  "identification": {
+    "front": "Face de l'identification",
+    "back": "Dos de l'identification"
+  }
+}

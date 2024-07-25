@@ -1,0 +1,194 @@
+{
+  "common": {
+    "confirmText": "Confermare",
+    "cancelText": "Annulla",
+    "noData": "nessun dato",
+    "copySuccess": "Copia riuscita"
+  },
+  "page": {
+    "login": "Accedi",
+    "hall": "Sala",
+    "order": "Ordine",
+    "my": "Il mio",
+    "myDetail": "Le mie informazioni",
+    "registry": "Registrazione",
+    "home": "Home",
+    "myAssets": "I miei beni",
+    "recharge": "Ricarica",
+    "withdrawal": "Prelievo",
+    "custom": "Servizio clienti online",
+    "tutorial": "Tutorial",
+    "accountBind": "Collegamento account",
+    "accountDetail": "Dettagli account",
+    "team": "Lista squadra",
+    "invite": "Il mio invito",
+    "orderDetail": "Dettagli ordine",
+    "identification": "Foto identificativa"
+  },
+  "error": {
+    "network": "Errore di rete, codice errore：",
+    "expiration": "Sessione scaduta, si prega di accedere di nuovo",
+    "request": "Errore dell'interfaccia di richiesta"
+  },
+  "operation": {
+    "success": "Operazione riuscita！"
+  },
+  "login": {
+    "title": "ANCOIN",
+    "userNamePl": "Inserisci il numero dell'account",
+    "passwordPl": "Inserisci il PIN",
+    "loginBtn": "Accedi",
+    "forgetText": "Hai dimenticato la password",
+    "bottomText": "Non hai un account? Registrati ora.",
+    "loginSuccess": "Accesso riuscito！",
+    "modifyPass": "Modifica password"
+  },
+  "hall": {
+    "title": "Piano di trading",
+    "selling": "Vendita",
+    "usdt": "USDT",
+    "offsetDayUnit": "giorni fa",
+    "seller": "Vendere al venditore",
+    "sellList": "Elenco vendite",
+    "goSale": "Vai alla vendita",
+    "limit": "limite",
+    "sellModalTitle": "Vendita USDT",
+    "sellInputVali": "Inserisci la quantità venduta",
+    "sellSuccess": "Vendita riuscita"
+  },
+  "registry": {
+    "title": "Registrazione account",
+    "userNamePl": "Inserisci il nome utente",
+    "nickNamePl": "Inserisci il soprannome",
+    "emailPl": "Inserisci l'indirizzo email",
+    "emailFormat": "Inserisci un'email valida",
+    "emailCodePl": "Inserisci il codice email",
+    "passwordPl": "Imposta la password di accesso",
+    "invitedCodePl": "Inserisci il codice di invito",
+    "registryBtn": "Registrati",
+    "backToLogin": "Torna al login",
+    "getCode": "Ottieni codice",
+    "sendCodeSuccess": "Codice inviato con successo！"
+  },
+  "order": {
+    "all": "Tutti",
+    "waitAudit": "In attesa di verifica",
+    "successAudit": "Verifica riuscita",
+    "failAudit": "Verifica fallita",
+    "0": "In attesa di verifica",
+    "1": "Verifica riuscita",
+    "2": "Verifica fallita",
+    "sellPl": "Inserisci la quantità venduta"
+  },
+  "orderDetail": {
+    "orderNumber": "Numero ordine",
+    "account": "Account",
+    "quantity": "Quantità",
+    "price": "Prezzo",
+    "earnings": "Guadagni",
+    "status": "Stato",
+    "matchingTime": "Orario di abbinamento"
+  },
+  "my": {
+    "fundLog": "Registro fondi",
+    "myInfo": "Le mie informazioni",
+    "accountBind": "Collegamento",
+    "acDetail": "Dettagli",
+    "tutorial": "Tutorial",
+    "customer": "Cliente",
+    "assets": "I miei beni",
+    "binding": "Collegamento",
+    "accountBinding": "Collegamento account",
+    "accountDetail": "Dettagli account",
+    "switchLang": "Cambia lingua",
+    "logOut": "Disconnettersi",
+    "usdtTitle": "SALDO (USDT)",
+    "eurTitle": "SALDO (EUR)",
+    "recharge": "Ricarica",
+    "withDraw": "Prelievo",
+    "rechargedAmount": "Importo ricaricato (USDT)",
+    "soldAmount": "Importo venduto (USDT)",
+    "earningsObtained": "Guadagni ottenuti (USDT)",
+    "team": "Lista squadra",
+    "invite": "Invito"
+  },
+  "myDetail": {
+    "avatar": "Avatar",
+    "nickName": "Soprannome",
+    "email": "Email",
+    "modifyPass": "Modifica password di accesso",
+    "modify": "Modifica",
+    "switchLang": "Cambia lingua",
+    "oldPass": "Vecchia password",
+    "newPass": "Nuova password",
+    "oldPassPl": "Inserisci la vecchia password",
+    "newPassPl": "Inserisci la nuova password",
+    "newPassPl2": "Inserisci di nuovo la nuova password",
+    "resetPassValid": "Inserisci le informazioni",
+    "passwordValid": "Le password non corrispondono"
+  },
+  "recharge": {
+    "address": "USDT(TRC)",
+    "address2": "USDT(ERC)",
+    "usdt": "USDT",
+    "erc": "ERC",
+    "money": "Importo",
+    "usdtPl": "Inserisci l'importo",
+    "voucherPl": "Seleziona un voucher"
+  },
+  "withdrawal": {
+    "amount": "Importo prelievo (EUR)",
+    "submit": "Invia",
+    "withdrawalSuccess": "Prelievo riuscito",
+    "amountPl": "Inserisci l'importo del prelievo",
+    "wait": "In attesa di verifica",
+    "audit": "Verifica effettuata",
+    "unaudit": "Verifica fallita"
+  },
+  "upload": {
+    "text1": "Seleziona"
+  },
+  "accountBinding": {
+    "account": "Account",
+    "name": "Nome",
+    "surname": "Cognome",
+    "mail": "Email",
+    "iban": "IBAN",
+    "country": "Paese",
+    "region": "Regione",
+    "bankName": "Nome della banca",
+    "address": "Indirizzo",
+    "province": "Provincia",
+    "city": "Città",
+    "zipCode": "Codice postale",
+    "countryPl": "Inserisci il paese",
+    "bankNamePl": "Inserisci il nome della banca",
+    "ibanPl": "Inserisci l'IBAN",
+    "accountPl": "Inserisci il nome dell'account",
+    "regionPl": "Inserisci la regione",
+    "namePl": "Inserisci il nome",
+    "surnamePl": "Inserisci il cognome",
+    "addressPl": "Inserisci l'indirizzo",
+    "zipCodePl": "Inserisci il codice postale",
+    "cityPl": "Inserisci la città",
+    "provincePl": "Inserisci la provincia",
+    "mailPl": "Inserisci l'email"
+  },
+  "accountDetail": {
+    "rechargeText": "Ricarica",
+    "withdrawText": "Prelievo"
+  },
+  "team": {
+    "id": "ID",
+    "titleLabel": "Numero totale dei membri del team",
+    "registryTime": "Orario di registrazione"
+  },
+  "invite": {
+    "inviteCode": "Codice di invito",
+    "inviteUrl": "Link di invito"
+  },
+  "identification": {
+    "front": "Fronte del documento",
+    "back": "Retro del documento"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "common": {
+    "confirmText": "확인",
+    "cancelText": "취소",
+    "noData": "데이터 없음",
+    "copySuccess": "복사 성공"
+  },
+  "page": {
+    "login": "로그인",
+    "hall": "홀",
+    "order": "주문",
+    "my": "내 정보",
+    "myDetail": "내 정보",
+    "registry": "등록",
+    "home": "홈",
+    "myAssets": "내 자산",
+    "recharge": "충전",
+    "withdrawal": "출금",
+    "custom": "온라인 고객 서비스",
+    "tutorial": "튜토리얼",
+    "accountBind": "계정 연결",
+    "accountDetail": "계정 세부 정보",
+    "team": "팀 목록",
+    "invite": "내 초대",
+    "orderDetail": "주문 상세",
+    "identification": "신분증 사진"
+  },
+  "error": {
+    "network": "네트워크 오류, 오류 코드：",
+    "expiration": "로그인 만료, 다시 로그인해 주세요",
+    "request": "요청 인터페이스 실패"
+  },
+  "operation": {
+    "success": "작업 성공！"
+  },
+  "login": {
+    "title": "ANCOIN",
+    "userNamePl": "계정 번호를 입력하세요",
+    "passwordPl": "PIN을 입력하세요",
+    "loginBtn": "로그인",
+    "forgetText": "비밀번호를 잊으셨나요",
+    "bottomText": "계정이 없나요? 지금 등록하세요.",
+    "loginSuccess": "로그인 성공！",
+    "modifyPass": "비밀번호 변경"
+  },
+  "hall": {
+    "title": "거래층",
+    "selling": "판매 중",
+    "usdt": "USDT",
+    "offsetDayUnit": "일 전",
+    "seller": "판매자에게 판매",
+    "sellList": "판매 목록",
+    "goSale": "판매하러 가기",
+    "limit": "제한",
+    "sellModalTitle": "USDT 판매",
+    "sellInputVali": "판매 수량을 입력하세요",
+    "sellSuccess": "판매 성공"
+  },
+  "registry": {
+    "title": "계정 등록",
+    "userNamePl": "사용자 이름을 입력하세요",
+    "nickNamePl": "닉네임을 입력하세요",
+    "emailPl": "이메일 주소를 입력하세요",
+    "emailFormat": "올바른 이메일을 입력하세요",
+    "emailCodePl": "이메일 코드를 입력하세요",
+    "passwordPl": "로그인 비밀번호를 설정하세요",
+    "invitedCodePl": "초대 코드를 입력하세요",
+    "registryBtn": "등록",
+    "backToLogin": "로그인으로 돌아가기",
+    "getCode": "코드 받기",
+    "sendCodeSuccess": "전송 성공！"
+  },
+  "order": {
+    "all": "모두",
+    "waitAudit": "심사 대기 중",
+    "successAudit": "심사 성공",
+    "failAudit": "심사 실패",
+    "0": "심사 대기 중",
+    "1": "심사 성공",
+    "2": "심사 실패",
+    "sellPl": "판매 수량을 입력하세요"
+  },
+  "orderDetail": {
+    "orderNumber": "주문 번호",
+    "account": "계정",
+    "quantity": "수량",
+    "price": "가격",
+    "earnings": "수익",
+    "status": "상태",
+    "matchingTime": "매칭 시간"
+  },
+  "my": {
+    "fundLog": "자금 로그",
+    "myInfo": "내 정보",
+    "accountBind": "연결",
+    "acDetail": "세부 정보",
+    "tutorial": "튜토리얼",
+    "customer": "고객",
+    "assets": "내 자산",
+    "binding": "연결",
+    "accountBinding": "계정 연결",
+    "accountDetail": "계정 세부 정보",
+    "switchLang": "언어 전환",
+    "logOut": "로그아웃",
+    "usdtTitle": "잔액 (USDT)",
+    "eurTitle": "잔액 (EUR)",
+    "recharge": "충전",
+    "withDraw": "출금",
+    "rechargedAmount": "충전 금액 (USDT)",
+    "soldAmount": "판매 금액 (USDT)",
+    "earningsObtained": "획득한 수익 (USDT)",
+    "team": "팀 목록",
+    "invite": "초대"
+  },
+  "myDetail": {
+    "avatar": "아바타",
+    "nickName": "닉네임",
+    "email": "이메일",
+    "modifyPass": "로그인 비밀번호 변경",
+    "modify": "변경",
+    "switchLang": "언어 전환",
+    "oldPass": "기존 비밀번호",
+    "newPass": "새 비밀번호",
+    "oldPassPl": "기존 비밀번호를 입력하세요",
+    "newPassPl": "새 비밀번호를 입력하세요",
+    "newPassPl2": "새 비밀번호를 다시 입력하세요",
+    "resetPassValid": "정보를 입력하세요",
+    "passwordValid": "비밀번호가 일치하지 않습니다"
+  },
+  "recharge": {
+    "address": "USDT(TRC)",
+    "address2": "USDT(ERC)",
+    "usdt": "USDT",
+    "erc": "ERC",
+    "money": "금액",
+    "usdtPl": "금액을 입력하세요",
+    "voucherPl": "바우처를 선택하세요"
+  },
+  "withdrawal": {
+    "amount": "출금 금액 (EUR)",
+    "submit": "제출",
+    "withdrawalSuccess": "출금 성공",
+    "amountPl": "출금 금액을 입력하세요",
+    "wait": "심사 대기 중",
+    "audit": "심사 완료",
+    "unaudit": "심사 실패"
+  },
+  "upload": {
+    "text1": "선택"
+  },
+  "accountBinding": {
+    "account": "계정",
+    "name": "이름",
+    "surname": "성",
+    "mail": "이메일",
+    "iban": "IBAN",
+    "country": "국가",
+    "region": "지역",
+    "bankName": "은행명",
+    "address": "주소",
+    "province": "주",
+    "city": "도시",
+    "zipCode": "우편번호",
+    "countryPl": "국가를 입력하세요",
+    "bankNamePl": "은행명을 입력하세요",
+    "ibanPl": "IBAN을 입력하세요",
+    "accountPl": "계정 이름을 입력하세요",
+    "regionPl": "지역을 입력하세요",
+    "namePl": "이름을 입력하세요",
+    "surnamePl": "성을 입력하세요",
+    "addressPl": "주소를 입력하세요",
+    "zipCodePl": "우편번호를 입력하세요",
+    "cityPl": "도시를 입력하세요",
+    "provincePl": "주를 입력하세요",
+    "mailPl": "이메일을 입력하세요"
+  },
+  "accountDetail": {
+    "rechargeText": "충전",
+    "withdrawText": "출금"
+  },
+  "team": {
+    "id": "ID",
+    "titleLabel": "팀 구성원 총 수",
+    "registryTime": "등록 시간"
+  },
+  "invite": {
+    "inviteCode": "초대 코드",
+    "inviteUrl": "초대 링크"
+  },
+  "identification": {
+    "front": "신분증 앞면",
+    "back": "신분증 뒷면"
+  }
+}
