@@ -190,7 +190,7 @@
   "identification": {
     "front": "Frente de la identificación",
     "back": "Reverso de la identificación",
-    "frontPl": "Please upload the front side of your ID photo",
-    "backPl": "Please upload the reverse side of your ID photo"
+    "frontPl": "Por favor, cargue la foto frontal del documento",
+    "backPl": "Por favor cargue la foto al reverso"
   }
 }

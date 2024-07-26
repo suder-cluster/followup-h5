@@ -50,7 +50,7 @@
       <div class="list-item" v-for="item in list" :key="item.id">
         <div class="list-item-top">
           <div class="avatar">
-            <u-avatar mode="circle" :size="60"></u-avatar>
+            <u-avatar mode="circle" :src="item.avatar" :size="60"></u-avatar>
           </div>
           <div class="other-info">
             <span class="username">{{ item.username }}</span>
