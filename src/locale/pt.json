@@ -162,6 +162,8 @@
     "city": "Cidade",
     "zipCode": "Código postal",
     "countryPl": "Digite o país",
+    "bankAddress": "Endereço do banco",
+    "bankAddressPl": "Por favor, insira o endereço do banco",
     "bankNamePl": "Digite o nome do banco",
     "ibanPl": "Digite o IBAN",
     "accountPl": "Digite o nome da conta",
@@ -189,7 +191,7 @@
   },
   "identification": {
     "front": "Frente da identificação",
-    "back": "Verso da identificação",
+    "back": "Foto do cartão bancário",
     "frontPl": "Por favor, carregue uma foto do documento",
     "backPl": "Por favor, carregue a foto ao contrário"
   }

@@ -35,6 +35,23 @@
           ></span>
         </template>
       </u-cell-item>
+      <u-cell-item
+          :arrow="false"
+          :border-top="false"
+          :index="1"
+          :title="'BTC'"
+          :value="formData.address3"
+          bg-color="#000"
+          hover-class="hover-cell-item"
+      >
+        <template #right-icon>
+          <span
+              class="iconfont icon-fuzhi"
+              style="margin-left: 10rpx"
+              @click="onCopy(3)"
+          ></span>
+        </template>
+      </u-cell-item>
     </u-cell-group>
     <u-form ref="formRef" :model="formData">
       <u-form-item prop="amount">
@@ -73,14 +90,14 @@
   </div>
 </template>
 <script setup>
-import { ref, nextTick, computed } from "vue";
-import { onShow, onReady } from "@dcloudio/uni-app";
-import { useTitle } from "@/hooks/useTitle";
-import { useI18n } from "vue-i18n";
-import { getConfigKey } from "@/api/modules/config";
-import { rechargeApi } from "@/api/modules/recharge";
-import { useAuthStore } from "@/store/modules/auth";
-import { requireR } from "@/regular";
+import {computed, nextTick, ref} from "vue";
+import {onReady, onShow} from "@dcloudio/uni-app";
+import {useTitle} from "@/hooks/useTitle";
+import {useI18n} from "vue-i18n";
+import {getConfigKey} from "@/api/modules/config";
+import {rechargeApi} from "@/api/modules/recharge";
+import {useAuthStore} from "@/store/modules/auth";
+import {requireR} from "@/regular";
 
 const authStore = useAuthStore();
 
@@ -107,6 +124,7 @@ const isDisableSubmit = computed(() => {
 const formData = ref({
   address: "",
   address2: "",
+  address3: "",
   amount: undefined,
   voucherImg: undefined,
 });
@@ -120,9 +138,11 @@ const isLoading = ref(false);
 const getConfig = async () => {
   const { data } = await getConfigKey("water.waterAddress");
   const { data:data2 } = await getConfigKey("water.waterAddress.erc");
+  const {data: data3} = await getConfigKey("water.waterAddress.btc");
   console.log("data=", data);
   formData.value.address = data;
   formData.value.address2 = data2;
+  formData.value.address3 = data3;
 };
 
 const onCopy = (type) => {
@@ -146,8 +166,18 @@ const onCopy = (type) => {
         });
       },
     });
+  } else if (type === 3) {
+    uni.setClipboardData({
+      data: formData.value.address3, // e是你要保存的内容
+      success: function () {
+        uni.showToast({
+          title: t('copySuccess'),
+          icon: "none",
+        });
+      },
+    });
   }
-  
+
 };
 
 // onsuccess

@@ -160,6 +160,8 @@
     "address": "住所",
     "province": "州",
     "city": "市",
+    "bankAddress": "銀行の住所",
+    "bankAddressPl": "銀行の住所を入力してください",
     "zipCode": "郵便番号",
     "countryPl": "国を入力してください",
     "bankNamePl": "銀行名を入力してください",
@@ -189,7 +191,7 @@
   },
   "identification": {
     "front": "証明写真の表面",
-    "back": "証明写真の裏面",
+    "back": "カードの写真",
     "frontPl": "証明写真の表面をアップロードしてください",
     "backPl": "証明写真の裏面をアップロードしてください"
   }

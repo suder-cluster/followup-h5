@@ -22,7 +22,8 @@
     "accountDetail": "Kontodetails",
     "team": "Teamliste",
     "invite": "Meine Einladung",
-    "orderDetail": "Bestelldetails"
+    "orderDetail": "Bestelldetails",
+    "identification": "Verifizieren",
   },
   "error": {
     "network": "Netzwerkfehler, Fehlercode:",
@@ -160,6 +161,8 @@
     "province": "Provinz",
     "city": "Stadt",
     "zipCode": "Postleitzahl",
+    "bankAddress": "Bankadresse",
+    "bankAddressPl":"Bitte geben Sie Bankadresse ein",
     "countryPl": "Bitte geben Sie das Land ein",
     "bankNamePl": "Bitte geben Sie den Banknamen ein",
     "ibanPl": "Bitte geben Sie die IBAN ein",
@@ -187,8 +190,8 @@
     "inviteUrl": "Lade den link ein"
   },
   "identification": {
-    "front": "Halt dein dokument vorne",
-    "back": "Die papiere sind verkehrt herum",
+    "front": "Ausweis foto",
+    "back": "Bank Kartenfoto",
     "frontPl": "Bitte hochladen sie ihre papiere geradeaus",
     "backPl": "Lade deine papiere nach hinten"
   }

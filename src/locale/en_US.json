@@ -23,7 +23,7 @@
     "team": "Team List",
     "invite": "My invitation ",
     "orderDetail": "Order Detail",
-    "identification": "Identification Photo"
+    "identification": "Authentication"
   },
   "error": {
     "network": "Network error, error code：",
@@ -150,7 +150,7 @@
   },
   "accountBinding": {
     "account": "Account",
-    "name": "name",
+    "name": "Name",
     "surname": "Surname",
     "mail": "Email",
     "iban": "IBAN",
@@ -161,6 +161,8 @@
     "province": "Province",
     "city": "City",
     "zipCode": "ZipCode",
+    "bankAddress": "BankAddress",
+    "bankAddressPl": "Please enter the BankAddress",
     "countryPl": "Please enter the country",
     "bankNamePl": "Please enter the bank name",
     "ibanPl": "Please enter the IBAN",
@@ -188,8 +190,8 @@
     "inviteUrl": "invite link"
   },
   "identification": {
-    "front": "Front of identification",
-    "back": "Back of identification",
+    "front": "ID photo",
+    "back": "Bank card photo",
     "frontPl": "Please upload the front side of your ID photo",
     "backPl": "Please upload the reverse side of your ID photo"
   }

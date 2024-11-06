@@ -161,6 +161,8 @@
     "province": "Provincia",
     "city": "Città",
     "zipCode": "Codice postale",
+     "bankAddress": "Indirizzo della banca",
+        "bankAddressPl": "Per favore, inserisci l'indirizzo della banca",
     "countryPl": "Inserisci il paese",
     "bankNamePl": "Inserisci il nome della banca",
     "ibanPl": "Inserisci l'IBAN",
@@ -189,7 +191,7 @@
   },
   "identification": {
     "front": "Fronte del documento",
-    "back": "Retro del documento",
+    "back": "Foto della carta bancaria",
     "frontPl": "Veuillez télécharger une photo d’identité recto",
     "backPl": "Veuillez télécharger votre photo d’identité au verso"
   }

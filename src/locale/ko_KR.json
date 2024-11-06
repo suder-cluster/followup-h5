@@ -160,6 +160,8 @@
     "address": "주소",
     "province": "주",
     "city": "도시",
+    "bankAddress": "은행 주소",
+    "bankAddressPl": "은행 주소를 입력하세요",
     "zipCode": "우편번호",
     "countryPl": "국가를 입력하세요",
     "bankNamePl": "은행명을 입력하세요",
@@ -189,7 +191,7 @@
   },
   "identification": {
     "front": "신분증 앞면",
-    "back": "신분증 뒷면",
+    "back": "카드 사진",
     "frontPl": "증명사진 앞면을 올려주세요",
     "backPl": "증명사진 뒷면을 올려주세요"
   }
